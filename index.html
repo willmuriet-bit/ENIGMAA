@@ -1722,5 +1722,54 @@
             loadWordsList();
         })();
     </script>
+    <!-- FIX POUR LES BOUTONS -->
+<script>
+    (function() {
+        // Attendre que la page soit prête
+        function fixButtons() {
+            console.log('🔧 Activation des boutons...');
+            
+            // Bouton PERFORMER
+            const performer = document.getElementById('btn-perform');
+            if (performer) {
+                performer.onclick = function() {
+                    document.getElementById('home-page').classList.add('hidden');
+                    document.getElementById('lock-page').classList.add('visible');
+                    document.getElementById('lock-page').style.visibility = 'visible';
+                    document.getElementById('lock-page').style.opacity = '1';
+                };
+            }
+            
+            // Bouton LISTE
+            const liste = document.getElementById('btn-list');
+            if (liste) {
+                liste.onclick = function() {
+                    document.getElementById('list-modal').classList.add('visible');
+                    document.getElementById('modal-overlay').classList.add('visible');
+                };
+            }
+            
+            // Bouton PARAMETRES
+            const parametres = document.getElementById('btn-settings');
+            if (parametres) {
+                parametres.onclick = function() {
+                    document.getElementById('home-page').classList.add('hidden');
+                    document.getElementById('settings-page').classList.add('visible');
+                    document.getElementById('settings-page').style.visibility = 'visible';
+                    document.getElementById('settings-page').style.opacity = '1';
+                };
+            }
+            
+            console.log('✅ Boutons activés avec succès');
+        }
+        
+        // Exécuter quand la page est chargée
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', fixButtons);
+        } else {
+            fixButtons();
+        }
+    })();
+</script>
 </body>
   </html>

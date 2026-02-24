@@ -1185,942 +1185,697 @@
     </div>
 
     <script>
-        (function() {
-            // ===== ÉLÉMENTS =====
-            const homePage = document.getElementById('home-page');
-            const settingsPage = document.getElementById('settings-page');
-            const customizePage = document.getElementById('customize-page');
-            const lockPage = document.getElementById('lock-page');
-            const resultPage = document.getElementById('result-page');
-            const wordsContainer = document.getElementById('words-container');
-            const lettersContainer = document.getElementById('letters-container');
-            const indexDisplay = document.getElementById('index-display');
-            
-            // Boutons accueil
-            const btnPerform = document.getElementById('btn-perform');
-            const btnList = document.getElementById('btn-list');
-            const btnSettings = document.getElementById('btn-settings');
-            
-            // Boutons paramètres
-            const importBgBtn = document.getElementById('import-bg-btn');
-            const importImgBtn = document.getElementById('import-img-btn');
-            const customizeBtn = document.getElementById('customize-btn');
-            const settingsBack = document.getElementById('settings-back');
-            
-            // Boutons personnalisation
-            const customizeBack = document.getElementById('customize-back');
-            const customizeSave = document.getElementById('customize-save');
-            const customizeReset = document.getElementById('customize-reset');
-            
-            // Boutons preview
-            const previewListBtn = document.getElementById('preview-list-btn');
-            const previewLettersBtn = document.getElementById('preview-letters-btn');
-            const previewIndexBtn = document.getElementById('preview-index-btn');
-            
-            // Éléments test code
-            const testCodeInput = document.getElementById('test-code-input');
-            
-            // Inputs personnalisation
-            const wordsY = document.getElementById('words-y');
-            const wordsSize = document.getElementById('words-size');
-            const wordsColor = document.getElementById('words-color');            const wordsLineHeight = document.getElementById('words-line-height');
-            const lettersY = document.getElementById('letters-y');
-            const lettersSize = document.getElementById('letters-size');
-            const lettersColor = document.getElementById('letters-color');
-            const lettersSpacing = document.getElementById('letters-spacing');
-            const indexY = document.getElementById('index-y');
-            const indexSize = document.getElementById('index-size');
-            const indexColor = document.getElementById('index-color');
-            const indexX = document.getElementById('index-x');
-            
-            // Affichage des valeurs (badges)
-            const wordsYValue = document.getElementById('words-y-value');
-            const wordsSizeValue = document.getElementById('words-size-value');
-            const wordsLineHeightValue = document.getElementById('words-line-height-value');
-            const lettersYValue = document.getElementById('letters-y-value');
-            const lettersSizeValue = document.getElementById('letters-size-value');
-            const lettersSpacingValue = document.getElementById('letters-spacing-value');
-            const indexYValue = document.getElementById('index-y-value');
-            const indexSizeValue = document.getElementById('index-size-value');
-            const indexXValue = document.getElementById('index-x-value');
-            
-            // Modal liste
-            const searchInput = document.getElementById('search-input');
-            const searchBtn = document.getElementById('search-btn');
-            const codeResult = document.getElementById('codeResult');
-            const modal = document.getElementById('list-modal');
-            const modalOverlay = document.getElementById('modal-overlay');
-            
-            // Inputs file
-            const bgFileInput = document.getElementById('bg-file-input');
-            const imgFileInput = document.getElementById('img-file-input');
-            
-            // Aperçu
-            const previewContainer = document.getElementById('preview-container');
-            const previewImage = document.getElementById('preview-image');
-            const previewConfirm = document.getElementById('preview-confirm');
-            const previewCancel = document.getElementById('preview-cancel');
+(function() {
+    console.log('=== ENIGMA Script démarré ===');
+    
+    // ÉLÉMENTS
+    const homePage = document.getElementById('home-page');
+    const settingsPage = document.getElementById('settings-page');
+    const customizePage = document.getElementById('customize-page');
+    const lockPage = document.getElementById('lock-page');
+    const resultPage = document.getElementById('result-page');
+    const wordsContainer = document.getElementById('words-container');
+    const lettersContainer = document.getElementById('letters-container');
+    const indexDisplay = document.getElementById('index-display');
+    const btnPerform = document.getElementById('btn-perform');
+    const btnList = document.getElementById('btn-list');
+    const btnSettings = document.getElementById('btn-settings');
+    const importBgBtn = document.getElementById('import-bg-btn');
+    const importImgBtn = document.getElementById('import-img-btn');
+    const customizeBtn = document.getElementById('customize-btn');
+    const settingsBack = document.getElementById('settings-back');
+    const customizeBack = document.getElementById('customize-back');
+    const customizeSave = document.getElementById('customize-save');
+    const customizeReset = document.getElementById('customize-reset');
+    const previewListBtn = document.getElementById('preview-list-btn');
+    const previewLettersBtn = document.getElementById('preview-letters-btn');
+    const previewIndexBtn = document.getElementById('preview-index-btn');
+    const testCodeInput = document.getElementById('test-code-input');
+    const wordsY = document.getElementById('words-y');
+    const wordsSize = document.getElementById('words-size');
+    const wordsColor = document.getElementById('words-color');
+    const wordsLineHeight = document.getElementById('words-line-height');
+    const lettersY = document.getElementById('letters-y');
+    const lettersSize = document.getElementById('letters-size');
+    const lettersColor = document.getElementById('letters-color');
+    const lettersSpacing = document.getElementById('letters-spacing');
+    const indexY = document.getElementById('index-y');
+    const indexSize = document.getElementById('index-size');
+    const indexColor = document.getElementById('index-color');
+    const indexX = document.getElementById('index-x');
+    const wordsYValue = document.getElementById('words-y-value');    const wordsSizeValue = document.getElementById('words-size-value');
+    const wordsLineHeightValue = document.getElementById('words-line-height-value');
+    const lettersYValue = document.getElementById('letters-y-value');
+    const lettersSizeValue = document.getElementById('letters-size-value');
+    const lettersSpacingValue = document.getElementById('letters-spacing-value');
+    const indexYValue = document.getElementById('index-y-value');
+    const indexSizeValue = document.getElementById('index-size-value');
+    const indexXValue = document.getElementById('index-x-value');
+    const searchInput = document.getElementById('search-input');
+    const searchBtn = document.getElementById('search-btn');
+    const codeResult = document.getElementById('codeResult');
+    const modal = document.getElementById('list-modal');
+    const modalOverlay = document.getElementById('modal-overlay');
+    const bgFileInput = document.getElementById('bg-file-input');
+    const imgFileInput = document.getElementById('img-file-input');
+    const previewContainer = document.getElementById('preview-container');
+    const previewImage = document.getElementById('preview-image');
+    const previewConfirm = document.getElementById('preview-confirm');
+    const previewCancel = document.getElementById('preview-cancel');
+    const keys = document.querySelectorAll('#lock-page .key');
+    const dots = document.querySelectorAll('#lock-page .dot');
+    const deleteBtn = document.getElementById('deleteBtn');
+    const okBtn = document.getElementById('okBtn');
+    const emergencyBtn = document.getElementById('emergencyBtn');
 
-            // Lock screen
-            const keys = document.querySelectorAll('#lock-page .key');
-            const dots = document.querySelectorAll('#lock-page .dot');
-            const deleteBtn = document.getElementById('deleteBtn');
-            const okBtn = document.getElementById('okBtn');
-            const emergencyBtn = document.getElementById('emergencyBtn');
+    console.log('Boutons trouvés:', {
+        perform: !!btnPerform,
+        list: !!btnList,
+        settings: !!btnSettings
+    });
 
-            // ===== DONNÉES =====
-            const wordsList = [
-                { code: "7131", word: "Abeille" },
-                { code: "7141", word: "Abricot" },
-                { code: "9141", word: "Accordéon" },                { code: "6131", word: "Agenda" },
-                { code: "6141", word: "Agneau" },
-                { code: "9141", word: "Agrafeuse" },
-                { code: "5121", word: "Aigle" },
-                { code: "8121", word: "Aiguille" },
-                { code: "3121", word: "Ail" },
-                { code: "4121", word: "Aile" }
-            ];
+    // DONNÉES
+    const wordsList = [
+        { code: "7131", word: "Abeille" },
+        { code: "7141", word: "Abricot" },
+        { code: "9141", word: "Accordéon" },
+        { code: "6131", word: "Agenda" },
+        { code: "6141", word: "Agneau" },
+        { code: "9141", word: "Agrafeuse" },
+        { code: "5121", word: "Aigle" },
+        { code: "8121", word: "Aiguille" },
+        { code: "3121", word: "Ail" },
+        { code: "4121", word: "Aile" }
+    ];
 
-            // ===== VALEURS PAR DÉFAUT =====
-            const defaultSettings = {
-                wordsY: 265,
-                wordsSize: 18,
-                wordsColor: '#ffffff',
-                wordsLineHeight: 15,
-                lettersY: 460,
-                lettersSize: 20,
-                lettersColor: '#ffffff',
-                lettersSpacing: 40,
-                indexY: 517,
-                indexSize: 30,
-                indexColor: '#1E6FF0',
-                indexX: -45
-            };
+    const defaultSettings = {
+        wordsY: 265,
+        wordsSize: 18,
+        wordsColor: '#ffffff',
+        wordsLineHeight: 15,        lettersY: 460,
+        lettersSize: 20,
+        lettersColor: '#ffffff',
+        lettersSpacing: 40,
+        indexY: 517,
+        indexSize: 30,
+        indexColor: '#1E6FF0',
+        indexX: -45
+    };
 
-            // ===== ÉTAT =====
-            let pin = '';
-            let searchMode = 'search';
-            let currentCode = '';
-            let originalWords = [];
-            let currentWords = [];
-            let letterLists = [];
-            let bestListIndex = -1;
-            let bestListLetters = [];
-            let selectedLetter = '';
-            let lastTap = 0;
-            let isPreviewMode = false;
-            let lastSearchWord = '';
-            let isSearchDisabled = false;
-            let keyboardVisible = false;
-            let resizeTimeout;
-            let blurTimeout;
-            
-            // Variables pour l'import d'images
-            let currentPreviewTarget = '';
-            let currentPreviewData = '';
+    // ÉTAT
+    let pin = '';
+    let currentCode = '';
+    let originalWords = [];
+    let currentWords = [];
+    let letterLists = [];
+    let bestListIndex = -1;
+    let bestListLetters = [];
+    let selectedLetter = '';
+    let lastTap = 0;
+    let isPreviewMode = false;
+    let isSearchDisabled = false;
+    let keyboardVisible = false;
+    let resizeTimeout;
+    let blurTimeout;
+    let currentPreviewTarget = '';
+    let currentPreviewData = '';
+    let currentSettings = { ...defaultSettings };
 
-            // ===== GESTION DU BOUTON RETOUR =====
-            window.addEventListener('popstate', function(event) {
-                if (customizePage.classList.contains('visible')) {                    customizePage.classList.remove('visible', 'preview-mode');
-                    resultPage.classList.remove('preview-mode');
-                    settingsPage.classList.add('visible');
-                } else if (settingsPage.classList.contains('visible')) {
-                    settingsPage.classList.remove('visible');
-                    homePage.classList.remove('hidden');
-                } else if (lockPage.classList.contains('visible')) {
-                    lockPage.classList.remove('visible');
-                    homePage.classList.remove('hidden');
-                } else if (resultPage.classList.contains('visible') && !resultPage.classList.contains('preview-mode')) {
-                    resultPage.classList.remove('visible');
-                    lockPage.classList.add('visible');
-                } else if (modal.classList.contains('visible')) {
-                    modal.classList.remove('visible');
-                    modalOverlay.classList.remove('visible');
+    // GESTION CLAVIER
+    window.addEventListener('resize', function() {
+        if (window.innerHeight < window.screen.height - 200) {
+            keyboardVisible = true;
+            modal.classList.add('keyboard-open');
+        } else {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                if (document.activeElement !== searchInput) {
                     keyboardVisible = false;
                     modal.classList.remove('keyboard-open');
                 }
-            });
+            }, 300);
+        }
+    });
 
-            // ===== GESTION DU RETOUR DE GOOGLE IMAGES =====
-            document.addEventListener('visibilitychange', function() {
-                if (!document.hidden) {
-                    if (resultPage.classList.contains('visible') && !wordsContainer.classList.contains('hidden')) {
-                        wordsContainer.classList.add('hidden');
-                        lettersContainer.classList.add('hidden');
-                        selectedLetter = '';
-                    }
+    searchInput.addEventListener('focus', () => {
+        keyboardVisible = true;
+        modal.classList.add('keyboard-open');
+    });
+    searchInput.addEventListener('blur', () => {
+        clearTimeout(blurTimeout);
+        blurTimeout = setTimeout(() => {
+            keyboardVisible = false;
+            modal.classList.remove('keyboard-open');
+        }, 300);
+    });
+
+    // RECHERCHE
+    function searchWord(word) {
+        const normalized = word.trim().toLowerCase();
+        for (let i = 0; i < wordsList.length; i++) {
+            if (wordsList[i].word.toLowerCase() === normalized) {
+                return wordsList[i];
+            }
+        }
+        return null;
+    }
+
+    function enableSearchButton() {
+        searchBtn.classList.remove('disabled');
+        isSearchDisabled = false;
+        codeResult.textContent = '';
+        codeResult.classList.remove('error');
+    }
+
+    function disableSearchButton() {
+        searchBtn.classList.add('disabled');
+        isSearchDisabled = true;
+    }
+
+    // PARAMÈTRES
+    function loadCustomSettings() {
+        try {
+            const saved = localStorage.getItem('customSettings');
+            if (saved) return JSON.parse(saved);
+        } catch(e) {}
+        return { ...defaultSettings };
+    }
+
+    function saveCustomSettings(settings) {
+        try {
+            localStorage.setItem('customSettings', JSON.stringify(settings));
+        } catch(e) {}
+    }
+
+    function applyCustomSettings(settings) {
+        wordsContainer.style.top = settings.wordsY + 'px';
+        wordsContainer.style.fontSize = settings.wordsSize + 'px';
+        wordsContainer.style.color = settings.wordsColor;        wordsContainer.style.lineHeight = settings.wordsLineHeight + 'px';
+        lettersContainer.style.top = settings.lettersY + 'px';
+        lettersContainer.style.fontSize = settings.lettersSize + 'px';
+        lettersContainer.style.color = settings.lettersColor;
+        lettersContainer.style.gap = settings.lettersSpacing + 'px';
+        indexDisplay.style.top = settings.indexY + 'px';
+        indexDisplay.style.fontSize = settings.indexSize + 'px';
+        indexDisplay.style.color = settings.indexColor;
+        indexDisplay.style.transform = `translateX(calc(-50% + ${settings.indexX}px))`;
+        
+        wordsYValue.textContent = settings.wordsY + 'px';
+        wordsSizeValue.textContent = settings.wordsSize + 'px';
+        wordsLineHeightValue.textContent = settings.wordsLineHeight + 'px';
+        lettersYValue.textContent = settings.lettersY + 'px';
+        lettersSizeValue.textContent = settings.lettersSize + 'px';
+        lettersSpacingValue.textContent = settings.lettersSpacing + 'px';
+        indexYValue.textContent = settings.indexY + 'px';
+        indexSizeValue.textContent = settings.indexSize + 'px';
+        indexXValue.textContent = settings.indexX + 'px';
+        
+        wordsY.value = settings.wordsY;
+        wordsSize.value = settings.wordsSize;
+        wordsColor.value = settings.wordsColor;
+        wordsLineHeight.value = settings.wordsLineHeight;
+        lettersY.value = settings.lettersY;
+        lettersSize.value = settings.lettersSize;
+        lettersColor.value = settings.lettersColor;
+        lettersSpacing.value = settings.lettersSpacing;
+        indexY.value = settings.indexY;
+        indexSize.value = settings.indexSize;
+        indexColor.value = settings.indexColor;
+        indexX.value = settings.indexX;
+    }
+
+    function updatePreviewWithCode(code) {
+        if (code.length !== 4) return;
+        currentCode = code;
+        originalWords = wordsList.filter(w => w.code === code).map(w => w.word);
+        originalWords.sort((a, b) => a.localeCompare(b));
+        currentWords = [...originalWords];
+        
+        const firstDigit = parseInt(code[0]);
+        letterLists = [];
+        for (let pos = 0; pos < firstDigit; pos++) {
+            letterLists[pos] = [];
+            for (let word of originalWords) {
+                if (word.length > pos && !letterLists[pos].includes(word[pos])) {
+                    letterLists[pos].push(word[pos]);
                 }
-            });
+            }            letterLists[pos].sort();
+        }
+        
+        bestListIndex = -1;
+        let maxSize = 0;
+        for (let i = 0; i < letterLists.length; i++) {
+            if (letterLists[i].length > maxSize) {
+                maxSize = letterLists[i].length;
+                bestListIndex = i;
+            }
+        }
+        bestListLetters = bestListIndex !== -1 ? letterLists[bestListIndex] : [];
+        
+        indexDisplay.textContent = bestListIndex !== -1 ? (bestListIndex + 1).toString() : '';
+        displayWords(currentWords);
+        displayLetterButtons(bestListIndex, bestListLetters);
+        wordsContainer.classList.remove('hidden');
+        lettersContainer.classList.remove('hidden');
+    }
 
-            window.addEventListener('pageshow', function() {
-                if (resultPage.classList.contains('visible') && !wordsContainer.classList.contains('hidden')) {
-                    wordsContainer.classList.add('hidden');
-                    lettersContainer.classList.add('hidden');
+    function displayWords(words) {
+        wordsContainer.innerHTML = '';
+        if (words.length === 0) {
+            wordsContainer.innerHTML = '<div class="words-line">Aucun mot</div>';
+            return;
+        }
+        const line = document.createElement('div');
+        line.className = 'words-line';
+        words.forEach((word, i) => {
+            const span = document.createElement('span');
+            span.className = 'result-word';
+            span.textContent = word;
+            span.addEventListener('click', (e) => {
+                e.stopPropagation();
+                window.open('https://www.google.com/search?tbm=isch&q=' + encodeURIComponent(word), '_blank');
+            });
+            line.appendChild(span);
+            if (i < words.length - 1) {
+                line.appendChild(document.createTextNode(' '));
+            }
+        });
+        wordsContainer.appendChild(line);
+    }
+
+    function displayLetterButtons(index, letters) {
+        lettersContainer.innerHTML = '';
+        if (letters.length === 0) return;
+        letters.forEach((letter, i) => {
+            const span = document.createElement('span');
+            span.className = 'letter-btn' + (selectedLetter === letter ? ' selected' : '');            span.textContent = letter.toUpperCase();
+            span.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (selectedLetter === letter) {
                     selectedLetter = '';
-                }
-            });
-
-            // ===== GESTION AMÉLIORÉE DU CLAVIER =====
-            window.addEventListener('resize', function() {
-                const viewportHeight = window.innerHeight;
-                const screenHeight = window.screen.height || window.outerHeight;
-                
-                if (screenHeight - viewportHeight > 200) {
-                    keyboardVisible = true;
-                    modal.classList.add('keyboard-open');
-                } else {
-                    clearTimeout(resizeTimeout);
-                    resizeTimeout = setTimeout(() => {                        if (!document.activeElement || document.activeElement !== searchInput) {
-                            keyboardVisible = false;
-                            modal.classList.remove('keyboard-open');
-                        }
-                    }, 300);
-                }
-            });
-
-            searchInput.addEventListener('focus', function() {
-                keyboardVisible = true;
-                modal.classList.add('keyboard-open');
-            });
-
-            searchInput.addEventListener('blur', function() {
-                clearTimeout(blurTimeout);
-                blurTimeout = setTimeout(() => {
-                    keyboardVisible = false;
-                    modal.classList.remove('keyboard-open');
-                }, 300);
-            });
-
-            // ===== FONCTIONS POUR LA RECHERCHE DE MOTS =====
-            function searchWord(wordToFind) {
-                const normalizedSearch = wordToFind.trim().toLowerCase();
-                
-                for (let i = 0; i < wordsList.length; i++) {
-                    if (wordsList[i].word.toLowerCase() === normalizedSearch) {
-                        return wordsList[i];
-                    }
-                }
-                return null;
-            }
-
-            function enableSearchButton() {
-                searchBtn.classList.remove('disabled');
-                isSearchDisabled = false;
-                codeResult.textContent = '';
-                codeResult.classList.remove('error');
-            }
-
-            function disableSearchButton() {
-                searchBtn.classList.add('disabled');
-                isSearchDisabled = true;
-            }
-
-            // ===== CHARGEMENT DES PARAMÈTRES =====
-            function loadCustomSettings() {
-                const saved = localStorage.getItem('customSettings');
-                if (saved) {
-                    return JSON.parse(saved);                }
-                return { ...defaultSettings };
-            }
-
-            function saveCustomSettings(settings) {
-                localStorage.setItem('customSettings', JSON.stringify(settings));
-            }
-
-            function applyCustomSettings(settings) {
-                wordsContainer.style.top = settings.wordsY + 'px';
-                wordsContainer.style.fontSize = settings.wordsSize + 'px';
-                wordsContainer.style.color = settings.wordsColor;
-                wordsContainer.style.lineHeight = settings.wordsLineHeight + 'px';
-                
-                lettersContainer.style.top = settings.lettersY + 'px';
-                lettersContainer.style.fontSize = settings.lettersSize + 'px';
-                lettersContainer.style.color = settings.lettersColor;
-                lettersContainer.style.gap = settings.lettersSpacing + 'px';
-                
-                indexDisplay.style.top = settings.indexY + 'px';
-                indexDisplay.style.fontSize = settings.indexSize + 'px';
-                indexDisplay.style.color = settings.indexColor;
-                indexDisplay.style.transform = `translateX(calc(-50% + ${settings.indexX}px))`;
-
-                updateDisplayValues(settings);
-                updateSliders(settings);
-            }
-
-            function updateDisplayValues(settings) {
-                wordsYValue.textContent = settings.wordsY + 'px';
-                wordsSizeValue.textContent = settings.wordsSize + 'px';
-                wordsLineHeightValue.textContent = settings.wordsLineHeight + 'px';
-                lettersYValue.textContent = settings.lettersY + 'px';
-                lettersSizeValue.textContent = settings.lettersSize + 'px';
-                lettersSpacingValue.textContent = settings.lettersSpacing + 'px';
-                indexYValue.textContent = settings.indexY + 'px';
-                indexSizeValue.textContent = settings.indexSize + 'px';
-                indexXValue.textContent = settings.indexX + 'px';
-            }
-
-            function updateSliders(settings) {
-                wordsY.value = settings.wordsY;
-                wordsSize.value = settings.wordsSize;
-                wordsColor.value = settings.wordsColor;
-                wordsLineHeight.value = settings.wordsLineHeight;
-                lettersY.value = settings.lettersY;
-                lettersSize.value = settings.lettersSize;
-                lettersColor.value = settings.lettersColor;
-                lettersSpacing.value = settings.lettersSpacing;
-                indexY.value = settings.indexY;                indexSize.value = settings.indexSize;
-                indexColor.value = settings.indexColor;
-                indexX.value = settings.indexX;
-            }
-
-            function updatePreviewWithCode(code) {
-                if (code.length === 4) {
-                    currentCode = code;
-                    originalWords = [];
-                    
-                    for (let i = 0; i < wordsList.length; i++) {
-                        if (wordsList[i].code === code) {
-                            originalWords.push(wordsList[i].word);
-                        }
-                    }
-                    
-                    originalWords.sort((a, b) => a.localeCompare(b));
                     currentWords = [...originalWords];
-                    
-                    letterLists = calculateLetterLists(originalWords);
-                    bestListIndex = findBestList(letterLists);
-                    bestListLetters = bestListIndex !== -1 ? letterLists[bestListIndex] : [];
-                    bestListLetters.sort((a, b) => a.localeCompare(b));
-                    
-                    indexDisplay.textContent = bestListIndex !== -1 ? (bestListIndex + 1).toString() : '';
-                    
-                    displayWords(currentWords);
-                    displayLetterButtons(bestListIndex, bestListLetters);
-                    
-                    wordsContainer.classList.remove('hidden');
-                    lettersContainer.classList.remove('hidden');
+                } else {
+                    selectedLetter = letter;
+                    currentWords = originalWords.filter(w => w[index] === letter);
                 }
-            }
-
-            // Fonctions de réinitialisation par badge
-            function resetToDefault(element, setting, defaultValue) {
-                return function() {
-                    currentSettings[setting] = defaultValue;
-                    
-                    if (setting.includes('words')) {
-                        if (setting === 'wordsY') wordsContainer.style.top = defaultValue + 'px';
-                        else if (setting === 'wordsSize') wordsContainer.style.fontSize = defaultValue + 'px';
-                        else if (setting === 'wordsColor') wordsContainer.style.color = defaultValue;
-                        else if (setting === 'wordsLineHeight') wordsContainer.style.lineHeight = defaultValue + 'px';
-                    }
-                    else if (setting.includes('letters')) {
-                        if (setting === 'lettersY') lettersContainer.style.top = defaultValue + 'px';
-                        else if (setting === 'lettersSize') lettersContainer.style.fontSize = defaultValue + 'px';
-                        else if (setting === 'lettersColor') lettersContainer.style.color = defaultValue;
-                        else if (setting === 'lettersSpacing') lettersContainer.style.gap = defaultValue + 'px';                    }
-                    else if (setting.includes('index')) {
-                        if (setting === 'indexY') indexDisplay.style.top = defaultValue + 'px';
-                        else if (setting === 'indexSize') indexDisplay.style.fontSize = defaultValue + 'px';
-                        else if (setting === 'indexColor') indexDisplay.style.color = defaultValue;
-                        else if (setting === 'indexX') indexDisplay.style.transform = `translateX(calc(-50% + ${defaultValue}px))`;
-                    }
-                    
-                    updateDisplayValues(currentSettings);
-                    updateSliders(currentSettings);
-                };
-            }
-
-            // ===== EFFET DE TRANSPARENCE =====
-            function startDragging() {
-                customizePage.classList.add('dragging-slider');
-                resultPage.classList.add('dragging-active');
-            }
-
-            function stopDragging() {
-                customizePage.classList.remove('dragging-slider');
-                resultPage.classList.remove('dragging-active');
-            }
-
-            const allSliders = [
-                wordsY, wordsSize, wordsLineHeight,
-                lettersY, lettersSize, lettersSpacing,
-                indexY, indexSize, indexX
-            ];
-
-            allSliders.forEach(slider => {
-                if (slider) {
-                    slider.addEventListener('touchstart', startDragging);
-                    slider.addEventListener('touchend', stopDragging);
-                    slider.addEventListener('touchcancel', stopDragging);
-                }
+                document.querySelectorAll('.letter-btn').forEach(b => b.classList.remove('selected'));
+                if (selectedLetter) span.classList.add('selected');
+                displayWords(currentWords);
             });
+            lettersContainer.appendChild(span);
+            if (i < letters.length - 1) {
+                const spacer = document.createElement('span');
+                spacer.innerHTML = '    ';
+                lettersContainer.appendChild(spacer);
+            }
+        });
+    }
 
-            [previewListBtn, previewLettersBtn, previewIndexBtn].forEach(btn => {
-                if (btn) {
-                    btn.addEventListener('touchstart', startDragging);
-                    btn.addEventListener('touchend', stopDragging);
-                    btn.addEventListener('touchcancel', stopDragging);
-                }
-            });
+    // CURSEURS - EFFET TRANSPARENCE
+    function startDragging() {
+        customizePage.classList.add('dragging-slider');
+        resultPage.classList.add('dragging-active');
+    }
 
-            // ===== RÉINITIALISATION PAR BADGE =====
-            wordsYValue.addEventListener('click', resetToDefault(wordsYValue, 'wordsY', defaultSettings.wordsY));
-            wordsSizeValue.addEventListener('click', resetToDefault(wordsSizeValue, 'wordsSize', defaultSettings.wordsSize));
-            wordsLineHeightValue.addEventListener('click', resetToDefault(wordsLineHeightValue, 'wordsLineHeight', defaultSettings.wordsLineHeight));            
-            lettersYValue.addEventListener('click', resetToDefault(lettersYValue, 'lettersY', defaultSettings.lettersY));
-            lettersSizeValue.addEventListener('click', resetToDefault(lettersSizeValue, 'lettersSize', defaultSettings.lettersSize));
-            lettersSpacingValue.addEventListener('click', resetToDefault(lettersSpacingValue, 'lettersSpacing', defaultSettings.lettersSpacing));
+    function stopDragging() {
+        customizePage.classList.remove('dragging-slider');
+        resultPage.classList.remove('dragging-active');
+    }
+
+    [wordsY, wordsSize, wordsLineHeight, lettersY, lettersSize, lettersSpacing, indexY, indexSize, indexX].forEach(slider => {
+        if (slider) {
+            slider.addEventListener('touchstart', startDragging);
+            slider.addEventListener('touchend', stopDragging);
+            slider.addEventListener('touchcancel', stopDragging);
+        }
+    });
+
+    [previewListBtn, previewLettersBtn, previewIndexBtn].forEach(btn => {
+        if (btn) {
+            btn.addEventListener('touchstart', startDragging);
+            btn.addEventListener('touchend', stopDragging);
+            btn.addEventListener('touchcancel', stopDragging);
+        }
+    });
+    // RÉINITIALISATION PAR BADGE
+    function resetToDefault(setting, defaultValue) {
+        return function() {
+            currentSettings[setting] = defaultValue;
             
-            indexYValue.addEventListener('click', resetToDefault(indexYValue, 'indexY', defaultSettings.indexY));
-            indexSizeValue.addEventListener('click', resetToDefault(indexSizeValue, 'indexSize', defaultSettings.indexSize));
-            indexXValue.addEventListener('click', resetToDefault(indexXValue, 'indexX', defaultSettings.indexX));
-
-            // ===== INITIALISATION =====
-            let currentSettings = loadCustomSettings();
-            applyCustomSettings(currentSettings);
-
-            // ===== ÉVÉNEMENTS DES CURSEURS =====
-            wordsY.addEventListener('input', (e) => {
-                currentSettings.wordsY = parseInt(e.target.value);
-                wordsYValue.textContent = currentSettings.wordsY + 'px';
-                wordsContainer.style.top = currentSettings.wordsY + 'px';
-            });
-
-            wordsSize.addEventListener('input', (e) => {
-                currentSettings.wordsSize = parseInt(e.target.value);
-                wordsSizeValue.textContent = currentSettings.wordsSize + 'px';
-                wordsContainer.style.fontSize = currentSettings.wordsSize + 'px';
-            });
-
-            wordsColor.addEventListener('input', (e) => {
-                currentSettings.wordsColor = e.target.value;
-                wordsContainer.style.color = currentSettings.wordsColor;
-            });
-
-            wordsLineHeight.addEventListener('input', (e) => {
-                currentSettings.wordsLineHeight = parseInt(e.target.value);
-                wordsLineHeightValue.textContent = currentSettings.wordsLineHeight + 'px';
-                wordsContainer.style.lineHeight = currentSettings.wordsLineHeight + 'px';
-            });
-
-            lettersY.addEventListener('input', (e) => {
-                currentSettings.lettersY = parseInt(e.target.value);
-                lettersYValue.textContent = currentSettings.lettersY + 'px';
-                lettersContainer.style.top = currentSettings.lettersY + 'px';
-            });
-
-            lettersSize.addEventListener('input', (e) => {
-                currentSettings.lettersSize = parseInt(e.target.value);
-                lettersSizeValue.textContent = currentSettings.lettersSize + 'px';
-                lettersContainer.style.fontSize = currentSettings.lettersSize + 'px';
-            });
-
-            lettersColor.addEventListener('input', (e) => {                currentSettings.lettersColor = e.target.value;
-                lettersContainer.style.color = currentSettings.lettersColor;
-            });
-
-            lettersSpacing.addEventListener('input', (e) => {
-                currentSettings.lettersSpacing = parseInt(e.target.value);
-                lettersSpacingValue.textContent = currentSettings.lettersSpacing + 'px';
-                lettersContainer.style.gap = currentSettings.lettersSpacing + 'px';
-            });
-
-            indexY.addEventListener('input', (e) => {
-                currentSettings.indexY = parseInt(e.target.value);
-                indexYValue.textContent = currentSettings.indexY + 'px';
-                indexDisplay.style.top = currentSettings.indexY + 'px';
-            });
-
-            indexSize.addEventListener('input', (e) => {
-                currentSettings.indexSize = parseInt(e.target.value);
-                indexSizeValue.textContent = currentSettings.indexSize + 'px';
-                indexDisplay.style.fontSize = currentSettings.indexSize + 'px';
-            });
-
-            indexColor.addEventListener('input', (e) => {
-                currentSettings.indexColor = e.target.value;
-                indexDisplay.style.color = currentSettings.indexColor;
-            });
-
-            indexX.addEventListener('input', (e) => {
-                currentSettings.indexX = parseInt(e.target.value);
-                indexXValue.textContent = currentSettings.indexX + 'px';
-                indexDisplay.style.transform = `translateX(calc(-50% + ${currentSettings.indexX}px))`;
-            });
-
-            // ===== TEST DE CODE =====
-            testCodeInput.addEventListener('input', (e) => {
-                const code = e.target.value.trim();
-                if (code.length === 4 && /^\d+$/.test(code)) {
-                    updatePreviewWithCode(code);
-                }
-            });
-
-            // ===== MODAL LISTE =====
-            searchInput.addEventListener('input', () => {
-                enableSearchButton();
-                codeResult.textContent = '';
-                codeResult.classList.remove('error');
-            });
-
-            searchBtn.addEventListener('click', () => {
-                if (isSearchDisabled) return;                
-                const word = searchInput.value.trim();
-                lastSearchWord = word;
-                
-                if (word === '') return;
-                
-                const result = searchWord(word);
-                
-                if (result) {
-                    codeResult.textContent = result.code;
-                    codeResult.classList.remove('error');
-                    disableSearchButton();
-                    searchInput.blur();
-                } else {
-                    codeResult.textContent = 'Mot introuvable !';
-                    codeResult.classList.add('error');
-                }
-            });
-
-            searchInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter' && !isSearchDisabled) {
-                    searchBtn.click();
-                }
-            });
-
-            // ===== BOUTONS =====
-            customizeBtn.addEventListener('click', () => {
-                settingsPage.classList.remove('visible');
-                
-                isPreviewMode = true;
-                customizePage.classList.add('visible', 'preview-mode');
-                resultPage.classList.add('preview-mode');
-                
-                currentSettings = loadCustomSettings();
-                updatePreviewWithCode("7131");
-                applyCustomSettings(currentSettings);
-            });
-
-            customizeBack.addEventListener('click', () => {
-                customizePage.classList.remove('visible', 'preview-mode');
-                resultPage.classList.remove('preview-mode');
-                settingsPage.classList.add('visible');
-                isPreviewMode = false;
-                
-                currentSettings = loadCustomSettings();
-                applyCustomSettings(currentSettings);
-            });
-
-            customizeSave.addEventListener('click', () => {
-                saveCustomSettings(currentSettings);                
-                customizePage.classList.remove('visible', 'preview-mode');
-                resultPage.classList.remove('preview-mode');
-                settingsPage.classList.add('visible');
-                isPreviewMode = false;
-            });
-
-            customizeReset.addEventListener('click', () => {
-                currentSettings = { ...defaultSettings };
-                applyCustomSettings(currentSettings);
-            });
-
-            // ===== FONCTIONS EXISTANTES =====
-            function animateKey(element) {
-                if (!element) return;
-                element.classList.add('active');
-                setTimeout(() => element.classList.remove('active'), 350);
+            if (setting === 'wordsY') {
+                wordsContainer.style.top = defaultValue + 'px';
+                wordsYValue.textContent = defaultValue + 'px';
+            } else if (setting === 'wordsSize') {
+                wordsContainer.style.fontSize = defaultValue + 'px';
+                wordsSizeValue.textContent = defaultValue + 'px';
+            } else if (setting === 'wordsLineHeight') {
+                wordsContainer.style.lineHeight = defaultValue + 'px';
+                wordsLineHeightValue.textContent = defaultValue + 'px';
+            } else if (setting === 'lettersY') {
+                lettersContainer.style.top = defaultValue + 'px';
+                lettersYValue.textContent = defaultValue + 'px';
+            } else if (setting === 'lettersSize') {
+                lettersContainer.style.fontSize = defaultValue + 'px';
+                lettersSizeValue.textContent = defaultValue + 'px';
+            } else if (setting === 'lettersSpacing') {
+                lettersContainer.style.gap = defaultValue + 'px';
+                lettersSpacingValue.textContent = defaultValue + 'px';
+            } else if (setting === 'indexY') {
+                indexDisplay.style.top = defaultValue + 'px';
+                indexYValue.textContent = defaultValue + 'px';
+            } else if (setting === 'indexSize') {
+                indexDisplay.style.fontSize = defaultValue + 'px';
+                indexSizeValue.textContent = defaultValue + 'px';
+            } else if (setting === 'indexX') {
+                indexDisplay.style.transform = `translateX(calc(-50% + ${defaultValue}px))`;
+                indexXValue.textContent = defaultValue + 'px';
             }
+        };
+    }
 
-            function animateText(element) {
-                if (!element) return;
-                element.classList.add('active-text');
-                setTimeout(() => element.classList.remove('active-text'), 350);
-            }
+    wordsYValue.addEventListener('click', resetToDefault('wordsY', defaultSettings.wordsY));
+    wordsSizeValue.addEventListener('click', resetToDefault('wordsSize', defaultSettings.wordsSize));
+    wordsLineHeightValue.addEventListener('click', resetToDefault('wordsLineHeight', defaultSettings.wordsLineHeight));
+    lettersYValue.addEventListener('click', resetToDefault('lettersY', defaultSettings.lettersY));
+    lettersSizeValue.addEventListener('click', resetToDefault('lettersSize', defaultSettings.lettersSize));
+    lettersSpacingValue.addEventListener('click', resetToDefault('lettersSpacing', defaultSettings.lettersSpacing));
+    indexYValue.addEventListener('click', resetToDefault('indexY', defaultSettings.indexY));
+    indexSizeValue.addEventListener('click', resetToDefault('indexSize', defaultSettings.indexSize));
+    indexXValue.addEventListener('click', resetToDefault('indexX', defaultSettings.indexX));
 
-            function updateDots() {
-                for (let i = 0; i < dots.length; i++) {
-                    if (i < pin.length) {
-                        dots[i].classList.add('active');
-                    } else {
-                        dots[i].classList.remove('active');
-                    }
-                }
-            }
+    // ÉVÉNEMENTS CURSEURS
+    wordsY.addEventListener('input', (e) => {
+        currentSettings.wordsY = parseInt(e.target.value);
+        wordsYValue.textContent = currentSettings.wordsY + 'px';        wordsContainer.style.top = currentSettings.wordsY + 'px';
+    });
 
-            function resetModalToNormal() {
-                searchInput.value = '';
-                codeResult.textContent = '';
-                codeResult.classList.remove('error');
-                enableSearchButton();
-                keyboardVisible = false;
-                modal.classList.remove('keyboard-open');
-            }
+    wordsSize.addEventListener('input', (e) => {
+        currentSettings.wordsSize = parseInt(e.target.value);
+        wordsSizeValue.textContent = currentSettings.wordsSize + 'px';
+        wordsContainer.style.fontSize = currentSettings.wordsSize + 'px';
+    });
 
-            function calculateLetterLists(words) {
-                if (words.length === 0) return [];
-                
-                const firstDigit = parseInt(currentCode[0]);
-                const lists = [];
-                                for (let pos = 0; pos < firstDigit; pos++) {
-                    lists[pos] = [];
-                }
-                
-                for (let i = 0; i < words.length; i++) {
-                    const word = words[i];
-                    for (let pos = 0; pos < word.length && pos < firstDigit; pos++) {
-                        const letter = word[pos];
-                        if (!lists[pos].includes(letter)) {
-                            lists[pos].push(letter);
-                        }
-                    }
-                }
-                
-                for (let pos = 0; pos < lists.length; pos++) {
-                    lists[pos].sort((a, b) => a.localeCompare(b));
-                }
-                
-                return lists;
-            }
+    wordsColor.addEventListener('input', (e) => {
+        currentSettings.wordsColor = e.target.value;
+        wordsContainer.style.color = currentSettings.wordsColor;
+    });
 
-            function findBestList(lists) {
-                let maxSize = -1;
-                let bestIndex = -1;
-                
-                for (let i = 0; i < lists.length; i++) {
-                    if (lists[i].length > maxSize) {
-                        maxSize = lists[i].length;
-                        bestIndex = i;
-                    }
-                }
-                
-                return bestIndex;
-            }
+    wordsLineHeight.addEventListener('input', (e) => {
+        currentSettings.wordsLineHeight = parseInt(e.target.value);
+        wordsLineHeightValue.textContent = currentSettings.wordsLineHeight + 'px';
+        wordsContainer.style.lineHeight = currentSettings.wordsLineHeight + 'px';
+    });
 
-            function displayWords(words) {
-                wordsContainer.innerHTML = '';
-                
-                const sortedWords = [...words].sort((a, b) => a.localeCompare(b));
-                
-                if (sortedWords.length === 0) {
-                    const noWord = document.createElement('span');
-                    noWord.className = 'result-word';
-                    noWord.textContent = 'Aucun mot trouvé';
-                    
-                    const line = document.createElement('div');
-                    line.className = 'words-line';
-                    line.appendChild(noWord);
-                    wordsContainer.appendChild(line);
-                    return;                }
-                
-                let currentLine = document.createElement('div');
-                currentLine.className = 'words-line';
-                
-                for (let i = 0; i < sortedWords.length; i++) {
-                    const word = sortedWords[i];
-                    const wordSpan = document.createElement('span');
-                    wordSpan.className = 'result-word';
-                    wordSpan.textContent = word;
-                    
-                    wordSpan.addEventListener('click', function(e) {
-                        e.stopPropagation();
-                        window.open(`https://www.google.com/search?tbm=isch&q=${encodeURIComponent(this.textContent)}`, '_blank');
-                    });
-                    
-                    currentLine.appendChild(wordSpan);
-                    
-                    if (i < sortedWords.length - 1) {
-                        const space = document.createElement('span');
-                        space.textContent = ' ';
-                        currentLine.appendChild(space);
-                    }
-                }
-                
-                wordsContainer.appendChild(currentLine);
-            }
+    lettersY.addEventListener('input', (e) => {
+        currentSettings.lettersY = parseInt(e.target.value);
+        lettersYValue.textContent = currentSettings.lettersY + 'px';
+        lettersContainer.style.top = currentSettings.lettersY + 'px';
+    });
 
-            function displayLetterButtons(index, letters) {
-                lettersContainer.innerHTML = '';
-                
-                if (index === -1 || letters.length === 0) return;
-                
-                const sortedLetters = [...letters].sort((a, b) => a.localeCompare(b));
-                
-                for (let i = 0; i < sortedLetters.length; i++) {
-                    const letter = sortedLetters[i];
-                    const letterSpan = document.createElement('span');
-                    letterSpan.className = 'letter-btn';
-                    if (selectedLetter === letter) {
-                        letterSpan.classList.add('selected');
-                    }
-                    letterSpan.textContent = letter.toUpperCase();
-                    
-                    letterSpan.addEventListener('click', function(e) {
-                        e.stopPropagation();
-                        
-                        if (this.classList.contains('selected')) {
-                            this.classList.remove('selected');
-                            selectedLetter = '';                            currentWords = [...originalWords];
-                            displayWords(currentWords);
-                        } else {
-                            document.querySelectorAll('.letter-btn.selected').forEach(el => {
-                                el.classList.remove('selected');
-                            });
-                            this.classList.add('selected');
-                            selectedLetter = letter;
-                            
-                            const pos = bestListIndex;
-                            currentWords = originalWords.filter(word => 
-                                word.length > pos && word[pos] === letter
-                            );
-                            displayWords(currentWords);
-                        }
-                    });
-                    
-                    lettersContainer.appendChild(letterSpan);
-                    
-                    if (i < sortedLetters.length - 1) {
-                        const spacer = document.createElement('span');
-                        spacer.className = 'separator';
-                        spacer.innerHTML = '    ';
-                        lettersContainer.appendChild(spacer);
-                    }
-                }
-            }
+    lettersSize.addEventListener('input', (e) => {
+        currentSettings.lettersSize = parseInt(e.target.value);
+        lettersSizeValue.textContent = currentSettings.lettersSize + 'px';
+        lettersContainer.style.fontSize = currentSettings.lettersSize + 'px';
+    });
 
-            // ===== FONCTIONS POUR L'IMPORT D'IMAGES =====
-            function setupImageImport(inputElement, targetElement, storageKey) {
-                inputElement.addEventListener('change', function(e) {
-                    const file = e.target.files[0];
-                    if (file) {
-                        const reader = new FileReader();
-                        reader.onload = function(event) {
-                            currentPreviewData = event.target.result;
-                            previewImage.src = currentPreviewData;
-                            previewContainer.classList.add('visible');
-                            
-                            if (targetElement === lockPage) {
-                                currentPreviewTarget = 'bg';
-                            } else {
-                                currentPreviewTarget = 'img';
-                            }
-                        };
-                        reader.readAsDataURL(file);
-                    }
-                });
-            }
-            const savedBg = localStorage.getItem('backgroundImage');
-            if (savedBg) {
-                lockPage.style.backgroundImage = `url(${savedBg})`;
-            }
-            
-            const savedImg = localStorage.getItem('resultImage');
-            if (savedImg) {
-                resultPage.style.backgroundImage = `url(${savedImg})`;
-            }
+    lettersColor.addEventListener('input', (e) => {
+        currentSettings.lettersColor = e.target.value;
+        lettersContainer.style.color = currentSettings.lettersColor;
+    });
 
-            setupImageImport(bgFileInput, lockPage, 'backgroundImage');
-            setupImageImport(imgFileInput, resultPage, 'resultImage');
+    lettersSpacing.addEventListener('input', (e) => {
+        currentSettings.lettersSpacing = parseInt(e.target.value);
+        lettersSpacingValue.textContent = currentSettings.lettersSpacing + 'px';
+        lettersContainer.style.gap = currentSettings.lettersSpacing + 'px';
+    });
 
-            importBgBtn.addEventListener('click', () => {
-                bgFileInput.click();
-            });
+    indexY.addEventListener('input', (e) => {
+        currentSettings.indexY = parseInt(e.target.value);
+        indexYValue.textContent = currentSettings.indexY + 'px';
+        indexDisplay.style.top = currentSettings.indexY + 'px';
+    });
 
-            importImgBtn.addEventListener('click', () => {
-                imgFileInput.click();
-            });
+    indexSize.addEventListener('input', (e) => {        currentSettings.indexSize = parseInt(e.target.value);
+        indexSizeValue.textContent = currentSettings.indexSize + 'px';
+        indexDisplay.style.fontSize = currentSettings.indexSize + 'px';
+    });
 
-            previewConfirm.addEventListener('click', () => {
-                if (currentPreviewTarget === 'bg') {
-                    lockPage.style.backgroundImage = `url(${currentPreviewData})`;
-                    localStorage.setItem('backgroundImage', currentPreviewData);
-                } else if (currentPreviewTarget === 'img') {
-                    resultPage.style.backgroundImage = `url(${currentPreviewData})`;
-                    localStorage.setItem('resultImage', currentPreviewData);
-                }
-                
-                previewContainer.classList.remove('visible');
-                previewImage.src = '';
-                currentPreviewData = '';
-                currentPreviewTarget = '';
-                
-                bgFileInput.value = '';
-                imgFileInput.value = '';
-            });
+    indexColor.addEventListener('input', (e) => {
+        currentSettings.indexColor = e.target.value;
+        indexDisplay.style.color = currentSettings.indexColor;
+    });
 
-            previewCancel.addEventListener('click', () => {
-                previewContainer.classList.remove('visible');
-                previewImage.src = '';
-                currentPreviewData = '';
-                currentPreviewTarget = '';
-                
-                bgFileInput.value = '';
-                imgFileInput.value = '';
-            });
+    indexX.addEventListener('input', (e) => {
+        currentSettings.indexX = parseInt(e.target.value);
+        indexXValue.textContent = currentSettings.indexX + 'px';
+        indexDisplay.style.transform = `translateX(calc(-50% + ${currentSettings.indexX}px))`;
+    });
 
-            // Gestion responsive            searchInput.addEventListener('focus', () => {
-                modal.classList.add('keyboard-open');
-            });
+    // TEST CODE
+    testCodeInput.addEventListener('input', (e) => {
+        const code = e.target.value.trim();
+        if (code.length === 4 && /^\d+$/.test(code)) {
+            updatePreviewWithCode(code);
+        }
+    });
 
-            searchInput.addEventListener('blur', () => {
-                setTimeout(() => {
-                    modal.classList.remove('keyboard-open');
-                }, 200);
-            });
+    // MODAL LISTE
+    searchInput.addEventListener('input', () => {
+        enableSearchButton();
+        codeResult.textContent = '';
+        codeResult.classList.remove('error');
+    });
 
-            // PAGE D'ACCUEIL
-            btnPerform.addEventListener('click', () => {
-                homePage.classList.add('hidden');
-                lockPage.classList.add('visible');
-                pin = '';
+    searchBtn.addEventListener('click', () => {
+        if (isSearchDisabled) return;
+        const word = searchInput.value.trim();
+        if (!word) return;
+        const result = searchWord(word);
+        if (result) {
+            codeResult.textContent = result.code;
+            codeResult.classList.remove('error');
+            disableSearchButton();
+            searchInput.blur();
+        } else {
+            codeResult.textContent = 'Mot introuvable !';
+            codeResult.classList.add('error');
+        }
+    });
+
+    searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' && !isSearchDisabled) searchBtn.click();
+    });
+    // BOUTONS ACCUEIL
+    btnPerform.addEventListener('click', function() {
+        console.log('PERFORMER cliqué');
+        homePage.classList.add('hidden');
+        lockPage.classList.add('visible');
+        pin = '';
+        updateDots();
+    });
+
+    btnList.addEventListener('click', function() {
+        console.log('LISTE cliqué');
+        resetModalToNormal();
+        modal.classList.add('visible');
+        modalOverlay.classList.add('visible');
+    });
+
+    btnSettings.addEventListener('click', function() {
+        console.log('PARAMETRES cliqué');
+        homePage.classList.add('hidden');
+        settingsPage.classList.add('visible');
+    });
+
+    // BOUTONS PERSONNALISATION
+    customizeBtn.addEventListener('click', () => {
+        settingsPage.classList.remove('visible');
+        isPreviewMode = true;
+        customizePage.classList.add('visible', 'preview-mode');
+        resultPage.classList.add('preview-mode');
+        currentSettings = loadCustomSettings();
+        updatePreviewWithCode("7131");
+        applyCustomSettings(currentSettings);
+    });
+
+    customizeBack.addEventListener('click', () => {
+        customizePage.classList.remove('visible', 'preview-mode');
+        resultPage.classList.remove('preview-mode');
+        settingsPage.classList.add('visible');
+        isPreviewMode = false;
+        currentSettings = loadCustomSettings();
+        applyCustomSettings(currentSettings);
+    });
+
+    customizeSave.addEventListener('click', () => {
+        saveCustomSettings(currentSettings);
+        customizePage.classList.remove('visible', 'preview-mode');
+        resultPage.classList.remove('preview-mode');
+        settingsPage.classList.add('visible');
+        isPreviewMode = false;
+    });
+    customizeReset.addEventListener('click', () => {
+        currentSettings = { ...defaultSettings };
+        applyCustomSettings(currentSettings);
+    });
+
+    settingsBack.addEventListener('click', () => {
+        settingsPage.classList.remove('visible');
+        homePage.classList.remove('hidden');
+        previewContainer.classList.remove('visible');
+    });
+
+    modalOverlay.addEventListener('click', () => {
+        modal.classList.remove('visible');
+        modalOverlay.classList.remove('visible');
+        searchInput.blur();
+        keyboardVisible = false;
+        modal.classList.remove('keyboard-open');
+        resetModalToNormal();
+    });
+
+    // LOCK SCREEN
+    function updateDots() {
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i < pin.length);
+        });
+    }
+
+    function resetModalToNormal() {
+        searchInput.value = '';
+        codeResult.textContent = '';
+        codeResult.classList.remove('error');
+        enableSearchButton();
+        keyboardVisible = false;
+        modal.classList.remove('keyboard-open');
+    }
+
+    function animateKey(element) {
+        if (!element) return;
+        element.classList.add('active');
+        setTimeout(() => element.classList.remove('active'), 350);
+    }
+
+    function animateText(element) {
+        if (!element) return;
+        element.classList.add('active-text');
+        setTimeout(() => element.classList.remove('active-text'), 350);
+    }
+
+    keys.forEach(key => {        key.addEventListener('click', function() {
+            animateKey(this);
+            if (pin.length < 4) {
+                const numberSpan = this.querySelector('.key-number');
+                pin += numberSpan ? numberSpan.innerText : this.innerText;
                 updateDots();
-            });
-
-            btnList.addEventListener('click', () => {
-                resetModalToNormal();
-                modal.classList.add('visible');
-                modalOverlay.classList.add('visible');
-                modal.classList.remove('keyboard-open');
-            });
-
-            btnSettings.addEventListener('click', () => {
-                homePage.classList.add('hidden');
-                settingsPage.classList.add('visible');
-            });
-
-            settingsBack.addEventListener('click', () => {
-                settingsPage.classList.remove('visible');
-                homePage.classList.remove('hidden');
-                
-                previewContainer.classList.remove('visible');
-                previewImage.src = '';
-                currentPreviewData = '';
-                currentPreviewTarget = '';
-                bgFileInput.value = '';
-                imgFileInput.value = '';
-            });
-
-            modalOverlay.addEventListener('click', () => {
-                modal.classList.remove('visible');
-                modalOverlay.classList.remove('visible');
-                searchInput.blur();
-                keyboardVisible = false;
-                modal.classList.remove('keyboard-open');
-                resetModalToNormal();
-            });
-            // LOCK SCREEN
-            for (let i = 0; i < keys.length; i++) {
-                keys[i].addEventListener('click', function() {
-                    animateKey(this);
-                    if (pin.length < 4) {
-                        const numberSpan = this.querySelector('.key-number');
-                        if (numberSpan) {
-                            pin += numberSpan.innerText;
-                        } else {
-                            pin += this.innerText;
-                        }
-                        updateDots();
-                    }
-                });
             }
+        });
+    });
 
-            deleteBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                animateText(this);
-                
-                if (pin.length > 0) {
-                    pin = pin.slice(0, -1);
-                    updateDots();
-                }
-            });
+    deleteBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        animateText(this);
+        if (pin.length > 0) {
+            pin = pin.slice(0, -1);
+            updateDots();
+        }
+    });
 
-            okBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                animateText(this);
-
-                if (pin.length === 4) {
-                    currentCode = pin;
-                    originalWords = [];
-                    
-                    for (let i = 0; i < wordsList.length; i++) {
-                        if (wordsList[i].code === pin) {
-                            originalWords.push(wordsList[i].word);
-                        }
-                    }
-                    
-                    originalWords.sort((a, b) => a.localeCompare(b));
-                    
-                    currentWords = [...originalWords];
-                    
-                    letterLists = calculateLetterLists(originalWords);
-                    bestListIndex = findBestList(letterLists);
-                    bestListLetters = bestListIndex !== -1 ? letterLists[bestListIndex] : [];
-                    
-                    bestListLetters.sort((a, b) => a.localeCompare(b));                    
-                    indexDisplay.textContent = bestListIndex !== -1 ? (bestListIndex + 1).toString() : '';
-                    
-                    displayWords(currentWords);
-                    displayLetterButtons(bestListIndex, bestListLetters);
-                    
-                    wordsContainer.classList.remove('hidden');
-                    lettersContainer.classList.remove('hidden');
-                    
-                    lockPage.classList.remove('visible');
-                    resultPage.classList.add('visible');
-                    
-                    pin = '';
-                    updateDots();
-                }
-            });
-
-            indexDisplay.addEventListener('click', function(e) {
-                e.stopPropagation();
-                
-                if (wordsContainer.classList.contains('hidden')) {
-                    wordsContainer.classList.remove('hidden');
-                    lettersContainer.classList.remove('hidden');
-                } else {
-                    wordsContainer.classList.add('hidden');
-                    lettersContainer.classList.add('hidden');
-                }
-            });
-
-            resultPage.addEventListener('click', function(e) {
-                if (e.target.classList.contains('result-word') || 
-                    e.target.classList.contains('letter-btn') ||
-                    e.target === indexDisplay) {
-                    return;
-                }
-                
-                let now = new Date().getTime();
-                let timeDiff = now - lastTap;
-                
-                if (timeDiff < 300 && timeDiff > 0) {
-                    resultPage.classList.remove('visible');
-                    lockPage.classList.add('visible');
-                    selectedLetter = '';
-                    lastTap = 0;
-                } else {
-                    lastTap = now;
-                    setTimeout(() => {
-                        lastTap = 0;
-                    }, 300);
-                }            });
-
-            emergencyBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                animateText(this);
-                
-                lockPage.classList.remove('visible');
-                homePage.classList.remove('hidden');
-                pin = '';
-                updateDots();
-            });
-
+    okBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        animateText(this);
+        if (pin.length === 4) {
+            currentCode = pin;
+            updatePreviewWithCode(pin);
+            lockPage.classList.remove('visible');
+            resultPage.classList.add('visible');
             pin = '';
             updateDots();
-            resetModalToNormal();
-        })();
+        }
+    });
+
+    indexDisplay.addEventListener('click', (e) => {
+        e.stopPropagation();
+        wordsContainer.classList.toggle('hidden');
+        lettersContainer.classList.toggle('hidden');
+    });
+
+    resultPage.addEventListener('click', (e) => {
+        if (e.target.classList.contains('result-word') || 
+            e.target.classList.contains('letter-btn') ||
+            e.target === indexDisplay) return;
+        
+        const now = Date.now();
+        if (now - lastTap < 300 && now - lastTap > 0) {
+            resultPage.classList.remove('visible');
+            lockPage.classList.add('visible');
+            selectedLetter = '';
+        }
+        lastTap = now;    });
+
+    emergencyBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        animateText(this);
+        lockPage.classList.remove('visible');
+        homePage.classList.remove('hidden');
+        pin = '';
+        updateDots();
+    });
+
+    // IMPORT IMAGES
+    function setupImageImport(input, target, storageKey) {
+        input.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    currentPreviewData = event.target.result;
+                    previewImage.src = currentPreviewData;
+                    previewContainer.classList.add('visible');
+                    currentPreviewTarget = target === lockPage ? 'bg' : 'img';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    }
+
+    try {
+        const savedBg = localStorage.getItem('backgroundImage');
+        if (savedBg) lockPage.style.backgroundImage = 'url(' + savedBg + ')';
+        const savedImg = localStorage.getItem('resultImage');
+        if (savedImg) resultPage.style.backgroundImage = 'url(' + savedImg + ')';
+    } catch(e) {}
+
+    setupImageImport(bgFileInput, lockPage, 'backgroundImage');
+    setupImageImport(imgFileInput, resultPage, 'resultImage');
+
+    importBgBtn.addEventListener('click', () => bgFileInput.click());
+    importImgBtn.addEventListener('click', () => imgFileInput.click());
+
+    previewConfirm.addEventListener('click', () => {
+        if (currentPreviewTarget === 'bg') {
+            lockPage.style.backgroundImage = 'url(' + currentPreviewData + ')';
+            try { localStorage.setItem('backgroundImage', currentPreviewData); } catch(e) {}
+        } else {
+            resultPage.style.backgroundImage = 'url(' + currentPreviewData + ')';
+            try { localStorage.setItem('resultImage', currentPreviewData); } catch(e) {}
+        }
+        previewContainer.classList.remove('visible');        currentPreviewData = '';
+    });
+
+    previewCancel.addEventListener('click', () => {
+        previewContainer.classList.remove('visible');
+        currentPreviewData = '';
+    });
+
+    // INIT
+    console.log('Initialisation...');
+    currentSettings = loadCustomSettings();
+    applyCustomSettings(currentSettings);
+    updateDots();
+    resetModalToNormal();
+    console.log('=== ENIGMA Prêt ===');
+})();
     </script>
 </body>
 </html>

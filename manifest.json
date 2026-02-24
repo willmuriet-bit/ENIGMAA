@@ -1,6 +1,6 @@
 {
-  "name": "ENIGMA",
-  "short_name": "ENIGMA",
+  "name": "ENIGMAA",
+  "short_name": "ENIGMAA",
   "description": "Application de recherche de mots codés",
   "start_url": "/",
   "display": "standalone",

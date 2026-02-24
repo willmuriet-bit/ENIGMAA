@@ -47,7 +47,8 @@
             letter-spacing: 6px;
             margin-bottom: 100px;
             position: relative;
-            top: -40px;            text-transform: uppercase;
+            top: -40px;
+            text-transform: uppercase;
             animation: scintillement 2s ease-in-out infinite;
         }
 
@@ -96,7 +97,8 @@
             align-items: center;
             justify-content: center;
             z-index: 25;
-            visibility: hidden;            opacity: 0;
+            visibility: hidden;
+            opacity: 0;
             transition: visibility 0.3s, opacity 0.3s;
             padding: 20px;
         }
@@ -243,7 +245,8 @@
             padding: 20px;
             margin-bottom: 25px;
             position: relative;
-            z-index: 41;            border: 1px solid #444;
+            z-index: 41;
+            border: 1px solid #444;
             text-align: center;
         }
 
@@ -292,7 +295,8 @@
         .preview-btn {
             background: #333;
             color: white;
-            border: 1px solid #FFD700;            border-radius: 20px;
+            border: 1px solid #FFD700;
+            border-radius: 20px;
             padding: 5px 15px;
             font-size: 14px;
             cursor: pointer;
@@ -316,7 +320,6 @@
             background: #444;
             border-radius: 3px;
             -webkit-appearance: none;
-            pointer-events: none;
         }
 
         .slider-item input[type="range"]::-webkit-slider-thumb {
@@ -327,7 +330,6 @@
             border-radius: 50%;
             cursor: pointer;
             border: 2px solid white;
-            pointer-events: auto;
         }
 
         .color-item { margin-bottom: 20px; }
@@ -400,7 +402,7 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            background: url('background.jpg') no-repeat center center/cover;
+            background: black;
         }
 
         #lock-page.visible { visibility: visible; opacity: 1; }
@@ -439,7 +441,8 @@
 
         .dot.active {
             opacity: 1;
-            transform: scale(1.25);            background: #ffffff;
+            transform: scale(1.25);
+            background: #ffffff;
             box-shadow: 0 0 12px rgba(255,255,255,0.6);
         }
 
@@ -488,16 +491,13 @@
         }
 
         .key::after, .delete-btn::after, .ok::after {
-            content: '';            position: absolute;
+            content: '';
+            position: absolute;
             inset: 0;
             border-radius: 50%;
             border: 2px solid rgba(255, 255, 255, 0.9);
             opacity: 0;
             pointer-events: none;
-        }
-
-        .active::after, .active-text::after {
-            animation: circleWave 0.4s ease-out forwards;
         }
 
         .bottom-row {
@@ -508,7 +508,6 @@
             margin-top: 10px;
         }
 
-        /* CORRECTION 1 : OK et Delete TOTALEMENT invisibles */
         .delete-btn, .ok {
             width: 70px;
             height: 70px;
@@ -518,17 +517,14 @@
             justify-content: center;
             font-size: 22px;
             font-weight: bold;
-            background: transparent !important;
-            box-shadow: none !important;
-            border: none !important;
-            backdrop-filter: none !important;
+            background: rgba(255,255,255,0.1);
             cursor: pointer;
             color: white;
             transition: background 0.1s, transform 0.1s;
         }
 
         .delete-btn:active, .ok:active {
-            background: rgba(255, 255, 255, 0.1) !important;
+            background: rgba(255, 255, 255, 0.2);
             transform: scale(0.97);
         }
 
@@ -537,7 +533,8 @@
             z-index: 10;
             text-align: center;
             margin-bottom: 3vh;
-            font-size: 18px;            font-weight: 500;
+            font-size: 18px;
+            font-weight: 500;
             opacity: 0.9;
             cursor: pointer;
             padding: 12px 24px;
@@ -562,7 +559,7 @@
             visibility: hidden;
             opacity: 0;
             transition: visibility 0.3s, opacity 0.3s;
-            background: url('image.jpg') no-repeat center center/cover;
+            background: #1a1a1a;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -586,7 +583,8 @@
             width: 100%;
             z-index: 32;
             color: white;
-            font-size: 18px;            display: flex;
+            font-size: 18px;
+            display: flex;
             flex-direction: column;
             gap: 15px;
             text-align: center;
@@ -635,7 +633,8 @@
         .letter-btn {
             cursor: pointer;
             text-decoration: none;
-            color: inherit;            font-size: inherit;
+            color: inherit;
+            font-size: inherit;
             display: inline-block;
             text-transform: uppercase;
         }
@@ -733,7 +732,8 @@
             max-width: 80%;
             text-align: left;
             white-space: pre-line;
-            line-height: 1.5;            min-width: 200px;
+            line-height: 1.5;
+            min-width: 200px;
             outline: none;
             background: transparent;
             border: none;
@@ -782,7 +782,8 @@
             box-sizing: border-box;
         }
 
-        .code-result-box {            width: 100%;
+        .code-result-box {
+            width: 100%;
             padding: 18px;
             border: 2px solid #1976d2;
             border-radius: 15px;
@@ -880,7 +881,8 @@
             </div>
         </div>
 
-        <div class="control-group">            <div class="control-header">
+        <div class="control-group">
+            <div class="control-header">
                 <h3>📋 Liste</h3>
                 <button class="preview-btn" data-preview="full">👁️ Aperçu</button>
             </div>
@@ -929,7 +931,8 @@
             <div class="slider-item">
                 <label>Taille <span class="value-badge" id="index-size-value" data-default="30">30px</span></label>
                 <input type="range" id="index-size" min="10" max="60" value="30">
-            </div>            <div class="color-item">
+            </div>
+            <div class="color-item">
                 <label>Couleur</label>
                 <input type="color" id="index-color" value="#1E6FF0">
             </div>
@@ -978,7 +981,8 @@
         </div>
 
         <div class="customize-actions">
-            <button class="customize-save" id="customize-save">💾 Sauvegarder</button>            <button class="customize-reset" id="customize-reset">↺ Reset</button>
+            <button class="customize-save" id="customize-save">💾 Sauvegarder</button>
+            <button class="customize-reset" id="customize-reset">↺ Reset</button>
         </div>
     </div>
 
@@ -1027,7 +1031,8 @@
         <div class="note-image-text" id="note-image-text"></div>
     </div>
 
-    <div id="modal-overlay"></div>    <div id="list-modal">
+    <div id="modal-overlay"></div>
+    <div id="list-modal">
         <div id="search-container">
             <input type="text" id="search-input" placeholder="Taper un mot">
         </div>
@@ -1076,7 +1081,8 @@
             const indexColor = document.getElementById('index-color');
             const noteTextY = document.getElementById('note-text-y');
             const noteTextX = document.getElementById('note-text-x');
-            const noteTextSize = document.getElementById('note-text-size');            const noteTextColor = document.getElementById('note-text-color');
+            const noteTextSize = document.getElementById('note-text-size');
+            const noteTextColor = document.getElementById('note-text-color');
             const noteButtonY = document.getElementById('note-button-y');
             const noteButtonSize = document.getElementById('note-button-size');
             const noteButtonColor = document.getElementById('note-button-color');
@@ -1112,20 +1118,17 @@
             const okBtn = document.getElementById('okBtn');
             const emergencyBtn = document.getElementById('emergencyBtn');
 
-            let wordsList = [];
-            const DEFAULT_NOTE_TEXT = "Barbecue\nIceberg\nCartouche\nYaourt\nCartable\nLivre\nEnveloppe\nTapis\nTrain\nEncre";
-            const DEFAULT_NOTE_IMAGE = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="1000"%3E%3Crect fill="%23222" width="100%25" height="100%25"/%3E%3C/svg%3E';
-
-            const defaultSettings = {
-                wordsY: 265, wordsSize: 18, wordsColor: '#ffffff',
-                lettersY: 460, lettersSize: 20, lettersColor: '#ffffff',
-                indexY: 517, indexSize: 30, indexColor: '#1E6FF0',
-                noteTextY: 265, noteTextX: 20, noteTextSize: 20, noteTextColor: '#ffffff',
-                noteButtonY: 520, noteButtonSize: 30, noteButtonColor: '#1877F2'
-            };
-
+            // Liste de mots par défaut (sera remplacée par words.json si disponible)
+            let wordsList = [
+                { code: "7131", word: "Abeille" }, { code: "7141", word: "Abricot" },
+                { code: "9141", word: "Accordeon" }, { code: "6131", word: "Agenda" },
+                { code: "6141", word: "Agneau" }, { code: "9141", word: "Agrafeuse" },
+                { code: "5121", word: "Aigle" }, { code: "8121", word: "Aiguille" },
+                { code: "3121", word: "Ail" }, { code: "4121", word: "Aile" }
+            ];
             let pin = '';
-            let currentCode = '';            let originalWords = [];
+            let currentCode = '';
+            let originalWords = [];
             let currentWords = [];
             let letterLists = [];
             let bestListIndex = -1;
@@ -1135,80 +1138,126 @@
             let currentPreviewTarget = '';
             let currentPreviewData = '';
             let isNoteModeActive = false;
-            let noteImageData = localStorage.getItem('noteImage') || DEFAULT_NOTE_IMAGE;
-            let currentSettings = { ...defaultSettings };
+            let noteImageData = localStorage.getItem('noteImage') || 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="1000"%3E%3Crect fill="%23222" width="100%25" height="100%25"/%3E%3C/svg%3E';
+            let currentSettings = { 
+                wordsY: 265, wordsSize: 18, wordsColor: '#ffffff',
+                lettersY: 460, lettersSize: 20, lettersColor: '#ffffff',
+                indexY: 517, indexSize: 30, indexColor: '#1E6FF0',
+                noteTextY: 265, noteTextX: 20, noteTextSize: 20, noteTextColor: '#ffffff',
+                noteButtonY: 520, noteButtonSize: 30, noteButtonColor: '#1877F2'
+            };
             let isNoteUnderlineActive = false;
             let longPressTimer = null;
             let isSearchDisabled = false;
+
+            const DEFAULT_NOTE_TEXT = "Barbecue\nIceberg\nCartouche\nYaourt\nCartable\nLivre\nEnveloppe\nTapis\nTrain\nEncre";
+            const defaultSettings = { ...currentSettings };
 
             async function loadWordsList() {
                 try {
                     const response = await fetch('words.json');
                     if (!response.ok) throw new Error();
                     wordsList = await response.json();
+                    console.log('Mots chargés depuis words.json');
                 } catch (e) {
-                    wordsList = [
-                        { code: "7131", word: "Abeille" }, { code: "7141", word: "Abricot" },
-                        { code: "9141", word: "Accordeon" }, { code: "6131", word: "Agenda" },
-                        { code: "6141", word: "Agneau" }, { code: "9141", word: "Agrafeuse" },
-                        { code: "5121", word: "Aigle" }, { code: "8121", word: "Aiguille" },
-                        { code: "3121", word: "Ail" }, { code: "4121", word: "Aile" }
-                    ];
+                    console.log('Utilisation de la liste par défaut');
                 }
             }
 
             function updateDisplayValues(s) {
-                wordsYValue.textContent = s.wordsY + 'px';
-                wordsSizeValue.textContent = s.wordsSize + 'px';
-                lettersYValue.textContent = s.lettersY + 'px';
-                lettersSizeValue.textContent = s.lettersSize + 'px';
-                indexYValue.textContent = s.indexY + 'px';
-                indexSizeValue.textContent = s.indexSize + 'px';
-                noteTextYValue.textContent = s.noteTextY + 'px';
-                noteTextXValue.textContent = s.noteTextX + 'px';
-                noteTextSizeValue.textContent = s.noteTextSize + 'px';
-                noteButtonYValue.textContent = s.noteButtonY + 'px';
-                noteButtonSizeValue.textContent = s.noteButtonSize + 'px';
+                if (wordsYValue) wordsYValue.textContent = s.wordsY + 'px';
+                if (wordsSizeValue) wordsSizeValue.textContent = s.wordsSize + 'px';
+                if (lettersYValue) lettersYValue.textContent = s.lettersY + 'px';
+                if (lettersSizeValue) lettersSizeValue.textContent = s.lettersSize + 'px';
+                if (indexYValue) indexYValue.textContent = s.indexY + 'px';
+                if (indexSizeValue) indexSizeValue.textContent = s.indexSize + 'px';
+                if (noteTextYValue) noteTextYValue.textContent = s.noteTextY + 'px';
+                if (noteTextXValue) noteTextXValue.textContent = s.noteTextX + 'px';
+                if (noteTextSizeValue) noteTextSizeValue.textContent = s.noteTextSize + 'px';
+                if (noteButtonYValue) noteButtonYValue.textContent = s.noteButtonY + 'px';
+                if (noteButtonSizeValue) noteButtonSizeValue.textContent = s.noteButtonSize + 'px';
             }
 
             function applyCustomSettings(s) {
-                wordsContainer.style.top = s.wordsY + 'px';
-                wordsContainer.style.fontSize = s.wordsSize + 'px';
-                wordsContainer.style.color = s.wordsColor;                lettersContainer.style.top = s.lettersY + 'px';
-                lettersContainer.style.fontSize = s.lettersSize + 'px';
-                lettersContainer.style.color = s.lettersColor;
-                indexDisplay.style.top = s.indexY + 'px';
-                indexDisplay.style.fontSize = s.indexSize + 'px';
-                indexDisplay.style.color = s.indexColor;
-                noteImageText.style.top = s.noteTextY + 'px';
-                noteImageText.style.left = s.noteTextX + 'px';
-                noteImageText.style.fontSize = s.noteTextSize + 'px';
-                noteImageText.style.color = s.noteTextColor;
-                noteButton.style.top = s.noteButtonY + 'px';
-                noteButton.style.width = s.noteButtonSize + 'px';
-                noteButton.style.height = s.noteButtonSize + 'px';
-                noteButton.style.background = s.noteButtonColor;
-                noteButtonPreview.style.top = s.noteButtonY + 'px';
-                noteButtonPreview.style.width = s.noteButtonSize + 'px';
-                noteButtonPreview.style.height = s.noteButtonSize + 'px';
-                noteButtonPreview.style.background = s.noteButtonColor;
+                if (wordsContainer) {
+                    wordsContainer.style.top = s.wordsY + 'px';
+                    wordsContainer.style.fontSize = s.wordsSize + 'px';
+                    wordsContainer.style.color = s.wordsColor;
+                }
+                if (lettersContainer) {
+                    lettersContainer.style.top = s.lettersY + 'px';
+                    lettersContainer.style.fontSize = s.lettersSize + 'px';
+                    lettersContainer.style.color = s.lettersColor;
+                }
+                if (indexDisplay) {
+                    indexDisplay.style.top = s.indexY + 'px';
+                    indexDisplay.style.fontSize = s.indexSize + 'px';
+                    indexDisplay.style.color = s.indexColor;
+                }
+                if (noteImageText) {
+                    noteImageText.style.top = s.noteTextY + 'px';
+                    noteImageText.style.left = s.noteTextX + 'px';
+                    noteImageText.style.fontSize = s.noteTextSize + 'px';
+                    noteImageText.style.color = s.noteTextColor;
+                }
+                if (noteButton) {
+                    noteButton.style.top = s.noteButtonY + 'px';
+                    noteButton.style.width = s.noteButtonSize + 'px';
+                    noteButton.style.height = s.noteButtonSize + 'px';
+                    noteButton.style.background = s.noteButtonColor;
+                }
+                if (noteButtonPreview) {
+                    noteButtonPreview.style.top = s.noteButtonY + 'px';
+                    noteButtonPreview.style.width = s.noteButtonSize + 'px';
+                    noteButtonPreview.style.height = s.noteButtonSize + 'px';
+                    noteButtonPreview.style.background = s.noteButtonColor;
+                }
+                
+                if (wordsY) wordsY.value = s.wordsY;
+                if (wordsSize) wordsSize.value = s.wordsSize;
+                if (wordsColor) wordsColor.value = s.wordsColor;
+                if (lettersY) lettersY.value = s.lettersY;
+                if (lettersSize) lettersSize.value = s.lettersSize;
+                if (lettersColor) lettersColor.value = s.lettersColor;
+                if (indexY) indexY.value = s.indexY;
+                if (indexSize) indexSize.value = s.indexSize;
+                if (indexColor) indexColor.value = s.indexColor;
+                if (noteTextY) noteTextY.value = s.noteTextY;
+                if (noteTextX) noteTextX.value = s.noteTextX;
+                if (noteTextSize) noteTextSize.value = s.noteTextSize;
+                if (noteTextColor) noteTextColor.value = s.noteTextColor;
+                if (noteButtonY) noteButtonY.value = s.noteButtonY;
+                if (noteButtonSize) noteButtonSize.value = s.noteButtonSize;
+                if (noteButtonColor) noteButtonColor.value = s.noteButtonColor;
+                
                 updateDisplayValues(s);
-                wordsY.value = s.wordsY; wordsSize.value = s.wordsSize; wordsColor.value = s.wordsColor;
-                lettersY.value = s.lettersY; lettersSize.value = s.lettersSize; lettersColor.value = s.lettersColor;
-                indexY.value = s.indexY; indexSize.value = s.indexSize; indexColor.value = s.indexColor;
-                noteTextY.value = s.noteTextY; noteTextX.value = s.noteTextX; noteTextSize.value = s.noteTextSize; noteTextColor.value = s.noteTextColor;
-                noteButtonY.value = s.noteButtonY; noteButtonSize.value = s.noteButtonSize; noteButtonColor.value = s.noteButtonColor;
+            }
+
+            function loadCustomSettings() {
+                const saved = localStorage.getItem('customSettings');
+                if (saved) {
+                    try { 
+                        const parsed = JSON.parse(saved);
+                        currentSettings = { ...defaultSettings, ...parsed };
+                    } catch (e) {}
+                }
+                applyCustomSettings(currentSettings);
+            }
+
+            function saveCustomSettings(settings) {
+                localStorage.setItem('customSettings', JSON.stringify(settings));
             }
 
             function setupImageImport(inputEl, targetEl) {
+                if (!inputEl) return;
                 inputEl.addEventListener('change', async function(e) {
                     const file = e.target.files[0];
                     if (!file) return;
                     const reader = new FileReader();
                     reader.onload = function(event) {
                         currentPreviewData = event.target.result;
-                        previewImage.src = currentPreviewData;
-                        previewContainer.classList.add('visible');
+                        if (previewImage) previewImage.src = currentPreviewData;
+                        if (previewContainer) previewContainer.classList.add('visible');
                         if (targetEl === lockPage) currentPreviewTarget = 'bg';
                         else if (targetEl === resultPage) currentPreviewTarget = 'img';
                         else currentPreviewTarget = 'note';
@@ -1223,7 +1272,8 @@
                 const wordsByLetter = {};
                 wordsList.forEach(item => {
                     const firstLetter = item.word.charAt(0).toLowerCase();
-                    if (!wordsByLetter[firstLetter]) wordsByLetter[firstLetter] = [];                    wordsByLetter[firstLetter].push(item.word);
+                    if (!wordsByLetter[firstLetter]) wordsByLetter[firstLetter] = [];
+                    wordsByLetter[firstLetter].push(item.word);
                 });
                 letters.forEach(letter => {
                     const candidates = wordsByLetter[letter] || [];
@@ -1239,6 +1289,7 @@
             }
 
             function setupLongPressUnderline() {
+                if (!noteImageOverlay) return;
                 const handlePressStart = () => {
                     longPressTimer = setTimeout(() => {
                         isNoteUnderlineActive = !isNoteUnderlineActive;
@@ -1258,6 +1309,7 @@
             }
 
             function updateNoteUnderline() {
+                if (!noteImageText) return;
                 const text = noteImageText.innerHTML;
                 const lines = text.split('<br>');
                 const newLines = lines.map(line => {
@@ -1272,30 +1324,30 @@
                 noteImageText.innerHTML = newLines.join('<br>');
             }
 
-            // CORRECTION 2 : showFullPreview affiche la page de résultats COMPLÈTE            function showFullPreview() {
+            function showFullPreview() {
+                if (!noteImageDisplay || !noteImageOverlay) return;
                 const bgImage = window.getComputedStyle(resultPage).backgroundImage;
                 if (bgImage && bgImage !== 'none') {
                     noteImageDisplay.src = bgImage.slice(5, -2);
                 } else {
-                    noteImageDisplay.src = DEFAULT_NOTE_IMAGE;
+                    noteImageDisplay.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="1000"%3E%3Crect fill="%23222" width="100%25" height="100%25"/%3E%3C/svg%3E';
                 }
-                // Affiche TOUS les éléments comme la page de résultats
-                noteImageText.innerHTML = wordsContainer.innerHTML + '<br><br>' + lettersContainer.innerHTML;
-                noteButtonPreview.classList.add('visible');
+                if (noteImageText) noteImageText.innerHTML = (wordsContainer ? wordsContainer.innerHTML : '') + '<br><br>' + (lettersContainer ? lettersContainer.innerHTML : '');
+                if (noteButtonPreview) noteButtonPreview.classList.add('visible');
                 noteImageOverlay.classList.add('visible');
             }
 
-            // showNotePreview affiche UNIQUEMENT la liste statique
             function showNotePreview() {
-                noteImageDisplay.src = noteImageData || DEFAULT_NOTE_IMAGE;
-                noteImageText.innerHTML = DEFAULT_NOTE_TEXT.replace(/\n/g, '<br>');
-                noteButtonPreview.classList.remove('visible');
+                if (!noteImageDisplay || !noteImageOverlay) return;
+                noteImageDisplay.src = noteImageData;
+                if (noteImageText) noteImageText.innerHTML = DEFAULT_NOTE_TEXT.replace(/\n/g, '<br>');
+                if (noteButtonPreview) noteButtonPreview.classList.remove('visible');
                 noteImageOverlay.classList.add('visible');
             }
 
             function hidePreview() {
-                noteImageOverlay.classList.remove('visible');
-                noteButtonPreview.classList.remove('visible');
+                if (noteImageOverlay) noteImageOverlay.classList.remove('visible');
+                if (noteButtonPreview) noteButtonPreview.classList.remove('visible');
             }
 
             function setupPreviewButton(btn) {
@@ -1321,20 +1373,23 @@
             }
 
             function animateText(element) {
-                if (!element) return;                element.classList.add('active-text');
+                if (!element) return;
+                element.classList.add('active-text');
                 setTimeout(() => element.classList.remove('active-text'), 350);
             }
 
             function updateDots() {
                 for (let i = 0; i < dots.length; i++) {
-                    dots[i].classList.toggle('active', i < pin.length);
+                    if (dots[i]) dots[i].classList.toggle('active', i < pin.length);
                 }
             }
 
             function resetModalToNormal() {
-                searchInput.value = '';
-                codeResult.textContent = '';
-                codeResult.classList.remove('error');
+                if (searchInput) searchInput.value = '';
+                if (codeResult) {
+                    codeResult.textContent = '';
+                    codeResult.classList.remove('error');
+                }
                 enableSearchButton();
             }
 
@@ -1349,20 +1404,26 @@
             }
 
             function enableSearchButton() {
-                searchBtn.classList.remove('disabled');
-                isSearchDisabled = false;
-                codeResult.textContent = '';
-                codeResult.classList.remove('error');
+                if (searchBtn) {
+                    searchBtn.classList.remove('disabled');
+                    isSearchDisabled = false;
+                }
+                if (codeResult) {
+                    codeResult.textContent = '';
+                    codeResult.classList.remove('error');
+                }
             }
 
             function disableSearchButton() {
-                searchBtn.classList.add('disabled');
-                isSearchDisabled = true;
+                if (searchBtn) {
+                    searchBtn.classList.add('disabled');
+                    isSearchDisabled = true;
+                }
             }
 
             function calculateLetterLists(words) {
-                if (words.length === 0) return [];
-                const firstDigit = parseInt(currentCode[0]);
+                if (words.length === 0 || !currentCode || currentCode.length === 0) return [];
+                const firstDigit = parseInt(currentCode[0]) || 1;
                 const lists = [];
                 for (let pos = 0; pos < firstDigit; pos++) lists[pos] = [];
                 for (let i = 0; i < words.length; i++) {
@@ -1370,7 +1431,8 @@
                     for (let pos = 0; pos < word.length && pos < firstDigit; pos++) {
                         const letter = word[pos];
                         if (!lists[pos].includes(letter)) lists[pos].push(letter);
-                    }                }
+                    }
+                }
                 for (let pos = 0; pos < lists.length; pos++) lists[pos].sort((a, b) => a.localeCompare(b));
                 return lists;
             }
@@ -1387,6 +1449,7 @@
             }
 
             function displayWords(words) {
+                if (!wordsContainer) return;
                 wordsContainer.innerHTML = '';
                 const sortedWords = [...words].sort((a, b) => a.localeCompare(b));
                 if (sortedWords.length === 0) {
@@ -1410,16 +1473,17 @@
                         e.stopPropagation();
                         if (isNoteModeActive && noteImageData) {
                             const dynamicList = generateNoteList(word);
-                            noteImageDisplay.src = noteImageData;
-                            noteImageText.innerHTML = dynamicList.replace(/\n/g, '<br>');
-                            noteButtonPreview.classList.remove('visible');
-                            noteImageOverlay.classList.add('visible');
+                            if (noteImageDisplay) noteImageDisplay.src = noteImageData;
+                            if (noteImageText) noteImageText.innerHTML = dynamicList.replace(/\n/g, '<br>');
+                            if (noteButtonPreview) noteButtonPreview.classList.remove('visible');
+                            if (noteImageOverlay) noteImageOverlay.classList.add('visible');
                             updateNoteUnderline();
                         } else {
                             window.open('https://www.google.com/search?tbm=isch&q=' + encodeURIComponent(this.textContent), '_blank');
                         }
                     });
-                    currentLine.appendChild(wordSpan);                    if (i < sortedWords.length - 1) {
+                    currentLine.appendChild(wordSpan);
+                    if (i < sortedWords.length - 1) {
                         const space = document.createElement('span');
                         space.textContent = ' ';
                         currentLine.appendChild(space);
@@ -1429,6 +1493,7 @@
             }
 
             function displayLetterButtons(index, letters) {
+                if (!lettersContainer) return;
                 lettersContainer.innerHTML = '';
                 if (index === -1 || letters.length === 0) return;
                 const sortedLetters = [...letters].sort((a, b) => a.localeCompare(b));
@@ -1468,308 +1533,382 @@
                 if (code.length === 4) {
                     currentCode = code;
                     originalWords = wordsList.filter(w => w.code === code).map(w => w.word);
-                    originalWords.sort((a, b) => a.localeCompare(b));                    currentWords = [...originalWords];
-                    letterLists = calculateLetterLists(originalWords);
-                    bestListIndex = findBestList(letterLists);
-                    bestListLetters = bestListIndex !== -1 ? letterLists[bestListIndex] : [];
-                    bestListLetters.sort((a, b) => a.localeCompare(b));
-                    indexDisplay.textContent = bestListIndex !== -1 ? (bestListIndex + 1).toString() : '';
-                    displayWords(currentWords);
-                    displayLetterButtons(bestListIndex, bestListLetters);
-                    wordsContainer.classList.remove('hidden');
-                    lettersContainer.classList.remove('hidden');
-                }
-            }
-
-            function loadCustomSettings() {
-                const saved = localStorage.getItem('customSettings');
-                if (saved) {
-                    try { currentSettings = { ...defaultSettings, ...JSON.parse(saved) }; }
-                    catch (e) { currentSettings = { ...defaultSettings }; }
-                }
-                applyCustomSettings(currentSettings);
-            }
-
-            function saveCustomSettings(settings) {
-                localStorage.setItem('customSettings', JSON.stringify(settings));
-            }
-
-            // Reset badges
-            [[wordsYValue, 'wordsY', defaultSettings.wordsY],
-             [wordsSizeValue, 'wordsSize', defaultSettings.wordsSize],
-             [lettersYValue, 'lettersY', defaultSettings.lettersY],
-             [lettersSizeValue, 'lettersSize', defaultSettings.lettersSize],
-             [indexYValue, 'indexY', defaultSettings.indexY],
-             [indexSizeValue, 'indexSize', defaultSettings.indexSize],
-             [noteTextYValue, 'noteTextY', defaultSettings.noteTextY],
-             [noteTextXValue, 'noteTextX', defaultSettings.noteTextX],
-             [noteTextSizeValue, 'noteTextSize', defaultSettings.noteTextSize],
-             [noteButtonYValue, 'noteButtonY', defaultSettings.noteButtonY],
-             [noteButtonSizeValue, 'noteButtonSize', defaultSettings.noteButtonSize]
-            ].forEach(([badge, key, def]) => {
-                if (badge) badge.addEventListener('click', () => {
-                    currentSettings[key] = def;
-                    applyCustomSettings(currentSettings);
-                });
-            });
-
-            // Sliders
-            wordsY.addEventListener('input', (e) => { currentSettings.wordsY = parseInt(e.target.value); wordsYValue.textContent = e.target.value + 'px'; wordsContainer.style.top = e.target.value + 'px'; });
-            wordsSize.addEventListener('input', (e) => { currentSettings.wordsSize = parseInt(e.target.value); wordsSizeValue.textContent = e.target.value + 'px'; wordsContainer.style.fontSize = e.target.value + 'px'; });
-            wordsColor.addEventListener('input', (e) => { currentSettings.wordsColor = e.target.value; wordsContainer.style.color = e.target.value; });
-            lettersY.addEventListener('input', (e) => { currentSettings.lettersY = parseInt(e.target.value); lettersYValue.textContent = e.target.value + 'px'; lettersContainer.style.top = e.target.value + 'px'; });            lettersSize.addEventListener('input', (e) => { currentSettings.lettersSize = parseInt(e.target.value); lettersSizeValue.textContent = e.target.value + 'px'; lettersContainer.style.fontSize = e.target.value + 'px'; });
-            lettersColor.addEventListener('input', (e) => { currentSettings.lettersColor = e.target.value; lettersContainer.style.color = e.target.value; });
-            indexY.addEventListener('input', (e) => { currentSettings.indexY = parseInt(e.target.value); indexYValue.textContent = e.target.value + 'px'; indexDisplay.style.top = e.target.value + 'px'; });
-            indexSize.addEventListener('input', (e) => { currentSettings.indexSize = parseInt(e.target.value); indexSizeValue.textContent = e.target.value + 'px'; indexDisplay.style.fontSize = e.target.value + 'px'; });
-            indexColor.addEventListener('input', (e) => { currentSettings.indexColor = e.target.value; indexDisplay.style.color = e.target.value; });
-            noteTextY.addEventListener('input', (e) => { currentSettings.noteTextY = parseInt(e.target.value); noteTextYValue.textContent = e.target.value + 'px'; noteImageText.style.top = e.target.value + 'px'; });
-            noteTextX.addEventListener('input', (e) => { currentSettings.noteTextX = parseInt(e.target.value); noteTextXValue.textContent = e.target.value + 'px'; noteImageText.style.left = e.target.value + 'px'; });
-            noteTextSize.addEventListener('input', (e) => { currentSettings.noteTextSize = parseInt(e.target.value); noteTextSizeValue.textContent = e.target.value + 'px'; noteImageText.style.fontSize = e.target.value + 'px'; });
-            noteTextColor.addEventListener('input', (e) => { currentSettings.noteTextColor = e.target.value; noteImageText.style.color = e.target.value; });
-            noteButtonY.addEventListener('input', (e) => { currentSettings.noteButtonY = parseInt(e.target.value); noteButtonYValue.textContent = e.target.value + 'px'; noteButton.style.top = e.target.value + 'px'; noteButtonPreview.style.top = e.target.value + 'px'; });
-            noteButtonSize.addEventListener('input', (e) => { currentSettings.noteButtonSize = parseInt(e.target.value); noteButtonSizeValue.textContent = e.target.value + 'px'; noteButton.style.width = e.target.value + 'px'; noteButton.style.height = e.target.value + 'px'; noteButtonPreview.style.width = e.target.value + 'px'; noteButtonPreview.style.height = e.target.value + 'px'; });
-            noteButtonColor.addEventListener('input', (e) => { currentSettings.noteButtonColor = e.target.value; noteButton.style.background = e.target.value; noteButtonPreview.style.background = e.target.value; });
-
-            if (testCodeInput) testCodeInput.addEventListener('input', (e) => {
-                const code = e.target.value.trim();
-                if (code.length === 4 && /^\d+$/.test(code)) updatePreviewWithCode(code);
-            });
-
-            if (searchInput) {
-                searchInput.addEventListener('input', () => { enableSearchButton(); codeResult.textContent = ''; codeResult.classList.remove('error'); });
-                searchInput.addEventListener('keypress', (e) => { if (e.key === 'Enter' && !isSearchDisabled) searchBtn.click(); });
-            }
-
-            if (searchBtn) searchBtn.addEventListener('click', () => {
-                if (isSearchDisabled) return;
-                const word = searchInput.value.trim();
-                if (word === '') return;
-                const result = searchWord(word);
-                if (result) {
-                    codeResult.textContent = result.code;
-                    codeResult.classList.remove('error');
-                    disableSearchButton();
-                    searchInput.blur();
-                } else {
-                    codeResult.textContent = 'Mot introuvable !';
-                    codeResult.classList.add('error');
-                }
-            });
-
-            setupImageImport(bgFileInput, lockPage);
-            setupImageImport(imgFileInput, resultPage);
-            setupImageImport(noteFileInput, null);
-
-            if (importBgBtn) importBgBtn.addEventListener('click', () => bgFileInput.click());
-            if (importImgBtn) importImgBtn.addEventListener('click', () => imgFileInput.click());
-            if (importNoteBtn) importNoteBtn.addEventListener('click', () => noteFileInput.click());
-
-            if (previewConfirm) previewConfirm.addEventListener('click', () => {
-                if (currentPreviewTarget === 'bg') { lockPage.style.backgroundImage = 'url(' + currentPreviewData + ')'; localStorage.setItem('backgroundImage', currentPreviewData); }
-                else if (currentPreviewTarget === 'img') { resultPage.style.backgroundImage = 'url(' + currentPreviewData + ')'; localStorage.setItem('resultImage', currentPreviewData); }                else if (currentPreviewTarget === 'note') { noteImageData = currentPreviewData; localStorage.setItem('noteImage', noteImageData); }
-                previewContainer.classList.remove('visible');
-                previewImage.src = '';
-                currentPreviewData = '';
-                bgFileInput.value = '';
-                imgFileInput.value = '';
-                noteFileInput.value = '';
-            });
-
-            if (previewCancel) previewCancel.addEventListener('click', () => {
-                previewContainer.classList.remove('visible');
-                previewImage.src = '';
-                currentPreviewData = '';
-                bgFileInput.value = '';
-                imgFileInput.value = '';
-                noteFileInput.value = '';
-            });
-
-            if (noteButton) noteButton.addEventListener('click', () => {
-                isNoteModeActive = !isNoteModeActive;
-                noteButton.classList.toggle('active', isNoteModeActive);
-            });
-
-            if (noteImageOverlay) noteImageOverlay.addEventListener('dblclick', (e) => {
-                e.preventDefault();
-                noteImageOverlay.classList.remove('visible');
-                isNoteModeActive = false;
-                noteButton.classList.remove('active');
-                noteButtonPreview.classList.remove('visible');
-            });
-
-            previewBtns.forEach(btn => setupPreviewButton(btn));
-
-            document.addEventListener('contextmenu', (e) => e.preventDefault());
-            document.addEventListener('selectstart', (e) => e.preventDefault());
-
-            if (btnPerform) btnPerform.addEventListener('click', () => { homePage.classList.add('hidden'); lockPage.classList.add('visible'); pin = ''; updateDots(); });
-            if (btnList) btnList.addEventListener('click', () => { resetModalToNormal(); modal.classList.add('visible'); modalOverlay.classList.add('visible'); });
-            if (btnSettings) btnSettings.addEventListener('click', () => { homePage.classList.add('hidden'); settingsPage.classList.add('visible'); });
-            if (settingsBack) settingsBack.addEventListener('click', () => { settingsPage.classList.remove('visible'); homePage.classList.remove('hidden'); previewContainer.classList.remove('visible'); bgFileInput.value = ''; imgFileInput.value = ''; noteFileInput.value = ''; });
-            if (modalOverlay) modalOverlay.addEventListener('click', () => { modal.classList.remove('visible'); modalOverlay.classList.remove('visible'); searchInput.blur(); resetModalToNormal(); });
-
-            if (customizeBtn) customizeBtn.addEventListener('click', () => {
-                settingsPage.classList.remove('visible');
-                customizePage.classList.add('visible', 'preview-mode');
-                resultPage.classList.add('preview-mode');
-                if (noteButton) noteButton.classList.add('visible');
-                loadCustomSettings();
-                updatePreviewWithCode("7131");
-            });
-            if (customizeBack) customizeBack.addEventListener('click', () => {
-                customizePage.classList.remove('visible', 'preview-mode');
-                resultPage.classList.remove('preview-mode');
-                settingsPage.classList.add('visible');
-                if (noteButton) noteButton.classList.remove('visible');
-                loadCustomSettings();
-            });
-
-            if (customizeSave) customizeSave.addEventListener('click', () => {
-                saveCustomSettings(currentSettings);
-                customizePage.classList.remove('visible', 'preview-mode');
-                resultPage.classList.remove('preview-mode');
-                settingsPage.classList.add('visible');
-                if (noteButton) noteButton.classList.remove('visible');
-            });
-
-            if (customizeReset) customizeReset.addEventListener('click', () => {
-                currentSettings = { ...defaultSettings };
-                applyCustomSettings(currentSettings);
-            });
-
-            keys.forEach(key => {
-                key.addEventListener('click', function() {
-                    animateKey(this);
-                    if (pin.length < 4) { pin += this.getAttribute('data-digit'); updateDots(); }
-                });
-            });
-
-            if (deleteBtn) deleteBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                animateText(this);
-                if (pin.length > 0) { pin = pin.slice(0, -1); updateDots(); }
-            });
-
-            if (okBtn) okBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                animateText(this);
-                if (pin.length === 4) {
-                    currentCode = pin;
-                    originalWords = wordsList.filter(w => w.code === pin).map(w => w.word);
                     originalWords.sort((a, b) => a.localeCompare(b));
                     currentWords = [...originalWords];
                     letterLists = calculateLetterLists(originalWords);
                     bestListIndex = findBestList(letterLists);
                     bestListLetters = bestListIndex !== -1 ? letterLists[bestListIndex] : [];
                     bestListLetters.sort((a, b) => a.localeCompare(b));
-                    indexDisplay.textContent = bestListIndex !== -1 ? (bestListIndex + 1).toString() : '';
+                    if (indexDisplay) indexDisplay.textContent = bestListIndex !== -1 ? (bestListIndex + 1).toString() : '';
                     displayWords(currentWords);
-                    displayLetterButtons(bestListIndex, bestListLetters);                    wordsContainer.classList.remove('hidden');
-                    lettersContainer.classList.remove('hidden');
-                    lockPage.classList.remove('visible');
-                    resultPage.classList.add('visible');
-                    if (noteButton) noteButton.classList.add('visible');
-                    pin = '';
-                    updateDots();
+                    displayLetterButtons(bestListIndex, bestListLetters);
+                    if (wordsContainer) wordsContainer.classList.remove('hidden');
+                    if (lettersContainer) lettersContainer.classList.remove('hidden');
                 }
-            });
-
-            if (indexDisplay) indexDisplay.addEventListener('click', function(e) {
-                e.stopPropagation();
-                wordsContainer.classList.toggle('hidden');
-                lettersContainer.classList.toggle('hidden');
-            });
-
-            if (resultPage) resultPage.addEventListener('click', function(e) {
-                if (e.target.classList.contains('result-word') || e.target.classList.contains('letter-btn') || e.target === indexDisplay || e.target === noteButton) return;
-                let now = new Date().getTime();
-                let timeDiff = now - lastTap;
-                if (timeDiff < 300 && timeDiff > 0) {
-                    resultPage.classList.remove('visible');
-                    lockPage.classList.add('visible');
-                    if (noteButton) noteButton.classList.remove('visible');
-                    selectedLetter = '';
-                    lastTap = 0;
-                } else {
-                    lastTap = now;
-                    setTimeout(() => lastTap = 0, 300);
-                }
-            });
-
-            if (emergencyBtn) emergencyBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                animateText(this);
-                lockPage.classList.remove('visible');
-                homePage.classList.remove('hidden');
-                pin = '';
-                updateDots();
-            });
-
-            if ('serviceWorker' in navigator) {
-                window.addEventListener('load', async () => {
-                    try {
-                        await navigator.serviceWorker.register('./sw.js', { scope: './' });
-                    } catch (error) { console.error('SW error:', error); }
-                });
             }
 
-            setupLongPressUnderline();
-            pin = '';
-            updateDots();
-            resetModalToNormal();
-            if (noteImageText) noteImageText.innerHTML = DEFAULT_NOTE_TEXT.replace(/\n/g, '<br>');
-            loadCustomSettings();
-            loadWordsList();
+            // Initialisation
+            Promise.all([
+                loadWordsList(),
+                new Promise(resolve => {
+                    if (document.readyState === 'loading') {
+                        document.addEventListener('DOMContentLoaded', resolve);
+                    } else {
+                        resolve();
+                    }
+                })
+            ]).then(() => {
+                console.log('Initialisation terminée');
+                
+                // Charger les paramètres
+                loadCustomSettings();
+                
+                // Initialiser l'image de note
+                if (noteImageText) {
+                    noteImageText.innerHTML = DEFAULT_NOTE_TEXT.replace(/\n/g, '<br>');
+                }
+                
+                // Restaurer les images sauvegardées
+                const savedBg = localStorage.getItem('backgroundImage');
+                if (savedBg && lockPage) lockPage.style.backgroundImage = 'url(' + savedBg + ')';
+                
+                const savedResult = localStorage.getItem('resultImage');
+                if (savedResult && resultPage) resultPage.style.backgroundImage = 'url(' + savedResult + ')';
+                
+                // Attacher les événements
+                
+                // Boutons principaux
+                if (btnPerform) {
+                    btnPerform.addEventListener('click', () => { 
+                        homePage.classList.add('hidden'); 
+                        lockPage.classList.add('visible'); 
+                        pin = ''; 
+                        updateDots(); 
+                    });
+                }
+
+                if (btnList) {
+                    btnList.addEventListener('click', () => { 
+                        resetModalToNormal();
+                        if (modal) modal.classList.add('visible'); 
+                        if (modalOverlay) modalOverlay.classList.add('visible'); 
+                    });
+                }
+
+                if (btnSettings) {
+                    btnSettings.addEventListener('click', () => { 
+                        homePage.classList.add('hidden'); 
+                        settingsPage.classList.add('visible'); 
+                    });
+                }
+
+                // Retour paramètres
+                if (settingsBack) {
+                    settingsBack.addEventListener('click', () => { 
+                        settingsPage.classList.remove('visible'); 
+                        homePage.classList.remove('hidden'); 
+                        if (previewContainer) previewContainer.classList.remove('visible'); 
+                        if (bgFileInput) bgFileInput.value = ''; 
+                        if (imgFileInput) imgFileInput.value = ''; 
+                        if (noteFileInput) noteFileInput.value = ''; 
+                    });
+                }
+
+                // Modal overlay
+                if (modalOverlay) {
+                    modalOverlay.addEventListener('click', () => { 
+                        if (modal) modal.classList.remove('visible'); 
+                        modalOverlay.classList.remove('visible'); 
+                        if (searchInput) searchInput.blur(); 
+                        resetModalToNormal(); 
+                    });
+                }
+
+                // Bouton personnaliser
+                if (customizeBtn) {
+                    customizeBtn.addEventListener('click', () => {
+                        settingsPage.classList.remove('visible');
+                        customizePage.classList.add('visible', 'preview-mode');
+                        resultPage.classList.add('preview-mode');
+                        if (noteButton) noteButton.classList.add('visible');
+                        loadCustomSettings();
+                        updatePreviewWithCode("7131");
+                    });
+                }
+                
+                if (customizeBack) {
+                    customizeBack.addEventListener('click', () => {
+                        customizePage.classList.remove('visible', 'preview-mode');
+                        resultPage.classList.remove('preview-mode');
+                        settingsPage.classList.add('visible');
+                        if (noteButton) noteButton.classList.remove('visible');
+                        loadCustomSettings();
+                    });
+                }
+
+                if (customizeSave) {
+                    customizeSave.addEventListener('click', () => {
+                        saveCustomSettings(currentSettings);
+                        customizePage.classList.remove('visible', 'preview-mode');
+                        resultPage.classList.remove('preview-mode');
+                        settingsPage.classList.add('visible');
+                        if (noteButton) noteButton.classList.remove('visible');
+                    });
+                }
+
+                if (customizeReset) {
+                    customizeReset.addEventListener('click', () => {
+                        currentSettings = { ...defaultSettings };
+                        applyCustomSettings(currentSettings);
+                    });
+                }
+
+                // Recherche
+                if (searchBtn && searchInput) {
+                    searchBtn.addEventListener('click', () => {
+                        if (isSearchDisabled) return;
+                        const word = searchInput.value.trim();
+                        if (word === '') return;
+                        const result = searchWord(word);
+                        if (result) {
+                            if (codeResult) {
+                                codeResult.textContent = result.code;
+                                codeResult.classList.remove('error');
+                            }
+                            disableSearchButton();
+                            searchInput.blur();
+                        } else {
+                            if (codeResult) {
+                                codeResult.textContent = 'Mot introuvable !';
+                                codeResult.classList.add('error');
+                            }
+                        }
+                    });
+
+                    searchInput.addEventListener('input', enableSearchButton);
+                    searchInput.addEventListener('keypress', (e) => { 
+                        if (e.key === 'Enter' && !isSearchDisabled && searchBtn) searchBtn.click(); 
+                    });
+                }
+
+                // Test code input
+                if (testCodeInput) {
+                    testCodeInput.addEventListener('input', (e) => {
+                        const code = e.target.value.trim();
+                        if (code.length === 4 && /^\d+$/.test(code)) updatePreviewWithCode(code);
+                    });
+                }
+
+                // Clavier
+                keys.forEach(key => {
+                    key.addEventListener('click', function() {
+                        if (pin.length < 4) { 
+                            pin += this.getAttribute('data-digit'); 
+                            updateDots(); 
+                        }
+                    });
+                });
+
+                if (deleteBtn) {
+                    deleteBtn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        if (pin.length > 0) { pin = pin.slice(0, -1); updateDots(); }
+                    });
+                }
+
+                if (okBtn) {
+                    okBtn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        if (pin.length === 4) {
+                            currentCode = pin;
+                            originalWords = wordsList.filter(w => w.code === pin).map(w => w.word);
+                            originalWords.sort((a, b) => a.localeCompare(b));
+                            currentWords = [...originalWords];
+                            letterLists = calculateLetterLists(originalWords);
+                            bestListIndex = findBestList(letterLists);
+                            bestListLetters = bestListIndex !== -1 ? letterLists[bestListIndex] : [];
+                            bestListLetters.sort((a, b) => a.localeCompare(b));
+                            if (indexDisplay) indexDisplay.textContent = bestListIndex !== -1 ? (bestListIndex + 1).toString() : '';
+                            displayWords(currentWords);
+                            displayLetterButtons(bestListIndex, bestListLetters);
+                            if (wordsContainer) wordsContainer.classList.remove('hidden');
+                            if (lettersContainer) lettersContainer.classList.remove('hidden');
+                            lockPage.classList.remove('visible');
+                            resultPage.classList.add('visible');
+                            if (noteButton) noteButton.classList.add('visible');
+                            pin = '';
+                            updateDots();
+                        }
+                    });
+                }
+
+                if (indexDisplay) {
+                    indexDisplay.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        if (wordsContainer) wordsContainer.classList.toggle('hidden');
+                        if (lettersContainer) lettersContainer.classList.toggle('hidden');
+                    });
+                }
+
+                if (resultPage) {
+                    resultPage.addEventListener('click', function(e) {
+                        if (e.target.classList.contains('result-word') || e.target.classList.contains('letter-btn') || e.target === indexDisplay || e.target === noteButton) return;
+                        let now = new Date().getTime();
+                        let timeDiff = now - lastTap;
+                        if (timeDiff < 300 && timeDiff > 0) {
+                            resultPage.classList.remove('visible');
+                            lockPage.classList.add('visible');
+                            if (noteButton) noteButton.classList.remove('visible');
+                            selectedLetter = '';
+                            lastTap = 0;
+                        } else {
+                            lastTap = now;
+                            setTimeout(() => lastTap = 0, 300);
+                        }
+                    });
+                }
+
+                if (emergencyBtn) {
+                    emergencyBtn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        lockPage.classList.remove('visible');
+                        homePage.classList.remove('hidden');
+                        pin = '';
+                        updateDots();
+                    });
+                }
+
+                // Import images
+                setupImageImport(bgFileInput, lockPage);
+                setupImageImport(imgFileInput, resultPage);
+                setupImageImport(noteFileInput, null);
+
+                if (previewConfirm) {
+                    previewConfirm.addEventListener('click', () => {
+                        if (currentPreviewTarget === 'bg' && currentPreviewData && lockPage) { 
+                            lockPage.style.backgroundImage = 'url(' + currentPreviewData + ')'; 
+                            localStorage.setItem('backgroundImage', currentPreviewData); 
+                        }
+                        else if (currentPreviewTarget === 'img' && currentPreviewData && resultPage) { 
+                            resultPage.style.backgroundImage = 'url(' + currentPreviewData + ')'; 
+                            localStorage.setItem('resultImage', currentPreviewData); 
+                        }
+                        else if (currentPreviewTarget === 'note' && currentPreviewData) { 
+                            noteImageData = currentPreviewData; 
+                            localStorage.setItem('noteImage', noteImageData); 
+                        }
+                        if (previewContainer) previewContainer.classList.remove('visible');
+                        if (previewImage) previewImage.src = '';
+                        currentPreviewData = '';
+                        if (bgFileInput) bgFileInput.value = '';
+                        if (imgFileInput) imgFileInput.value = '';
+                        if (noteFileInput) noteFileInput.value = '';
+                    });
+                }
+
+                if (previewCancel) {
+                    previewCancel.addEventListener('click', () => {
+                        if (previewContainer) previewContainer.classList.remove('visible');
+                        if (previewImage) previewImage.src = '';
+                        currentPreviewData = '';
+                        if (bgFileInput) bgFileInput.value = '';
+                        if (imgFileInput) imgFileInput.value = '';
+                        if (noteFileInput) noteFileInput.value = '';
+                    });
+                }
+
+                if (noteButton) {
+                    noteButton.addEventListener('click', () => {
+                        isNoteModeActive = !isNoteModeActive;
+                        noteButton.classList.toggle('active', isNoteModeActive);
+                    });
+                }
+
+                if (noteImageOverlay) {
+                    noteImageOverlay.addEventListener('dblclick', (e) => {
+                        e.preventDefault();
+                        noteImageOverlay.classList.remove('visible');
+                        isNoteModeActive = false;
+                        if (noteButton) noteButton.classList.remove('active');
+                        if (noteButtonPreview) noteButtonPreview.classList.remove('visible');
+                    });
+                }
+
+                // Preview buttons
+                previewBtns.forEach(btn => {
+                    if (btn) setupPreviewButton(btn);
+                });
+
+                setupLongPressUnderline();
+
+                // Empêcher le menu contextuel
+                document.addEventListener('contextmenu', (e) => e.preventDefault());
+                document.addEventListener('selectstart', (e) => e.preventDefault());
+
+                // Badge resets
+                const badgeResets = [
+                    [wordsYValue, 'wordsY', defaultSettings.wordsY],
+                    [wordsSizeValue, 'wordsSize', defaultSettings.wordsSize],
+                    [lettersYValue, 'lettersY', defaultSettings.lettersY],
+                    [lettersSizeValue, 'lettersSize', defaultSettings.lettersSize],
+                    [indexYValue, 'indexY', defaultSettings.indexY],
+                    [indexSizeValue, 'indexSize', defaultSettings.indexSize],
+                    [noteTextYValue, 'noteTextY', defaultSettings.noteTextY],
+                    [noteTextXValue, 'noteTextX', defaultSettings.noteTextX],
+                    [noteTextSizeValue, 'noteTextSize', defaultSettings.noteTextSize],
+                    [noteButtonYValue, 'noteButtonY', defaultSettings.noteButtonY],
+                    [noteButtonSizeValue, 'noteButtonSize', defaultSettings.noteButtonSize]
+                ];
+
+                badgeResets.forEach(([badge, key, def]) => {
+                    if (badge) badge.addEventListener('click', () => {
+                        currentSettings[key] = def;
+                        applyCustomSettings(currentSettings);
+                    });
+                });
+
+                // Sliders
+                if (wordsY) wordsY.addEventListener('input', (e) => { currentSettings.wordsY = parseInt(e.target.value); if (wordsYValue) wordsYValue.textContent = e.target.value + 'px'; if (wordsContainer) wordsContainer.style.top = e.target.value + 'px'; });
+                if (wordsSize) wordsSize.addEventListener('input', (e) => { currentSettings.wordsSize = parseInt(e.target.value); if (wordsSizeValue) wordsSizeValue.textContent = e.target.value + 'px'; if (wordsContainer) wordsContainer.style.fontSize = e.target.value + 'px'; });
+                if (wordsColor) wordsColor.addEventListener('input', (e) => { currentSettings.wordsColor = e.target.value; if (wordsContainer) wordsContainer.style.color = e.target.value; });
+                if (lettersY) lettersY.addEventListener('input', (e) => { currentSettings.lettersY = parseInt(e.target.value); if (lettersYValue) lettersYValue.textContent = e.target.value + 'px'; if (lettersContainer) lettersContainer.style.top = e.target.value + 'px'; });
+                if (lettersSize) lettersSize.addEventListener('input', (e) => { currentSettings.lettersSize = parseInt(e.target.value); if (lettersSizeValue) lettersSizeValue.textContent = e.target.value + 'px'; if (lettersContainer) lettersContainer.style.fontSize = e.target.value + 'px'; });
+                if (lettersColor) lettersColor.addEventListener('input', (e) => { currentSettings.lettersColor = e.target.value; if (lettersContainer) lettersContainer.style.color = e.target.value; });
+                if (indexY) indexY.addEventListener('input', (e) => { currentSettings.indexY = parseInt(e.target.value); if (indexYValue) indexYValue.textContent = e.target.value + 'px'; if (indexDisplay) indexDisplay.style.top = e.target.value + 'px'; });
+                if (indexSize) indexSize.addEventListener('input', (e) => { currentSettings.indexSize = parseInt(e.target.value); if (indexSizeValue) indexSizeValue.textContent = e.target.value + 'px'; if (indexDisplay) indexDisplay.style.fontSize = e.target.value + 'px'; });
+                if (indexColor) indexColor.addEventListener('input', (e) => { currentSettings.indexColor = e.target.value; if (indexDisplay) indexDisplay.style.color = e.target.value; });
+                if (noteTextY) noteTextY.addEventListener('input', (e) => { currentSettings.noteTextY = parseInt(e.target.value); if (noteTextYValue) noteTextYValue.textContent = e.target.value + 'px'; if (noteImageText) noteImageText.style.top = e.target.value + 'px'; });
+                if (noteTextX) noteTextX.addEventListener('input', (e) => { currentSettings.noteTextX = parseInt(e.target.value); if (noteTextXValue) noteTextXValue.textContent = e.target.value + 'px'; if (noteImageText) noteImageText.style.left = e.target.value + 'px'; });
+                if (noteTextSize) noteTextSize.addEventListener('input', (e) => { currentSettings.noteTextSize = parseInt(e.target.value); if (noteTextSizeValue) noteTextSizeValue.textContent = e.target.value + 'px'; if (noteImageText) noteImageText.style.fontSize = e.target.value + 'px'; });
+                if (noteTextColor) noteTextColor.addEventListener('input', (e) => { currentSettings.noteTextColor = e.target.value; if (noteImageText) noteImageText.style.color = e.target.value; });
+                if (noteButtonY) noteButtonY.addEventListener('input', (e) => { currentSettings.noteButtonY = parseInt(e.target.value); if (noteButtonYValue) noteButtonYValue.textContent = e.target.value + 'px'; if (noteButton) noteButton.style.top = e.target.value + 'px'; if (noteButtonPreview) noteButtonPreview.style.top = e.target.value + 'px'; });
+                if (noteButtonSize) noteButtonSize.addEventListener('input', (e) => { currentSettings.noteButtonSize = parseInt(e.target.value); if (noteButtonSizeValue) noteButtonSizeValue.textContent = e.target.value + 'px'; if (noteButton) { noteButton.style.width = e.target.value + 'px'; noteButton.style.height = e.target.value + 'px'; } if (noteButtonPreview) { noteButtonPreview.style.width = e.target.value + 'px'; noteButtonPreview.style.height = e.target.value + 'px'; } });
+                if (noteButtonColor) noteButtonColor.addEventListener('input', (e) => { currentSettings.noteButtonColor = e.target.value; if (noteButton) noteButton.style.background = e.target.value; if (noteButtonPreview) noteButtonPreview.style.background = e.target.value; });
+
+                console.log('✅ Tous les événements sont attachés');
+            }).catch(error => {
+                console.error('Erreur lors de l\'initialisation:', error);
+                // Fallback: attacher les événements principaux quand même
+                if (btnPerform) {
+                    btnPerform.onclick = () => { 
+                        homePage.classList.add('hidden'); 
+                        lockPage.classList.add('visible'); 
+                    };
+                }
+                if (btnList) {
+                    btnList.onclick = () => { 
+                        if (modal) modal.classList.add('visible'); 
+                        if (modalOverlay) modalOverlay.classList.add('visible'); 
+                    };
+                }
+                if (btnSettings) {
+                    btnSettings.onclick = () => { 
+                        homePage.classList.add('hidden'); 
+                        settingsPage.classList.add('visible'); 
+                    };
+                }
+            });
         })();
     </script>
-    <!-- FIX POUR LES BOUTONS -->
-<script>
-    (function() {
-        // Attendre que la page soit prête
-        function fixButtons() {
-            console.log('🔧 Activation des boutons...');
-            
-            // Bouton PERFORMER
-            const performer = document.getElementById('btn-perform');
-            if (performer) {
-                performer.onclick = function() {
-                    document.getElementById('home-page').classList.add('hidden');
-                    document.getElementById('lock-page').classList.add('visible');
-                    document.getElementById('lock-page').style.visibility = 'visible';
-                    document.getElementById('lock-page').style.opacity = '1';
-                };
-            }
-            
-            // Bouton LISTE
-            const liste = document.getElementById('btn-list');
-            if (liste) {
-                liste.onclick = function() {
-                    document.getElementById('list-modal').classList.add('visible');
-                    document.getElementById('modal-overlay').classList.add('visible');
-                };
-            }
-            
-            // Bouton PARAMETRES
-            const parametres = document.getElementById('btn-settings');
-            if (parametres) {
-                parametres.onclick = function() {
-                    document.getElementById('home-page').classList.add('hidden');
-                    document.getElementById('settings-page').classList.add('visible');
-                    document.getElementById('settings-page').style.visibility = 'visible';
-                    document.getElementById('settings-page').style.opacity = '1';
-                };
-            }
-            
-            console.log('✅ Boutons activés avec succès');
-        }
-        
-        // Exécuter quand la page est chargée
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', fixButtons);
-        } else {
-            fixButtons();
-        }
-    })();
-</script>
 </body>
-  </html>
+</html>

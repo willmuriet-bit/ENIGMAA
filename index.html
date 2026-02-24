@@ -30,7 +30,6 @@
             color: white;
         }
 
-        /* ANIMATIONS D'OUVERTURE */
         @keyframes soulignement {
             0% { width: 0; opacity: 0; }
             50% { width: 100%; opacity: 1; }
@@ -47,8 +46,8 @@
             0% { opacity: 0; transform: translateY(30px); }
             100% { opacity: 1; transform: translateY(0); }
         }
-        .app-title {
-            font-family: 'Georgia', 'Times New Roman', serif;
+
+        .app-title {            font-family: 'Georgia', 'Times New Roman', serif;
             font-size: 68px;
             font-weight: bold;
             color: #FFD700;
@@ -96,8 +95,8 @@
             animation: apparitionBouton 0.5s ease-out forwards;
         }
 
-        #btn-perform { animation-delay: 0.2s; }        #btn-list { animation-delay: 0.4s; }
-        #btn-settings { animation-delay: 0.6s; }
+        #btn-perform { animation-delay: 0.2s; }
+        #btn-list { animation-delay: 0.4s; }        #btn-settings { animation-delay: 0.6s; }
 
         .home-btn::after {
             content: '';
@@ -128,7 +127,6 @@
             100% { transform: scale(20, 20) translate(-50%, -50%); opacity: 0; }
         }
 
-        /* PAGE D'ACCUEIL */
         #home-page {
             position: absolute;
             inset: 0;
@@ -145,10 +143,9 @@
         #home-page.hidden {
             transform: translateY(-100%);
         }
-        /* PAGE PARAMÈTRES */
+
         #settings-page {
-            position: absolute;
-            inset: 0;
+            position: absolute;            inset: 0;
             background: black;
             display: flex;
             flex-direction: column;
@@ -194,10 +191,10 @@
         }
 
         .preview-container {
-            width: 320px;            margin: 20px 0;
+            width: 320px;
+            margin: 20px 0;
             display: none;
-            flex-direction: column;
-            align-items: center;
+            flex-direction: column;            align-items: center;
         }
 
         .preview-container.visible {
@@ -243,17 +240,16 @@
             height: 50px;
             background: #666;
             color: white;
-            border: none;            border-radius: 10px;
+            border: none;
+            border-radius: 10px;
             font-size: 18px;
-            cursor: pointer;
-            margin-top: 30px;
+            cursor: pointer;            margin-top: 30px;
         }
 
         .back-btn:active {
             background: #888;
         }
 
-        /* PAGE DE PERSONNALISATION */
         #customize-page {
             position: absolute;
             inset: 0;
@@ -273,7 +269,6 @@
             opacity: 1;
         }
 
-        /* Effet de transparence quand on manipule un curseur ou bouton aperçu */
         #customize-page.dragging-slider {
             background: transparent !important;
             backdrop-filter: none !important;
@@ -285,22 +280,19 @@
         #customize-page.dragging-slider .customize-header,
         #customize-page.dragging-slider .customize-actions {
             opacity: 0 !important;
-            transition: opacity 0.1s ease;
             pointer-events: none;
         }
 
-        /* Les curseurs et leurs badges px restent visibles */
         #customize-page.dragging-slider input[type="range"] {
-            opacity: 1 !important;
-            position: relative;            z-index: 9999;
-            pointer-events: auto;
-        }
-
-        /* Les badges px restent visibles */
-        #customize-page.dragging-slider .value-badge {
             opacity: 1 !important;
             position: relative;
             z-index: 9999;
+            pointer-events: auto;
+        }
+
+        #customize-page.dragging-slider .value-badge {
+            opacity: 1 !important;
+            position: relative;            z-index: 9999;
             pointer-events: auto;
             cursor: pointer;
             background: #FFD700;
@@ -317,31 +309,12 @@
             opacity: 0 !important;
         }
 
-        /* Le badge px reste visible mais le texte "Position Y" disparaît */
-        #customize-page.dragging-slider .slider-item label span.value-badge {
-            opacity: 1 !important;
-        }
-
-        /* L'aperçu en arrière-plan devient pleinement visible */
-        #result-page.preview-mode.dragging-active {
-            opacity: 1 !important;
-            z-index: 30;
-        }
-
-        /* Animation plus douce */
-        .control-group,
-        .test-code-section,
-        .customize-header,
-        .customize-actions {
-            transition: opacity 0.2s ease, background 0.2s ease, backdrop-filter 0.2s ease;
-        }
-
-        /* Mode preview - l'écran de résultat est visible en arrière-plan */
         #result-page.preview-mode {
             visibility: visible !important;
             opacity: 1 !important;
             z-index: 35;
-            pointer-events: none;        }
+            pointer-events: none;
+        }
 
         #customize-page.preview-mode {
             background: rgba(0, 0, 0, 0.85);
@@ -353,8 +326,6 @@
             align-items: center;
             margin-bottom: 30px;
             padding-top: 20px;
-            position: relative;
-            z-index: 41;
         }
 
         .customize-back-btn {
@@ -366,31 +337,19 @@
             color: white;
             font-size: 24px;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             margin-right: 15px;
         }
 
-        .customize-back-btn:active {
-            background: #555;
-        }
-
         .customize-title {
-            font-size: 32px;
-            color: #FFD700;
+            font-size: 32px;            color: #FFD700;
             font-weight: bold;
-            letter-spacing: 2px;
         }
 
-        /* Section TESTER UN CODE */
         .test-code-section {
             background: #222;
             border-radius: 15px;
             padding: 20px;
             margin-bottom: 25px;
-            position: relative;
-            z-index: 41;            backdrop-filter: blur(5px);
             border: 1px solid #444;
             text-align: center;
         }
@@ -399,17 +358,6 @@
             color: #FFD700;
             font-size: 22px;
             margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .code-input-group {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 15px;
-            width: 100%;
         }
 
         #test-code-input {
@@ -420,10 +368,8 @@
             border-radius: 15px;
             color: white;
             font-size: 18px;
-            font-weight: bold;
             text-align: center;
             letter-spacing: 4px;
-            padding: 0 10px;
         }
 
         #test-code-input:focus {
@@ -431,29 +377,20 @@
             outline: none;
         }
 
-        #test-code-input::placeholder {
-            font-size: 16px;
-            letter-spacing: normal;
-        }
-
         .control-group {
             background: #222;
             border-radius: 15px;
-            padding: 20px;            margin-bottom: 25px;
-            position: relative;
-            z-index: 41;
-            backdrop-filter: blur(5px);
+            padding: 20px;
+            margin-bottom: 25px;
             border: 1px solid #444;
         }
 
         .control-header {
             display: flex;
-            align-items: center;
             justify-content: space-between;
             margin-bottom: 20px;
             border-bottom: 1px solid #444;
-            padding-bottom: 10px;
-        }
+            padding-bottom: 10px;        }
 
         .control-header h3 {
             color: #FFD700;
@@ -469,15 +406,6 @@
             padding: 5px 15px;
             font-size: 14px;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            transition: background 0.2s;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        .preview-btn:active {
-            background: #444;
         }
 
         .slider-item {
@@ -488,7 +416,7 @@
             display: flex;
             justify-content: space-between;
             margin-bottom: 8px;
-            color: #ddd;            font-size: 16px;
+            color: #ddd;
         }
 
         .slider-item input[type="range"] {
@@ -497,7 +425,6 @@
             background: #444;
             border-radius: 3px;
             -webkit-appearance: none;
-            pointer-events: none;
         }
 
         .slider-item input[type="range"]::-webkit-slider-thumb {
@@ -508,13 +435,11 @@
             border-radius: 50%;
             cursor: pointer;
             border: 2px solid white;
-            pointer-events: auto;
         }
 
         .color-item {
             margin-bottom: 20px;
         }
-
         .color-item label {
             display: block;
             margin-bottom: 8px;
@@ -527,7 +452,6 @@
             border: 2px solid #444;
             border-radius: 10px;
             background: #333;
-            cursor: pointer;
         }
 
         .value-badge {
@@ -537,11 +461,7 @@
             font-size: 14px;
             color: #FFD700;
             border: 1px solid #FFD700;
-            cursor: pointer;            transition: background 0.2s;
-        }
-
-        .value-badge:active {
-            background: #444;
+            cursor: pointer;
         }
 
         .customize-actions {
@@ -549,8 +469,6 @@
             gap: 15px;
             margin-top: 30px;
             margin-bottom: 30px;
-            position: relative;
-            z-index: 41;
         }
 
         .customize-save {
@@ -570,29 +488,23 @@
             height: 55px;
             background: #f44336;
             border: none;
-            border-radius: 15px;
-            color: white;
+            border-radius: 15px;            color: white;
             font-size: 18px;
             font-weight: 600;
             cursor: pointer;
         }
 
-        .customize-save:active, .customize-reset:active {
-            transform: scale(0.98);
-            opacity: 0.9;
-        }
-
-        /* PAGE DE LOCK */
         #lock-page {
             position: absolute;
             inset: 0;
-            z-index: 10;            visibility: hidden;
+            z-index: 10;
+            visibility: hidden;
             opacity: 0;
             transition: visibility 0.3s, opacity 0.3s;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            background: url('background.jpg') no-repeat center center/cover;
+            background: #1a1a1a;
         }
 
         #lock-page.visible {
@@ -604,8 +516,6 @@
             position: absolute;
             inset: 0;
             background: rgba(0, 0, 0, 0.3);
-            z-index: 1;
-            backdrop-filter: blur(3px);
         }
 
         .lock-content {
@@ -614,7 +524,6 @@
             text-align: center;
             margin-bottom: 5vh;
             padding: 0 16px;
-            transform: scale(0.9);
         }
 
         .pin-dots {
@@ -628,16 +537,13 @@
             width: 14px;
             height: 14px;
             border-radius: 50%;
-            background: white;
-            opacity: 0.35;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-            transition: opacity 0.2s, transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: white;            opacity: 0.35;
+            transition: opacity 0.2s, transform 0.2s;
         }
 
         .dot.active {
-            opacity: 1;            transform: scale(1.25);
-            background: #ffffff;
-            box-shadow: 0 0 12px rgba(255,255,255,0.6);
+            opacity: 1;
+            transform: scale(1.25);
         }
 
         .keypad {
@@ -658,12 +564,7 @@
             justify-content: center;
             background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2), inset 0 1px 2px rgba(255,255,255,0.3);
             cursor: pointer;
-            user-select: none;
-            transition: background 0.1s;
-            position: relative;
             border: 1px solid rgba(255,255,255,0.1);
             color: white;
         }
@@ -671,43 +572,21 @@
         .key-number {
             font-size: 28px;
             font-weight: 500;
-            line-height: 1;
         }
 
         .key-letters {
             font-size: 10px;
             color: rgba(255, 255, 255, 0.6);
             margin-top: 2px;
-            letter-spacing: 1px;
         }
 
         .key:active {
             background: rgba(255, 255, 255, 0.35);
             transform: scale(0.97);
         }
-        .key::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 50%;
-            border: 2px solid rgba(255, 255, 255, 0.9);
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .active::after, .active-text::after {
-            animation: circleWave 0.4s ease-out forwards;
-        }
-
-        @keyframes circleWave {
-            0% { opacity: 0.9; transform: scale(0.5); }
-            70% { opacity: 0.5; transform: scale(1.3); }
-            100% { opacity: 0; transform: scale(1.6); }
-        }
 
         .bottom-row {
-            display: grid;
-            grid-template-columns: repeat(3, 70px);
+            display: grid;            grid-template-columns: repeat(3, 70px);
             justify-content: center;
             gap: 25px;
             margin-top: 10px;
@@ -722,18 +601,13 @@
             justify-content: center;
             font-size: 28px;
             background: transparent;
-            backdrop-filter: none;
-            -webkit-backdrop-filter: none;
-            box-shadow: none;
             cursor: pointer;
-            user-select: none;
-            transition: opacity 0.1s, transform 0.1s;
-            position: relative;
             border: none;
             color: white;
         }
 
-        .delete-btn {            font-size: 34px;
+        .delete-btn {
+            font-size: 34px;
         }
 
         .ok {
@@ -747,33 +621,23 @@
         }
 
         .emergency {
-            position: relative;
-            z-index: 10;
             text-align: center;
             margin-bottom: 3vh;
             font-size: 18px;
-            font-weight: 500;
             opacity: 0.9;
             cursor: pointer;
-            user-select: none;
             padding: 12px 24px;
-            display: inline-block;
-            margin-left: auto;
-            margin-right: auto;
             border-radius: 40px;
             background: rgba(0,0,0,0.2);
-            backdrop-filter: blur(10px);
             border: 1px solid rgba(255,255,255,0.15);
-            transition: 0.2s;
             width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .emergency:active {
-            background: rgba(220, 60, 60, 0.5);
-            transform: scale(0.96);
+        .emergency:active {            background: rgba(220, 60, 60, 0.5);
         }
 
-        /* PAGE IMAGE (RÉSULTATS) */
         #result-page {
             position: absolute;
             inset: 0;
@@ -781,10 +645,10 @@
             visibility: hidden;
             opacity: 0;
             transition: visibility 0.3s, opacity 0.3s;
-            background: url('image.jpg') no-repeat center center/cover;
-            display: flex;            flex-direction: column;
+            background: #2a2a2a;
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
             cursor: pointer;
         }
 
@@ -793,26 +657,14 @@
             opacity: 1;
         }
 
-        .result-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.2);
-            z-index: 31;
-        }
-
         .words-container {
             position: absolute;
             top: 265px;
-            left: 0;
             width: 100%;
             z-index: 32;
             color: white;
             font-size: 18px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
             text-align: center;
-            box-sizing: border-box;
             transition: all 0.1s ease;
         }
 
@@ -825,25 +677,15 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 5px;
-            width: 100%;
+            padding: 0 20px;
         }
 
         .result-word {
-            background: transparent;
-            padding: 2px 0;
-            border-radius: 0;            backdrop-filter: none;
-            border: none;
-            font-size: inherit;
-            color: inherit;
-            white-space: nowrap;
             cursor: pointer;
-            display: inline-block;
         }
 
-        .letters-container {
-            position: absolute;
+        .letters-container {            position: absolute;
             top: 460px;
-            left: 0;
             width: 100%;
             text-align: center;
             color: white;
@@ -854,7 +696,6 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 40px;
-            transition: all 0.1s ease;
         }
 
         .letters-container.hidden {
@@ -863,10 +704,6 @@
 
         .letter-btn {
             cursor: pointer;
-            text-decoration: none;
-            color: inherit;
-            font-size: inherit;
-            display: inline-block;
             text-transform: uppercase;
         }
 
@@ -874,13 +711,6 @@
             text-decoration: underline;
         }
 
-        .separator {
-            color: inherit;
-            font-size: inherit;
-            display: inline-block;
-            width: 40px;
-            text-align: center;
-        }
         .index-display {
             position: absolute;
             top: 517px;
@@ -891,11 +721,8 @@
             font-weight: bold;
             z-index: 33;
             cursor: pointer;
-            user-select: none;
-            transition: all 0.1s ease;
         }
 
-        /* MODAL LISTE */
         #list-modal {
             position: absolute;
             top: 50%;
@@ -906,12 +733,9 @@
             border-radius: 30px;
             padding: 25px;
             z-index: 100;
-            display: none;
-            color: black;
+            display: none;            color: black;
             box-shadow: 0 20px 40px rgba(0,0,0,0.4);
             transition: top 0.3s ease-out, transform 0.3s ease-out;
-            max-height: 90vh;
-            overflow-y: auto;
         }
 
         #list-modal.visible { 
@@ -923,18 +747,15 @@
             transform: translate(-50%, 0);
         }
 
-        #search-container {
-            width: 100%;
-            margin-bottom: 15px;
-        }
-
         #search-input {
-            width: 100%;            padding: 18px;
+            width: 100%;
+            padding: 18px;
             border: 2px solid #ddd;
             border-radius: 15px;
             font-size: 18px;
             height: 60px;
             box-sizing: border-box;
+            margin-bottom: 15px;
         }
 
         .code-result-box {
@@ -961,8 +782,7 @@
         }
 
         #search-btn {
-            width: 100%;
-            padding: 18px;
+            width: 100%;            padding: 18px;
             background: #4CAF50;
             color: white;
             border: none;
@@ -970,8 +790,6 @@
             cursor: pointer;
             font-size: 20px;
             font-weight: 600;
-            margin-bottom: 0;
-            transition: background 0.3s, opacity 0.3s;
         }
 
         #search-btn.disabled {
@@ -979,6 +797,7 @@
             opacity: 0.6;
             pointer-events: none;
         }
+
         #modal-overlay {
             position: absolute;
             inset: 0;
@@ -987,7 +806,9 @@
             display: none;
         }
 
-        #modal-overlay.visible { display: block; }
+        #modal-overlay.visible { 
+            display: block; 
+        }
 
         .hidden-file-input {
             display: none;
@@ -995,11 +816,9 @@
     </style>
 </head>
 <body>
-    <!-- Inputs file cachés pour les images -->
     <input type="file" id="bg-file-input" class="hidden-file-input" accept="image/*">
     <input type="file" id="img-file-input" class="hidden-file-input" accept="image/*">
 
-    <!-- PAGE D'ACCUEIL -->
     <div id="home-page">
         <div class="app-title">ENIGMA</div>
         <button class="home-btn" id="btn-perform">PERFORMER</button>
@@ -1007,133 +826,100 @@
         <button class="home-btn" id="btn-settings">PARAMETRES</button>
     </div>
 
-    <!-- PAGE PARAMÈTRES -->
     <div id="settings-page">
         <div class="settings-title">PARAMÈTRES</div>
-        
         <button class="settings-btn" id="import-bg-btn">📷 Importer lock screen</button>
         <button class="settings-btn" id="import-img-btn">📷 Importer background</button>
-        <button class="settings-btn" id="customize-btn">🎨 Personnaliser l'affichage</button>
-        
-        <!-- Zone d'aperçu -->
-        <div class="preview-container" id="preview-container">
-            <img class="preview-image" id="preview-image" src="" alt="Aperçu">
+        <button class="settings-btn" id="customize-btn">🎨 Personnaliser</button>
+        <div class="preview-container" id="preview-container">            <img class="preview-image" id="preview-image" src="" alt="Aperçu">
             <div class="preview-buttons">
                 <button class="preview-confirm" id="preview-confirm">Confirmer</button>
                 <button class="preview-cancel" id="preview-cancel">Annuler</button>
             </div>
         </div>
-        
-        <button class="back-btn" id="settings-back">← Retour à l'accueil</button>
+        <button class="back-btn" id="settings-back">← Retour</button>
     </div>
 
-    <!-- PAGE DE PERSONNALISATION -->    <div id="customize-page">
+    <div id="customize-page">
         <div class="customize-header">
             <button class="customize-back-btn" id="customize-back">←</button>
             <span class="customize-title">PERSONNALISER</span>
         </div>
-
-        <!-- Section TESTER UN CODE -->
         <div class="test-code-section">
-            <div class="test-code-title">
-                <span>🎯 TESTER UN CODE</span>
-            </div>
-            
-            <div class="code-input-group">
-                <input type="tel" id="test-code-input" placeholder="Taper un code" maxlength="4" pattern="[0-9]{4}" inputmode="numeric">
-            </div>
+            <div class="test-code-title">🎯 TESTER UN CODE</div>
+            <input type="tel" id="test-code-input" placeholder="Code" maxlength="4">
         </div>
-
-        <!-- Contrôles pour la liste -->
         <div class="control-group">
             <div class="control-header">
                 <h3>📋 Liste</h3>
-                <button class="preview-btn" id="preview-list-btn">👁️ Aperçu</button>
+                <button class="preview-btn" id="preview-list-btn">👁️</button>
             </div>
-            
             <div class="slider-item">
-                <label>Position Y <span class="value-badge" id="words-y-value" data-default="265">265px</span></label>
-                <input type="range" id="words-y" min="0" max="800" value="265" step="1">
+                <label>Position Y <span class="value-badge" id="words-y-value">265px</span></label>
+                <input type="range" id="words-y" min="0" max="800" value="265">
             </div>
-
             <div class="slider-item">
-                <label>Taille police <span class="value-badge" id="words-size-value" data-default="18">18px</span></label>
-                <input type="range" id="words-size" min="10" max="40" value="18" step="1">
+                <label>Taille <span class="value-badge" id="words-size-value">18px</span></label>
+                <input type="range" id="words-size" min="10" max="40" value="18">
             </div>
-
             <div class="color-item">
                 <label>Couleur</label>
                 <input type="color" id="words-color" value="#ffffff">
             </div>
-
             <div class="slider-item">
-                <label>Espace entre les lignes <span class="value-badge" id="words-line-height-value" data-default="15">15px</span></label>
-                <input type="range" id="words-line-height" min="5" max="30" value="15" step="1">
+                <label>Espace lignes <span class="value-badge" id="words-line-height-value">15px</span></label>
+                <input type="range" id="words-line-height" min="5" max="30" value="15">
             </div>
         </div>
-
-        <!-- Contrôles pour les lettres -->
         <div class="control-group">
             <div class="control-header">
                 <h3>🔤 Lettres</h3>
-                <button class="preview-btn" id="preview-letters-btn">👁️ Aperçu</button>            </div>
-            
-            <div class="slider-item">
-                <label>Position Y <span class="value-badge" id="letters-y-value" data-default="460">460px</span></label>
-                <input type="range" id="letters-y" min="0" max="800" value="460" step="1">
+                <button class="preview-btn" id="preview-letters-btn">👁️</button>
             </div>
-
             <div class="slider-item">
-                <label>Taille police <span class="value-badge" id="letters-size-value" data-default="20">20px</span></label>
-                <input type="range" id="letters-size" min="10" max="40" value="20" step="1">
+                <label>Position Y <span class="value-badge" id="letters-y-value">460px</span></label>
+                <input type="range" id="letters-y" min="0" max="800" value="460">
             </div>
-
+            <div class="slider-item">                <label>Taille <span class="value-badge" id="letters-size-value">20px</span></label>
+                <input type="range" id="letters-size" min="10" max="40" value="20">
+            </div>
             <div class="color-item">
                 <label>Couleur</label>
                 <input type="color" id="letters-color" value="#ffffff">
             </div>
-
             <div class="slider-item">
-                <label>Espace entre les lettres <span class="value-badge" id="letters-spacing-value" data-default="40">40px</span></label>
-                <input type="range" id="letters-spacing" min="0" max="100" value="40" step="1">
+                <label>Espace lettres <span class="value-badge" id="letters-spacing-value">40px</span></label>
+                <input type="range" id="letters-spacing" min="0" max="100" value="40">
             </div>
         </div>
-
-        <!-- Contrôles pour l'indice -->
         <div class="control-group">
             <div class="control-header">
                 <h3>🔢 Indice</h3>
-                <button class="preview-btn" id="preview-index-btn">👁️ Aperçu</button>
+                <button class="preview-btn" id="preview-index-btn">👁️</button>
             </div>
-            
             <div class="slider-item">
-                <label>Position Y <span class="value-badge" id="index-y-value" data-default="517">517px</span></label>
-                <input type="range" id="index-y" min="0" max="800" value="517" step="1">
+                <label>Position Y <span class="value-badge" id="index-y-value">517px</span></label>
+                <input type="range" id="index-y" min="0" max="800" value="517">
             </div>
-
             <div class="slider-item">
-                <label>Taille police <span class="value-badge" id="index-size-value" data-default="30">30px</span></label>
-                <input type="range" id="index-size" min="10" max="60" value="30" step="1">
+                <label>Taille <span class="value-badge" id="index-size-value">30px</span></label>
+                <input type="range" id="index-size" min="10" max="60" value="30">
             </div>
-
             <div class="color-item">
                 <label>Couleur</label>
                 <input type="color" id="index-color" value="#1E6FF0">
             </div>
-
             <div class="slider-item">
-                <label>Décalage X <span class="value-badge" id="index-x-value" data-default="-45">-45px</span></label>
-                <input type="range" id="index-x" min="-500" max="500" value="-45" step="1">
+                <label>Décalage X <span class="value-badge" id="index-x-value">-45px</span></label>
+                <input type="range" id="index-x" min="-500" max="500" value="-45">
             </div>
         </div>
-        <!-- Boutons Sauvegarder et Réinitialiser -->
         <div class="customize-actions">
             <button class="customize-save" id="customize-save">💾 Sauvegarder</button>
-            <button class="customize-reset" id="customize-reset">↺ Réinitialiser</button>
+            <button class="customize-reset" id="customize-reset">↺ Reset</button>
         </div>
     </div>
 
-    <!-- PAGE DE LOCK -->
     <div id="lock-page">
         <div class="overlay"></div>
         <div class="lock-content">
@@ -1143,9 +929,7 @@
                 <div class="dot"></div>
                 <div class="dot"></div>
             </div>
-
-            <div class="keypad">
-                <div class="key"><span class="key-number">1</span></div>
+            <div class="keypad">                <div class="key"><span class="key-number">1</span></div>
                 <div class="key"><span class="key-number">2</span><span class="key-letters">ABC</span></div>
                 <div class="key"><span class="key-number">3</span><span class="key-letters">DEF</span></div>
                 <div class="key"><span class="key-number">4</span><span class="key-letters">GHI</span></div>
@@ -1155,7 +939,6 @@
                 <div class="key"><span class="key-number">8</span><span class="key-letters">TUV</span></div>
                 <div class="key"><span class="key-number">9</span><span class="key-letters">WXYZ</span></div>
             </div>
-
             <div class="bottom-row">
                 <div class="delete-btn" id="deleteBtn">⌫</div>
                 <div class="key"><span class="key-number">0</span></div>
@@ -1165,22 +948,16 @@
         <div class="emergency" id="emergencyBtn">📞 Appel d'urgence</div>
     </div>
 
-    <!-- PAGE IMAGE (RÉSULTATS) -->
     <div id="result-page">
-        <div class="result-overlay"></div>
         <div class="words-container" id="words-container"></div>
         <div class="letters-container" id="letters-container"></div>
         <div class="index-display" id="index-display"></div>
     </div>
 
-    <!-- MODAL LISTE -->
-    <div id="modal-overlay"></div>    <div id="list-modal">
-        <div id="search-container">
-            <input type="text" id="search-input" placeholder="Taper un mot">
-        </div>
-        
+    <div id="modal-overlay"></div>
+    <div id="list-modal">
+        <input type="text" id="search-input" placeholder="Taper un mot">
         <div class="code-result-box" id="codeResult"></div>
-        
         <button id="search-btn">Rechercher</button>
     </div>
 
@@ -1188,7 +965,6 @@
 (function() {
     console.log('=== ENIGMA Script démarré ===');
     
-    // ÉLÉMENTS
     const homePage = document.getElementById('home-page');
     const settingsPage = document.getElementById('settings-page');
     const customizePage = document.getElementById('customize-page');
@@ -1202,8 +978,7 @@
     const btnSettings = document.getElementById('btn-settings');
     const importBgBtn = document.getElementById('import-bg-btn');
     const importImgBtn = document.getElementById('import-img-btn');
-    const customizeBtn = document.getElementById('customize-btn');
-    const settingsBack = document.getElementById('settings-back');
+    const customizeBtn = document.getElementById('customize-btn');    const settingsBack = document.getElementById('settings-back');
     const customizeBack = document.getElementById('customize-back');
     const customizeSave = document.getElementById('customize-save');
     const customizeReset = document.getElementById('customize-reset');
@@ -1223,7 +998,8 @@
     const indexSize = document.getElementById('index-size');
     const indexColor = document.getElementById('index-color');
     const indexX = document.getElementById('index-x');
-    const wordsYValue = document.getElementById('words-y-value');    const wordsSizeValue = document.getElementById('words-size-value');
+    const wordsYValue = document.getElementById('words-y-value');
+    const wordsSizeValue = document.getElementById('words-size-value');
     const wordsLineHeightValue = document.getElementById('words-line-height-value');
     const lettersYValue = document.getElementById('letters-y-value');
     const lettersSizeValue = document.getElementById('letters-size-value');
@@ -1248,20 +1024,13 @@
     const okBtn = document.getElementById('okBtn');
     const emergencyBtn = document.getElementById('emergencyBtn');
 
-    console.log('Boutons trouvés:', {
-        perform: !!btnPerform,
-        list: !!btnList,
-        settings: !!btnSettings
-    });
+    console.log('Boutons:', { perform: !!btnPerform, list: !!btnList, settings: !!btnSettings });
 
-    // DONNÉES
     const wordsList = [
-        { code: "7131", word: "Abeille" },
-        { code: "7141", word: "Abricot" },
+        { code: "7131", word: "Abeille" },        { code: "7141", word: "Abricot" },
         { code: "9141", word: "Accordéon" },
         { code: "6131", word: "Agenda" },
         { code: "6141", word: "Agneau" },
-        { code: "9141", word: "Agrafeuse" },
         { code: "5121", word: "Aigle" },
         { code: "8121", word: "Aiguille" },
         { code: "3121", word: "Ail" },
@@ -1269,39 +1038,18 @@
     ];
 
     const defaultSettings = {
-        wordsY: 265,
-        wordsSize: 18,
-        wordsColor: '#ffffff',
-        wordsLineHeight: 15,        lettersY: 460,
-        lettersSize: 20,
-        lettersColor: '#ffffff',
-        lettersSpacing: 40,
-        indexY: 517,
-        indexSize: 30,
-        indexColor: '#1E6FF0',
-        indexX: -45
+        wordsY: 265, wordsSize: 18, wordsColor: '#ffffff', wordsLineHeight: 15,
+        lettersY: 460, lettersSize: 20, lettersColor: '#ffffff', lettersSpacing: 40,
+        indexY: 517, indexSize: 30, indexColor: '#1E6FF0', indexX: -45
     };
 
-    // ÉTAT
-    let pin = '';
-    let currentCode = '';
-    let originalWords = [];
-    let currentWords = [];
-    let letterLists = [];
-    let bestListIndex = -1;
-    let bestListLetters = [];
-    let selectedLetter = '';
-    let lastTap = 0;
-    let isPreviewMode = false;
-    let isSearchDisabled = false;
-    let keyboardVisible = false;
-    let resizeTimeout;
-    let blurTimeout;
-    let currentPreviewTarget = '';
-    let currentPreviewData = '';
+    let pin = '', currentCode = '', originalWords = [], currentWords = [];
+    let letterLists = [], bestListIndex = -1, bestListLetters = [];
+    let selectedLetter = '', lastTap = 0, isPreviewMode = false;
+    let isSearchDisabled = false, keyboardVisible = false;
+    let resizeTimeout, blurTimeout, currentPreviewTarget = '', currentPreviewData = '';
     let currentSettings = { ...defaultSettings };
 
-    // GESTION CLAVIER
     window.addEventListener('resize', function() {
         if (window.innerHeight < window.screen.height - 200) {
             keyboardVisible = true;
@@ -1321,6 +1069,7 @@
         keyboardVisible = true;
         modal.classList.add('keyboard-open');
     });
+
     searchInput.addEventListener('blur', () => {
         clearTimeout(blurTimeout);
         blurTimeout = setTimeout(() => {
@@ -1328,14 +1077,10 @@
             modal.classList.remove('keyboard-open');
         }, 300);
     });
-
-    // RECHERCHE
     function searchWord(word) {
         const normalized = word.trim().toLowerCase();
         for (let i = 0; i < wordsList.length; i++) {
-            if (wordsList[i].word.toLowerCase() === normalized) {
-                return wordsList[i];
-            }
+            if (wordsList[i].word.toLowerCase() === normalized) return wordsList[i];
         }
         return null;
     }
@@ -1352,7 +1097,6 @@
         isSearchDisabled = true;
     }
 
-    // PARAMÈTRES
     function loadCustomSettings() {
         try {
             const saved = localStorage.getItem('customSettings');
@@ -1362,15 +1106,14 @@
     }
 
     function saveCustomSettings(settings) {
-        try {
-            localStorage.setItem('customSettings', JSON.stringify(settings));
-        } catch(e) {}
+        try { localStorage.setItem('customSettings', JSON.stringify(settings)); } catch(e) {}
     }
 
     function applyCustomSettings(settings) {
         wordsContainer.style.top = settings.wordsY + 'px';
         wordsContainer.style.fontSize = settings.wordsSize + 'px';
-        wordsContainer.style.color = settings.wordsColor;        wordsContainer.style.lineHeight = settings.wordsLineHeight + 'px';
+        wordsContainer.style.color = settings.wordsColor;
+        wordsContainer.style.lineHeight = settings.wordsLineHeight + 'px';
         lettersContainer.style.top = settings.lettersY + 'px';
         lettersContainer.style.fontSize = settings.lettersSize + 'px';
         lettersContainer.style.color = settings.lettersColor;
@@ -1382,8 +1125,7 @@
         
         wordsYValue.textContent = settings.wordsY + 'px';
         wordsSizeValue.textContent = settings.wordsSize + 'px';
-        wordsLineHeightValue.textContent = settings.wordsLineHeight + 'px';
-        lettersYValue.textContent = settings.lettersY + 'px';
+        wordsLineHeightValue.textContent = settings.wordsLineHeight + 'px';        lettersYValue.textContent = settings.lettersY + 'px';
         lettersSizeValue.textContent = settings.lettersSize + 'px';
         lettersSpacingValue.textContent = settings.lettersSpacing + 'px';
         indexYValue.textContent = settings.indexY + 'px';
@@ -1419,7 +1161,8 @@
                 if (word.length > pos && !letterLists[pos].includes(word[pos])) {
                     letterLists[pos].push(word[pos]);
                 }
-            }            letterLists[pos].sort();
+            }
+            letterLists[pos].sort();
         }
         
         bestListIndex = -1;
@@ -1431,8 +1174,7 @@
             }
         }
         bestListLetters = bestListIndex !== -1 ? letterLists[bestListIndex] : [];
-        
-        indexDisplay.textContent = bestListIndex !== -1 ? (bestListIndex + 1).toString() : '';
+                indexDisplay.textContent = bestListIndex !== -1 ? (bestListIndex + 1).toString() : '';
         displayWords(currentWords);
         displayLetterButtons(bestListIndex, bestListLetters);
         wordsContainer.classList.remove('hidden');
@@ -1456,9 +1198,7 @@
                 window.open('https://www.google.com/search?tbm=isch&q=' + encodeURIComponent(word), '_blank');
             });
             line.appendChild(span);
-            if (i < words.length - 1) {
-                line.appendChild(document.createTextNode(' '));
-            }
+            if (i < words.length - 1) line.appendChild(document.createTextNode(' '));
         });
         wordsContainer.appendChild(line);
     }
@@ -1468,7 +1208,8 @@
         if (letters.length === 0) return;
         letters.forEach((letter, i) => {
             const span = document.createElement('span');
-            span.className = 'letter-btn' + (selectedLetter === letter ? ' selected' : '');            span.textContent = letter.toUpperCase();
+            span.className = 'letter-btn' + (selectedLetter === letter ? ' selected' : '');
+            span.textContent = letter.toUpperCase();
             span.addEventListener('click', (e) => {
                 e.stopPropagation();
                 if (selectedLetter === letter) {
@@ -1482,8 +1223,7 @@
                 if (selectedLetter) span.classList.add('selected');
                 displayWords(currentWords);
             });
-            lettersContainer.appendChild(span);
-            if (i < letters.length - 1) {
+            lettersContainer.appendChild(span);            if (i < letters.length - 1) {
                 const spacer = document.createElement('span');
                 spacer.innerHTML = '    ';
                 lettersContainer.appendChild(spacer);
@@ -1491,7 +1231,6 @@
         });
     }
 
-    // CURSEURS - EFFET TRANSPARENCE
     function startDragging() {
         customizePage.classList.add('dragging-slider');
         resultPage.classList.add('dragging-active');
@@ -1517,44 +1256,23 @@
             btn.addEventListener('touchcancel', stopDragging);
         }
     });
-    // RÉINITIALISATION PAR BADGE
+
     function resetToDefault(setting, defaultValue) {
         return function() {
             currentSettings[setting] = defaultValue;
-            
-            if (setting === 'wordsY') {
-                wordsContainer.style.top = defaultValue + 'px';
-                wordsYValue.textContent = defaultValue + 'px';
-            } else if (setting === 'wordsSize') {
-                wordsContainer.style.fontSize = defaultValue + 'px';
-                wordsSizeValue.textContent = defaultValue + 'px';
-            } else if (setting === 'wordsLineHeight') {
-                wordsContainer.style.lineHeight = defaultValue + 'px';
-                wordsLineHeightValue.textContent = defaultValue + 'px';
-            } else if (setting === 'lettersY') {
-                lettersContainer.style.top = defaultValue + 'px';
-                lettersYValue.textContent = defaultValue + 'px';
-            } else if (setting === 'lettersSize') {
-                lettersContainer.style.fontSize = defaultValue + 'px';
-                lettersSizeValue.textContent = defaultValue + 'px';
-            } else if (setting === 'lettersSpacing') {
-                lettersContainer.style.gap = defaultValue + 'px';
-                lettersSpacingValue.textContent = defaultValue + 'px';
-            } else if (setting === 'indexY') {
-                indexDisplay.style.top = defaultValue + 'px';
-                indexYValue.textContent = defaultValue + 'px';
-            } else if (setting === 'indexSize') {
-                indexDisplay.style.fontSize = defaultValue + 'px';
-                indexSizeValue.textContent = defaultValue + 'px';
-            } else if (setting === 'indexX') {
-                indexDisplay.style.transform = `translateX(calc(-50% + ${defaultValue}px))`;
-                indexXValue.textContent = defaultValue + 'px';
-            }
+            if (setting === 'wordsY') { wordsContainer.style.top = defaultValue + 'px'; wordsYValue.textContent = defaultValue + 'px'; }
+            else if (setting === 'wordsSize') { wordsContainer.style.fontSize = defaultValue + 'px'; wordsSizeValue.textContent = defaultValue + 'px'; }
+            else if (setting === 'wordsLineHeight') { wordsContainer.style.lineHeight = defaultValue + 'px'; wordsLineHeightValue.textContent = defaultValue + 'px'; }
+            else if (setting === 'lettersY') { lettersContainer.style.top = defaultValue + 'px'; lettersYValue.textContent = defaultValue + 'px'; }
+            else if (setting === 'lettersSize') { lettersContainer.style.fontSize = defaultValue + 'px'; lettersSizeValue.textContent = defaultValue + 'px'; }
+            else if (setting === 'lettersSpacing') { lettersContainer.style.gap = defaultValue + 'px'; lettersSpacingValue.textContent = defaultValue + 'px'; }
+            else if (setting === 'indexY') { indexDisplay.style.top = defaultValue + 'px'; indexYValue.textContent = defaultValue + 'px'; }
+            else if (setting === 'indexSize') { indexDisplay.style.fontSize = defaultValue + 'px'; indexSizeValue.textContent = defaultValue + 'px'; }
+            else if (setting === 'indexX') { indexDisplay.style.transform = `translateX(calc(-50% + ${defaultValue}px))`; indexXValue.textContent = defaultValue + 'px'; }
         };
     }
 
-    wordsYValue.addEventListener('click', resetToDefault('wordsY', defaultSettings.wordsY));
-    wordsSizeValue.addEventListener('click', resetToDefault('wordsSize', defaultSettings.wordsSize));
+    wordsYValue.addEventListener('click', resetToDefault('wordsY', defaultSettings.wordsY));    wordsSizeValue.addEventListener('click', resetToDefault('wordsSize', defaultSettings.wordsSize));
     wordsLineHeightValue.addEventListener('click', resetToDefault('wordsLineHeight', defaultSettings.wordsLineHeight));
     lettersYValue.addEventListener('click', resetToDefault('lettersY', defaultSettings.lettersY));
     lettersSizeValue.addEventListener('click', resetToDefault('lettersSize', defaultSettings.lettersSize));
@@ -1563,88 +1281,25 @@
     indexSizeValue.addEventListener('click', resetToDefault('indexSize', defaultSettings.indexSize));
     indexXValue.addEventListener('click', resetToDefault('indexX', defaultSettings.indexX));
 
-    // ÉVÉNEMENTS CURSEURS
-    wordsY.addEventListener('input', (e) => {
-        currentSettings.wordsY = parseInt(e.target.value);
-        wordsYValue.textContent = currentSettings.wordsY + 'px';        wordsContainer.style.top = currentSettings.wordsY + 'px';
-    });
+    wordsY.addEventListener('input', (e) => { currentSettings.wordsY = parseInt(e.target.value); wordsYValue.textContent = currentSettings.wordsY + 'px'; wordsContainer.style.top = currentSettings.wordsY + 'px'; });
+    wordsSize.addEventListener('input', (e) => { currentSettings.wordsSize = parseInt(e.target.value); wordsSizeValue.textContent = currentSettings.wordsSize + 'px'; wordsContainer.style.fontSize = currentSettings.wordsSize + 'px'; });
+    wordsColor.addEventListener('input', (e) => { currentSettings.wordsColor = e.target.value; wordsContainer.style.color = currentSettings.wordsColor; });
+    wordsLineHeight.addEventListener('input', (e) => { currentSettings.wordsLineHeight = parseInt(e.target.value); wordsLineHeightValue.textContent = currentSettings.wordsLineHeight + 'px'; wordsContainer.style.lineHeight = currentSettings.wordsLineHeight + 'px'; });
+    lettersY.addEventListener('input', (e) => { currentSettings.lettersY = parseInt(e.target.value); lettersYValue.textContent = currentSettings.lettersY + 'px'; lettersContainer.style.top = currentSettings.lettersY + 'px'; });
+    lettersSize.addEventListener('input', (e) => { currentSettings.lettersSize = parseInt(e.target.value); lettersSizeValue.textContent = currentSettings.lettersSize + 'px'; lettersContainer.style.fontSize = currentSettings.lettersSize + 'px'; });
+    lettersColor.addEventListener('input', (e) => { currentSettings.lettersColor = e.target.value; lettersContainer.style.color = currentSettings.lettersColor; });
+    lettersSpacing.addEventListener('input', (e) => { currentSettings.lettersSpacing = parseInt(e.target.value); lettersSpacingValue.textContent = currentSettings.lettersSpacing + 'px'; lettersContainer.style.gap = currentSettings.lettersSpacing + 'px'; });
+    indexY.addEventListener('input', (e) => { currentSettings.indexY = parseInt(e.target.value); indexYValue.textContent = currentSettings.indexY + 'px'; indexDisplay.style.top = currentSettings.indexY + 'px'; });
+    indexSize.addEventListener('input', (e) => { currentSettings.indexSize = parseInt(e.target.value); indexSizeValue.textContent = currentSettings.indexSize + 'px'; indexDisplay.style.fontSize = currentSettings.indexSize + 'px'; });
+    indexColor.addEventListener('input', (e) => { currentSettings.indexColor = e.target.value; indexDisplay.style.color = currentSettings.indexColor; });
+    indexX.addEventListener('input', (e) => { currentSettings.indexX = parseInt(e.target.value); indexXValue.textContent = currentSettings.indexX + 'px'; indexDisplay.style.transform = `translateX(calc(-50% + ${currentSettings.indexX}px))`; });
 
-    wordsSize.addEventListener('input', (e) => {
-        currentSettings.wordsSize = parseInt(e.target.value);
-        wordsSizeValue.textContent = currentSettings.wordsSize + 'px';
-        wordsContainer.style.fontSize = currentSettings.wordsSize + 'px';
-    });
-
-    wordsColor.addEventListener('input', (e) => {
-        currentSettings.wordsColor = e.target.value;
-        wordsContainer.style.color = currentSettings.wordsColor;
-    });
-
-    wordsLineHeight.addEventListener('input', (e) => {
-        currentSettings.wordsLineHeight = parseInt(e.target.value);
-        wordsLineHeightValue.textContent = currentSettings.wordsLineHeight + 'px';
-        wordsContainer.style.lineHeight = currentSettings.wordsLineHeight + 'px';
-    });
-
-    lettersY.addEventListener('input', (e) => {
-        currentSettings.lettersY = parseInt(e.target.value);
-        lettersYValue.textContent = currentSettings.lettersY + 'px';
-        lettersContainer.style.top = currentSettings.lettersY + 'px';
-    });
-
-    lettersSize.addEventListener('input', (e) => {
-        currentSettings.lettersSize = parseInt(e.target.value);
-        lettersSizeValue.textContent = currentSettings.lettersSize + 'px';
-        lettersContainer.style.fontSize = currentSettings.lettersSize + 'px';
-    });
-
-    lettersColor.addEventListener('input', (e) => {
-        currentSettings.lettersColor = e.target.value;
-        lettersContainer.style.color = currentSettings.lettersColor;
-    });
-
-    lettersSpacing.addEventListener('input', (e) => {
-        currentSettings.lettersSpacing = parseInt(e.target.value);
-        lettersSpacingValue.textContent = currentSettings.lettersSpacing + 'px';
-        lettersContainer.style.gap = currentSettings.lettersSpacing + 'px';
-    });
-
-    indexY.addEventListener('input', (e) => {
-        currentSettings.indexY = parseInt(e.target.value);
-        indexYValue.textContent = currentSettings.indexY + 'px';
-        indexDisplay.style.top = currentSettings.indexY + 'px';
-    });
-
-    indexSize.addEventListener('input', (e) => {        currentSettings.indexSize = parseInt(e.target.value);
-        indexSizeValue.textContent = currentSettings.indexSize + 'px';
-        indexDisplay.style.fontSize = currentSettings.indexSize + 'px';
-    });
-
-    indexColor.addEventListener('input', (e) => {
-        currentSettings.indexColor = e.target.value;
-        indexDisplay.style.color = currentSettings.indexColor;
-    });
-
-    indexX.addEventListener('input', (e) => {
-        currentSettings.indexX = parseInt(e.target.value);
-        indexXValue.textContent = currentSettings.indexX + 'px';
-        indexDisplay.style.transform = `translateX(calc(-50% + ${currentSettings.indexX}px))`;
-    });
-
-    // TEST CODE
     testCodeInput.addEventListener('input', (e) => {
         const code = e.target.value.trim();
-        if (code.length === 4 && /^\d+$/.test(code)) {
-            updatePreviewWithCode(code);
-        }
+        if (code.length === 4 && /^\d+$/.test(code)) updatePreviewWithCode(code);
     });
 
-    // MODAL LISTE
-    searchInput.addEventListener('input', () => {
-        enableSearchButton();
-        codeResult.textContent = '';
-        codeResult.classList.remove('error');
-    });
+    searchInput.addEventListener('input', () => { enableSearchButton(); codeResult.textContent = ''; codeResult.classList.remove('error'); });
 
     searchBtn.addEventListener('click', () => {
         if (isSearchDisabled) return;
@@ -1662,32 +1317,28 @@
         }
     });
 
-    searchInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter' && !isSearchDisabled) searchBtn.click();
-    });
-    // BOUTONS ACCUEIL
+    searchInput.addEventListener('keypress', (e) => { if (e.key === 'Enter' && !isSearchDisabled) searchBtn.click(); });
+
     btnPerform.addEventListener('click', function() {
-        console.log('PERFORMER cliqué');
-        homePage.classList.add('hidden');
-        lockPage.classList.add('visible');
+        console.log('PERFORMER');
+        homePage.classList.add('hidden');        lockPage.classList.add('visible');
         pin = '';
         updateDots();
     });
 
     btnList.addEventListener('click', function() {
-        console.log('LISTE cliqué');
+        console.log('LISTE');
         resetModalToNormal();
         modal.classList.add('visible');
         modalOverlay.classList.add('visible');
     });
 
     btnSettings.addEventListener('click', function() {
-        console.log('PARAMETRES cliqué');
+        console.log('PARAMETRES');
         homePage.classList.add('hidden');
         settingsPage.classList.add('visible');
     });
 
-    // BOUTONS PERSONNALISATION
     customizeBtn.addEventListener('click', () => {
         settingsPage.classList.remove('visible');
         isPreviewMode = true;
@@ -1714,11 +1365,11 @@
         settingsPage.classList.add('visible');
         isPreviewMode = false;
     });
+
     customizeReset.addEventListener('click', () => {
         currentSettings = { ...defaultSettings };
         applyCustomSettings(currentSettings);
     });
-
     settingsBack.addEventListener('click', () => {
         settingsPage.classList.remove('visible');
         homePage.classList.remove('hidden');
@@ -1734,11 +1385,8 @@
         resetModalToNormal();
     });
 
-    // LOCK SCREEN
     function updateDots() {
-        dots.forEach((dot, i) => {
-            dot.classList.toggle('active', i < pin.length);
-        });
+        dots.forEach((dot, i) => { dot.classList.toggle('active', i < pin.length); });
     }
 
     function resetModalToNormal() {
@@ -1756,13 +1404,8 @@
         setTimeout(() => element.classList.remove('active'), 350);
     }
 
-    function animateText(element) {
-        if (!element) return;
-        element.classList.add('active-text');
-        setTimeout(() => element.classList.remove('active-text'), 350);
-    }
-
-    keys.forEach(key => {        key.addEventListener('click', function() {
+    keys.forEach(key => {
+        key.addEventListener('click', function() {
             animateKey(this);
             if (pin.length < 4) {
                 const numberSpan = this.querySelector('.key-number');
@@ -1772,18 +1415,21 @@
         });
     });
 
-    deleteBtn.addEventListener('click', (e) => {
+    // CORRECTION DELETE BTN
+    deleteBtn.addEventListener('click', function(e) {
         e.stopPropagation();
-        animateText(this);
-        if (pin.length > 0) {
+        if (deleteBtn.classList) deleteBtn.classList.add('active-text');
+        setTimeout(() => { if (deleteBtn.classList) deleteBtn.classList.remove('active-text'); }, 350);        if (pin.length > 0) {
             pin = pin.slice(0, -1);
             updateDots();
         }
     });
 
-    okBtn.addEventListener('click', (e) => {
+    // CORRECTION OK BTN
+    okBtn.addEventListener('click', function(e) {
         e.stopPropagation();
-        animateText(this);
+        if (okBtn.classList) okBtn.classList.add('active-text');
+        setTimeout(() => { if (okBtn.classList) okBtn.classList.remove('active-text'); }, 350);
         if (pin.length === 4) {
             currentCode = pin;
             updatePreviewWithCode(pin);
@@ -1794,6 +1440,17 @@
         }
     });
 
+    // CORRECTION EMERGENCY BTN
+    emergencyBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (emergencyBtn.classList) emergencyBtn.classList.add('active-text');
+        setTimeout(() => { if (emergencyBtn.classList) emergencyBtn.classList.remove('active-text'); }, 350);
+        lockPage.classList.remove('visible');
+        homePage.classList.remove('hidden');
+        pin = '';
+        updateDots();
+    });
+
     indexDisplay.addEventListener('click', (e) => {
         e.stopPropagation();
         wordsContainer.classList.toggle('hidden');
@@ -1801,30 +1458,17 @@
     });
 
     resultPage.addEventListener('click', (e) => {
-        if (e.target.classList.contains('result-word') || 
-            e.target.classList.contains('letter-btn') ||
-            e.target === indexDisplay) return;
-        
+        if (e.target.classList.contains('result-word') || e.target.classList.contains('letter-btn') || e.target === indexDisplay) return;
         const now = Date.now();
         if (now - lastTap < 300 && now - lastTap > 0) {
             resultPage.classList.remove('visible');
             lockPage.classList.add('visible');
             selectedLetter = '';
         }
-        lastTap = now;    });
-
-    emergencyBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        animateText(this);
-        lockPage.classList.remove('visible');
-        homePage.classList.remove('hidden');
-        pin = '';
-        updateDots();
+        lastTap = now;
     });
 
-    // IMPORT IMAGES
-    function setupImageImport(input, target, storageKey) {
-        input.addEventListener('change', (e) => {
+    function setupImageImport(input, target, storageKey) {        input.addEventListener('change', (e) => {
             const file = e.target.files[0];
             if (file) {
                 const reader = new FileReader();
@@ -1860,7 +1504,8 @@
             resultPage.style.backgroundImage = 'url(' + currentPreviewData + ')';
             try { localStorage.setItem('resultImage', currentPreviewData); } catch(e) {}
         }
-        previewContainer.classList.remove('visible');        currentPreviewData = '';
+        previewContainer.classList.remove('visible');
+        currentPreviewData = '';
     });
 
     previewCancel.addEventListener('click', () => {
@@ -1868,13 +1513,11 @@
         currentPreviewData = '';
     });
 
-    // INIT
-    console.log('Initialisation...');
     currentSettings = loadCustomSettings();
     applyCustomSettings(currentSettings);
     updateDots();
     resetModalToNormal();
-    console.log('=== ENIGMA Prêt ===');
+        console.log('=== ENIGMA Prêt ===');
 })();
     </script>
 </body>

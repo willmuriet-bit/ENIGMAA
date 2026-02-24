@@ -47,7 +47,6 @@
             0% { opacity: 0; transform: translateY(30px); }
             100% { opacity: 1; transform: translateY(0); }
         }
-
         .app-title {
             font-family: 'Georgia', 'Times New Roman', serif;
             font-size: 68px;
@@ -97,8 +96,7 @@
             animation: apparitionBouton 0.5s ease-out forwards;
         }
 
-        #btn-perform { animation-delay: 0.2s; }
-        #btn-list { animation-delay: 0.4s; }
+        #btn-perform { animation-delay: 0.2s; }        #btn-list { animation-delay: 0.4s; }
         #btn-settings { animation-delay: 0.6s; }
 
         .home-btn::after {
@@ -147,7 +145,6 @@
         #home-page.hidden {
             transform: translateY(-100%);
         }
-
         /* PAGE PARAMÈTRES */
         #settings-page {
             position: absolute;
@@ -197,8 +194,7 @@
         }
 
         .preview-container {
-            width: 320px;
-            margin: 20px 0;
+            width: 320px;            margin: 20px 0;
             display: none;
             flex-direction: column;
             align-items: center;
@@ -247,8 +243,7 @@
             height: 50px;
             background: #666;
             color: white;
-            border: none;
-            border-radius: 10px;
+            border: none;            border-radius: 10px;
             font-size: 18px;
             cursor: pointer;
             margin-top: 30px;
@@ -297,8 +292,7 @@
         /* Les curseurs et leurs badges px restent visibles */
         #customize-page.dragging-slider input[type="range"] {
             opacity: 1 !important;
-            position: relative;
-            z-index: 9999;
+            position: relative;            z-index: 9999;
             pointer-events: auto;
         }
 
@@ -347,8 +341,7 @@
             visibility: visible !important;
             opacity: 1 !important;
             z-index: 35;
-            pointer-events: none;
-        }
+            pointer-events: none;        }
 
         #customize-page.preview-mode {
             background: rgba(0, 0, 0, 0.85);
@@ -397,8 +390,7 @@
             padding: 20px;
             margin-bottom: 25px;
             position: relative;
-            z-index: 41;
-            backdrop-filter: blur(5px);
+            z-index: 41;            backdrop-filter: blur(5px);
             border: 1px solid #444;
             text-align: center;
         }
@@ -447,8 +439,7 @@
         .control-group {
             background: #222;
             border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 25px;
+            padding: 20px;            margin-bottom: 25px;
             position: relative;
             z-index: 41;
             backdrop-filter: blur(5px);
@@ -497,8 +488,7 @@
             display: flex;
             justify-content: space-between;
             margin-bottom: 8px;
-            color: #ddd;
-            font-size: 16px;
+            color: #ddd;            font-size: 16px;
         }
 
         .slider-item input[type="range"] {
@@ -547,8 +537,7 @@
             font-size: 14px;
             color: #FFD700;
             border: 1px solid #FFD700;
-            cursor: pointer;
-            transition: background 0.2s;
+            cursor: pointer;            transition: background 0.2s;
         }
 
         .value-badge:active {
@@ -597,8 +586,7 @@
         #lock-page {
             position: absolute;
             inset: 0;
-            z-index: 10;
-            visibility: hidden;
+            z-index: 10;            visibility: hidden;
             opacity: 0;
             transition: visibility 0.3s, opacity 0.3s;
             display: flex;
@@ -647,8 +635,7 @@
         }
 
         .dot.active {
-            opacity: 1;
-            transform: scale(1.25);
+            opacity: 1;            transform: scale(1.25);
             background: #ffffff;
             box-shadow: 0 0 12px rgba(255,255,255,0.6);
         }
@@ -661,14 +648,14 @@
             margin-bottom: 15px;
         }
 
-        .key, .delete-btn, .ok {
+        .key {
             width: 70px;
             height: 70px;
             border-radius: 50%;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
             background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
@@ -681,22 +668,24 @@
             color: white;
         }
 
-        .key:active, .delete-btn:active, .ok:active {
+        .key-number {
+            font-size: 28px;
+            font-weight: 500;
+            line-height: 1;
+        }
+
+        .key-letters {
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 2px;
+            letter-spacing: 1px;
+        }
+
+        .key:active {
             background: rgba(255, 255, 255, 0.35);
             transform: scale(0.97);
         }
-
-        .delete-btn {
-            font-size: 34px;
-        }
-
-        .ok {
-            font-size: 20px;
-            background: rgba(50, 130, 216, 0.5);
-            border: none;
-        }
-
-        .key::after, .delete-btn::after, .ok::after {
+        .key::after {
             content: '';
             position: absolute;
             inset: 0;
@@ -722,6 +711,39 @@
             justify-content: center;
             gap: 25px;
             margin-top: 10px;
+        }
+
+        .delete-btn, .ok {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            background: transparent;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            box-shadow: none;
+            cursor: pointer;
+            user-select: none;
+            transition: opacity 0.1s, transform 0.1s;
+            position: relative;
+            border: none;
+            color: white;
+        }
+
+        .delete-btn {            font-size: 34px;
+        }
+
+        .ok {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .delete-btn:active, .ok:active {
+            opacity: 0.7;
+            transform: scale(0.95);
         }
 
         .emergency {
@@ -760,8 +782,7 @@
             opacity: 0;
             transition: visibility 0.3s, opacity 0.3s;
             background: url('image.jpg') no-repeat center center/cover;
-            display: flex;
-            flex-direction: column;
+            display: flex;            flex-direction: column;
             align-items: center;
             justify-content: flex-start;
             cursor: pointer;
@@ -810,8 +831,7 @@
         .result-word {
             background: transparent;
             padding: 2px 0;
-            border-radius: 0;
-            backdrop-filter: none;
+            border-radius: 0;            backdrop-filter: none;
             border: none;
             font-size: inherit;
             color: inherit;
@@ -861,7 +881,6 @@
             width: 40px;
             text-align: center;
         }
-
         .index-display {
             position: absolute;
             top: 517px;
@@ -890,7 +909,7 @@
             display: none;
             color: black;
             box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            transition: top 0.2s ease-out, transform 0.2s ease-out;
+            transition: top 0.3s ease-out, transform 0.3s ease-out;
             max-height: 90vh;
             overflow-y: auto;
         }
@@ -910,8 +929,7 @@
         }
 
         #search-input {
-            width: 100%;
-            padding: 18px;
+            width: 100%;            padding: 18px;
             border: 2px solid #ddd;
             border-radius: 15px;
             font-size: 18px;
@@ -961,7 +979,6 @@
             opacity: 0.6;
             pointer-events: none;
         }
-
         #modal-overlay {
             position: absolute;
             inset: 0;
@@ -1010,8 +1027,7 @@
         <button class="back-btn" id="settings-back">← Retour à l'accueil</button>
     </div>
 
-    <!-- PAGE DE PERSONNALISATION -->
-    <div id="customize-page">
+    <!-- PAGE DE PERSONNALISATION -->    <div id="customize-page">
         <div class="customize-header">
             <button class="customize-back-btn" id="customize-back">←</button>
             <span class="customize-title">PERSONNALISER</span>
@@ -1060,8 +1076,7 @@
         <div class="control-group">
             <div class="control-header">
                 <h3>🔤 Lettres</h3>
-                <button class="preview-btn" id="preview-letters-btn">👁️ Aperçu</button>
-            </div>
+                <button class="preview-btn" id="preview-letters-btn">👁️ Aperçu</button>            </div>
             
             <div class="slider-item">
                 <label>Position Y <span class="value-badge" id="letters-y-value" data-default="460">460px</span></label>
@@ -1111,7 +1126,6 @@
                 <input type="range" id="index-x" min="-500" max="500" value="-45" step="1">
             </div>
         </div>
-
         <!-- Boutons Sauvegarder et Réinitialiser -->
         <div class="customize-actions">
             <button class="customize-save" id="customize-save">💾 Sauvegarder</button>
@@ -1131,20 +1145,20 @@
             </div>
 
             <div class="keypad">
-                <div class="key">1</div>
-                <div class="key">2</div>
-                <div class="key">3</div>
-                <div class="key">4</div>
-                <div class="key">5</div>
-                <div class="key">6</div>
-                <div class="key">7</div>
-                <div class="key">8</div>
-                <div class="key">9</div>
+                <div class="key"><span class="key-number">1</span></div>
+                <div class="key"><span class="key-number">2</span><span class="key-letters">ABC</span></div>
+                <div class="key"><span class="key-number">3</span><span class="key-letters">DEF</span></div>
+                <div class="key"><span class="key-number">4</span><span class="key-letters">GHI</span></div>
+                <div class="key"><span class="key-number">5</span><span class="key-letters">JKL</span></div>
+                <div class="key"><span class="key-number">6</span><span class="key-letters">MNO</span></div>
+                <div class="key"><span class="key-number">7</span><span class="key-letters">PQRS</span></div>
+                <div class="key"><span class="key-number">8</span><span class="key-letters">TUV</span></div>
+                <div class="key"><span class="key-number">9</span><span class="key-letters">WXYZ</span></div>
             </div>
 
             <div class="bottom-row">
                 <div class="delete-btn" id="deleteBtn">⌫</div>
-                <div class="key">0</div>
+                <div class="key"><span class="key-number">0</span></div>
                 <div class="ok" id="okBtn">OK</div>
             </div>
         </div>
@@ -1160,8 +1174,7 @@
     </div>
 
     <!-- MODAL LISTE -->
-    <div id="modal-overlay"></div>
-    <div id="list-modal">
+    <div id="modal-overlay"></div>    <div id="list-modal">
         <div id="search-container">
             <input type="text" id="search-input" placeholder="Taper un mot">
         </div>
@@ -1210,8 +1223,7 @@
             // Inputs personnalisation
             const wordsY = document.getElementById('words-y');
             const wordsSize = document.getElementById('words-size');
-            const wordsColor = document.getElementById('words-color');
-            const wordsLineHeight = document.getElementById('words-line-height');
+            const wordsColor = document.getElementById('words-color');            const wordsLineHeight = document.getElementById('words-line-height');
             const lettersY = document.getElementById('letters-y');
             const lettersSize = document.getElementById('letters-size');
             const lettersColor = document.getElementById('letters-color');
@@ -1260,8 +1272,7 @@
             const wordsList = [
                 { code: "7131", word: "Abeille" },
                 { code: "7141", word: "Abricot" },
-                { code: "9141", word: "Accordéon" },
-                { code: "6131", word: "Agenda" },
+                { code: "9141", word: "Accordéon" },                { code: "6131", word: "Agenda" },
                 { code: "6141", word: "Agneau" },
                 { code: "9141", word: "Agrafeuse" },
                 { code: "5121", word: "Aigle" },
@@ -1300,6 +1311,9 @@
             let isPreviewMode = false;
             let lastSearchWord = '';
             let isSearchDisabled = false;
+            let keyboardVisible = false;
+            let resizeTimeout;
+            let blurTimeout;
             
             // Variables pour l'import d'images
             let currentPreviewTarget = '';
@@ -1307,8 +1321,7 @@
 
             // ===== GESTION DU BOUTON RETOUR =====
             window.addEventListener('popstate', function(event) {
-                // Vérifier quelle page est visible et faire le retour approprié
-                if (customizePage.classList.contains('visible')) {
+                // Vérifier quelle page est visible et faire le retour approprié                if (customizePage.classList.contains('visible')) {
                     // Si on est dans personnalisation, retour vers paramètres
                     customizePage.classList.remove('visible', 'preview-mode');
                     resultPage.classList.remove('preview-mode');
@@ -1329,6 +1342,8 @@
                     // Si la modal est ouverte, la fermer
                     modal.classList.remove('visible');
                     modalOverlay.classList.remove('visible');
+                    keyboardVisible = false;
+                    modal.classList.remove('keyboard-open');
                 }
             });
 
@@ -1353,6 +1368,42 @@
                 }
             });
 
+            // ===== GESTION AMÉLIORÉE DU CLAVIER =====
+            // Détecter le resize de la fenêtre (clavier mobile)
+            window.addEventListener('resize', function() {                const viewportHeight = window.innerHeight;
+                const screenHeight = window.screen.height || window.outerHeight;
+                
+                // Si la hauteur visible est beaucoup plus petite = clavier ouvert
+                if (screenHeight - viewportHeight > 200) {
+                    keyboardVisible = true;
+                    modal.classList.add('keyboard-open');
+                } else {
+                    // Délai avant de considérer que le clavier est fermé
+                    clearTimeout(resizeTimeout);
+                    resizeTimeout = setTimeout(() => {
+                        if (!document.activeElement || document.activeElement !== searchInput) {
+                            keyboardVisible = false;
+                            modal.classList.remove('keyboard-open');
+                        }
+                    }, 300);
+                }
+            });
+
+            // Focus sur l'input
+            searchInput.addEventListener('focus', function() {
+                keyboardVisible = true;
+                modal.classList.add('keyboard-open');
+            });
+
+            // Blur - attendre avant de fermer
+            searchInput.addEventListener('blur', function() {
+                clearTimeout(blurTimeout);
+                blurTimeout = setTimeout(() => {
+                    keyboardVisible = false;
+                    modal.classList.remove('keyboard-open');
+                }, 300);
+            });
+
             // ===== FONCTIONS POUR LA RECHERCHE DE MOTS =====
             function searchWord(wordToFind) {
                 const normalizedSearch = wordToFind.trim().toLowerCase();
@@ -1368,8 +1419,7 @@
             function enableSearchButton() {
                 searchBtn.classList.remove('disabled');
                 isSearchDisabled = false;
-                // Cacher le code quand on modifie le texte
-                codeResult.textContent = '';
+                // Cacher le code quand on modifie le texte                codeResult.textContent = '';
                 codeResult.classList.remove('error');
             }
 
@@ -1418,8 +1468,7 @@
             function updateDisplayValues(settings) {
                 wordsYValue.textContent = settings.wordsY + 'px';
                 wordsSizeValue.textContent = settings.wordsSize + 'px';
-                wordsLineHeightValue.textContent = settings.wordsLineHeight + 'px';
-                lettersYValue.textContent = settings.lettersY + 'px';
+                wordsLineHeightValue.textContent = settings.wordsLineHeight + 'px';                lettersYValue.textContent = settings.lettersY + 'px';
                 lettersSizeValue.textContent = settings.lettersSize + 'px';
                 lettersSpacingValue.textContent = settings.lettersSpacing + 'px';
                 indexYValue.textContent = settings.indexY + 'px';
@@ -1468,8 +1517,7 @@
                     
                     indexDisplay.textContent = bestListIndex !== -1 ? (bestListIndex + 1).toString() : '';
                     
-                    displayWords(currentWords);
-                    displayLetterButtons(bestListIndex, bestListLetters);
+                    displayWords(currentWords);                    displayLetterButtons(bestListIndex, bestListLetters);
                     
                     wordsContainer.classList.remove('hidden');
                     lettersContainer.classList.remove('hidden');
@@ -1518,8 +1566,7 @@
             }
 
             // Curseurs - uniquement sur le cercle
-            const allSliders = [
-                wordsY, wordsSize, wordsLineHeight,
+            const allSliders = [                wordsY, wordsSize, wordsLineHeight,
                 lettersY, lettersSize, lettersSpacing,
                 indexY, indexSize, indexX
             ];
@@ -1568,8 +1615,7 @@
             wordsSize.addEventListener('input', (e) => {
                 currentSettings.wordsSize = parseInt(e.target.value);
                 wordsSizeValue.textContent = currentSettings.wordsSize + 'px';
-                wordsContainer.style.fontSize = currentSettings.wordsSize + 'px';
-            });
+                wordsContainer.style.fontSize = currentSettings.wordsSize + 'px';            });
 
             wordsColor.addEventListener('input', (e) => {
                 currentSettings.wordsColor = e.target.value;
@@ -1618,8 +1664,7 @@
             });
 
             indexColor.addEventListener('input', (e) => {
-                currentSettings.indexColor = e.target.value;
-                indexDisplay.style.color = currentSettings.indexColor;
+                currentSettings.indexColor = e.target.value;                indexDisplay.style.color = currentSettings.indexColor;
             });
 
             indexX.addEventListener('input', (e) => {
@@ -1668,8 +1713,7 @@
                 }
             });
 
-            searchInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter' && !isSearchDisabled) {
+            searchInput.addEventListener('keypress', (e) => {                if (e.key === 'Enter' && !isSearchDisabled) {
                     searchBtn.click();
                 }
             });
@@ -1718,8 +1762,7 @@
                 setTimeout(() => element.classList.remove('active'), 350);
             }
 
-            function animateText(element) {
-                if (!element) return;
+            function animateText(element) {                if (!element) return;
                 element.classList.add('active-text');
                 setTimeout(() => element.classList.remove('active-text'), 350);
             }
@@ -1739,6 +1782,7 @@
                 codeResult.textContent = '';
                 codeResult.classList.remove('error');
                 enableSearchButton();
+                keyboardVisible = false;
                 modal.classList.remove('keyboard-open');
             }
 
@@ -1767,8 +1811,7 @@
                     lists[pos].sort((a, b) => a.localeCompare(b));
                 }
                 
-                return lists;
-            }
+                return lists;            }
 
             function findBestList(lists) {
                 let maxSize = -1;
@@ -1817,8 +1860,7 @@
                     });
                     
                     currentLine.appendChild(wordSpan);
-                    
-                    if (i < sortedWords.length - 1) {
+                                        if (i < sortedWords.length - 1) {
                         const space = document.createElement('span');
                         space.textContent = ' ';
                         currentLine.appendChild(space);
@@ -1867,13 +1909,12 @@
                             displayWords(currentWords);
                         }
                     });
-                    
-                    lettersContainer.appendChild(letterSpan);
+                                        lettersContainer.appendChild(letterSpan);
                     
                     if (i < sortedLetters.length - 1) {
                         const spacer = document.createElement('span');
                         spacer.className = 'separator';
-                        spacer.innerHTML = '&nbsp;&nbsp;&nbsp;&nbsp;';
+                        spacer.innerHTML = '    ';
                         lettersContainer.appendChild(spacer);
                     }
                 }
@@ -1917,8 +1958,7 @@
             setupImageImport(imgFileInput, resultPage, 'resultImage');
 
             // Boutons d'import
-            importBgBtn.addEventListener('click', () => {
-                bgFileInput.click();
+            importBgBtn.addEventListener('click', () => {                bgFileInput.click();
             });
 
             importImgBtn.addEventListener('click', () => {
@@ -1955,17 +1995,6 @@
                 imgFileInput.value = '';
             });
 
-            // Gestion responsive
-            searchInput.addEventListener('focus', () => {
-                modal.classList.add('keyboard-open');
-            });
-
-            searchInput.addEventListener('blur', () => {
-                setTimeout(() => {
-                    modal.classList.remove('keyboard-open');
-                }, 200);
-            });
-
             // PAGE D'ACCUEIL
             btnPerform.addEventListener('click', () => {
                 homePage.classList.add('hidden');
@@ -1978,8 +2007,7 @@
                 resetModalToNormal();
                 modal.classList.add('visible');
                 modalOverlay.classList.add('visible');
-                modal.classList.remove('keyboard-open');
-            });
+                modal.classList.remove('keyboard-open');            });
 
             btnSettings.addEventListener('click', () => {
                 homePage.classList.add('hidden');
@@ -2002,6 +2030,8 @@
                 modal.classList.remove('visible');
                 modalOverlay.classList.remove('visible');
                 searchInput.blur();
+                keyboardVisible = false;
+                modal.classList.remove('keyboard-open');
                 resetModalToNormal();
             });
 
@@ -2010,7 +2040,13 @@
                 keys[i].addEventListener('click', function() {
                     animateKey(this);
                     if (pin.length < 4) {
-                        pin += this.innerText;
+                        // Récupérer le numéro depuis .key-number
+                        const numberSpan = this.querySelector('.key-number');
+                        if (numberSpan) {
+                            pin += numberSpan.innerText;
+                        } else {
+                            pin += this.innerText;
+                        }
                         updateDots();
                     }
                 });
@@ -2020,8 +2056,7 @@
                 e.stopPropagation();
                 animateText(this);
                 
-                if (pin.length > 0) {
-                    pin = pin.slice(0, -1);
+                if (pin.length > 0) {                    pin = pin.slice(0, -1);
                     updateDots();
                 }
             });
@@ -2070,8 +2105,7 @@
 
             // Indice cliquable pour masquer/afficher
             indexDisplay.addEventListener('click', function(e) {
-                e.stopPropagation();
-                
+                e.stopPropagation();                
                 if (wordsContainer.classList.contains('hidden')) {
                     wordsContainer.classList.remove('hidden');
                     lettersContainer.classList.remove('hidden');
@@ -2120,7 +2154,6 @@
             pin = '';
             updateDots();
             resetModalToNormal();
-        })();
-    </script>
+        })();    </script>
 </body>
 </html>

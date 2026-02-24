@@ -21,7 +21,6 @@
         @keyframes apparitionBouton { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
         @keyframes ripple { 0% { transform: scale(0, 0) translate(-50%, -50%); opacity: 0.5; } 100% { transform: scale(20, 20) translate(-50%, -50%); opacity: 0; } }
         @keyframes circleWave { 0% { opacity: 0.9; transform: scale(0.5); } 70% { opacity: 0.5; transform: scale(1.3); } 100% { opacity: 0; transform: scale(1.6); } }
-        /* ===== NOUVEAU : Animation aura pour mode NOTE ===== */
         @keyframes auraPulse {
             0% { box-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor; }
             50% { box-shadow: 0 0 15px currentColor, 0 0 25px currentColor, 0 0 35px currentColor; }
@@ -47,8 +46,8 @@
         .settings-btn { width: 320px; height: 65px; background: #333; color: white; border: none; border-radius: 15px; font-size: 22px; font-weight: 600; cursor: pointer; margin: 10px 0; transition: background 0.2s; }
         .settings-btn:active { background: #555; }
 
-        .preview-container { width: 320px; margin: 20px 0; display: none; flex-direction: column; align-items: center; }        .preview-container.visible { display: flex; }
-        .preview-image { width: 200px; height: 200px; object-fit: cover; border-radius: 15px; border: 3px solid #FFD700; margin-bottom: 15px; }
+        .preview-container { width: 320px; margin: 20px 0; display: none; flex-direction: column; align-items: center; }
+        .preview-container.visible { display: flex; }        .preview-image { width: 200px; height: 200px; object-fit: cover; border-radius: 15px; border: 3px solid #FFD700; margin-bottom: 15px; }
         .preview-buttons { display: flex; gap: 20px; }
         .preview-confirm, .preview-cancel { width: 120px; height: 50px; border: none; border-radius: 10px; font-size: 18px; font-weight: 600; cursor: pointer; }
         .preview-confirm { background: #4CAF50; color: white; }
@@ -96,8 +95,8 @@
         .slider-item input[type="range"]::-webkit-slider-thumb {
             -webkit-appearance: none;
             width: 20px;
-            height: 20px;            background: #FFD700;
-            border-radius: 50%;
+            height: 20px;
+            background: #FFD700;            border-radius: 50%;
             cursor: pointer;
             border: 2px solid white;
             pointer-events: auto;
@@ -145,8 +144,8 @@
             z-index: 30;
             visibility: hidden;
             opacity: 0;
-            transition: visibility 0.3s, opacity 0.3s;            background: #2a2a2a;
-            background-size: cover !important;
+            transition: visibility 0.3s, opacity 0.3s;
+            background: #2a2a2a;            background-size: cover !important;
             background-position: center !important;
             background-repeat: no-repeat !important;
             display: flex;
@@ -189,25 +188,22 @@
         .letter-btn { cursor: pointer; text-transform: uppercase; }
         .letter-btn.selected { text-decoration: underline; }
         
-        /* ===== INDICE AURA MODE NOTE ===== */
         .index-display {
             position: absolute;
             top: 517px;
             left: 50%;
-            transform: translateX(calc(-50% - 45px));            color: #1E6FF0;
-            font-size: 30px;
-            font-weight: bold;
+            transform: translateX(calc(-50% - 45px));
+            color: #1E6FF0;
+            font-size: 30px;            font-weight: bold;
             z-index: 33;
             cursor: pointer;
             transition: box-shadow 0.3s ease;
         }
         
-        /* Aura quand mode NOTE est activé */
         .index-display.note-mode-active {
             animation: auraPulse 1.5s ease-in-out infinite;
         }
 
-        /* ===== PAGE NOTE ===== */
         #note-page {
             position: absolute;
             inset: 0;
@@ -243,10 +239,10 @@
             font-weight: bold;
             text-align: center;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
-            padding: 20px;            max-width: 90%;
+            padding: 20px;
+            max-width: 90%;
             word-wrap: break-word;
         }
-
         #list-modal { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 380px; background: white; border-radius: 30px; padding: 25px; z-index: 100; display: none; color: black; box-shadow: 0 20px 40px rgba(0,0,0,0.4); transition: top 0.3s ease-out, transform 0.3s ease-out; }
         #list-modal.visible { display: block; }
         #list-modal.keyboard-open { top: 30px; transform: translate(-50%, 0); }
@@ -263,7 +259,6 @@
 <body>
     <input type="file" id="bg-file-input" class="hidden-file-input" accept="image/*">
     <input type="file" id="img-file-input" class="hidden-file-input" accept="image/*">
-    <!-- ===== NOUVEAU : Input pour image NOTE ===== -->
     <input type="file" id="note-file-input" class="hidden-file-input" accept="image/*">
 
     <div id="home-page">
@@ -277,8 +272,8 @@
         <div class="settings-title">PARAMÈTRES</div>
         <button class="settings-btn" id="import-bg-btn">📷 Importer lock screen</button>
         <button class="settings-btn" id="import-img-btn">📷 Importer background</button>
-        <!-- ===== NOUVEAU : Bouton Importer Note ===== -->
         <button class="settings-btn" id="import-note-btn">📷 Importer Note</button>
+        <button class="settings-btn" id="customize-btn">🎨 Personnaliser</button>
         <div class="preview-container" id="preview-container">
             <img class="preview-image" id="preview-image" src="" alt="Aperçu">
             <div class="preview-buttons">
@@ -292,12 +287,12 @@
     <div id="customize-page">
         <div class="customize-header">
             <button class="customize-back-btn" id="customize-back">←</button>
-            <span class="customize-title">PERSONNALISER</span>        </div>
+            <span class="customize-title">PERSONNALISER</span>
+        </div>
         <div class="test-code-section">
             <div class="test-code-title">🎯 TESTER UN CODE</div>
             <input type="tel" id="test-code-input" placeholder="Code" maxlength="4">
-        </div>
-        <div class="control-group">
+        </div>        <div class="control-group">
             <div class="control-header">
                 <h3>📋 Liste</h3>
                 <button class="preview-btn" id="preview-list-btn">👁️</button>
@@ -341,12 +336,12 @@
                 <input type="range" id="letters-spacing" min="0" max="100" value="40">
             </div>
         </div>
-        <div class="control-group">            <div class="control-header">
+        <div class="control-group">
+            <div class="control-header">
                 <h3>🔢 Indice</h3>
                 <button class="preview-btn" id="preview-index-btn">👁️</button>
             </div>
-            <div class="slider-item">
-                <label>Position Y <span class="value-badge" id="index-y-value">517px</span></label>
+            <div class="slider-item">                <label>Position Y <span class="value-badge" id="index-y-value">517px</span></label>
                 <input type="range" id="index-y" min="0" max="800" value="517">
             </div>
             <div class="slider-item">
@@ -390,16 +385,15 @@
                 <div class="key"><span class="key-number">0</span></div>
                 <div class="ok" id="okBtn">OK</div>
             </div>
-        </div>        <div class="emergency" id="emergencyBtn">📞 Appel d'urgence</div>
+        </div>
+        <div class="emergency" id="emergencyBtn">📞 Appel d'urgence</div>
     </div>
 
     <div id="result-page">
-        <div class="words-container" id="words-container"></div>
-        <div class="letters-container" id="letters-container"></div>
+        <div class="words-container" id="words-container"></div>        <div class="letters-container" id="letters-container"></div>
         <div class="index-display" id="index-display"></div>
     </div>
 
-    <!-- ===== NOUVEAU : PAGE NOTE ===== -->
     <div id="note-page">
         <div class="note-overlay"></div>
         <div class="note-text" id="note-text"></div>
@@ -419,8 +413,8 @@
     const customizePage = document.getElementById('customize-page');
     const lockPage = document.getElementById('lock-page');
     const resultPage = document.getElementById('result-page');
-    const notePage = document.getElementById('note-page'); // NOUVEAU
-    const noteText = document.getElementById('note-text'); // NOUVEAU
+    const notePage = document.getElementById('note-page');
+    const noteText = document.getElementById('note-text');
     const wordsContainer = document.getElementById('words-container');
     const lettersContainer = document.getElementById('letters-container');
     const indexDisplay = document.getElementById('index-display');
@@ -429,7 +423,7 @@
     const btnSettings = document.getElementById('btn-settings');
     const importBgBtn = document.getElementById('import-bg-btn');
     const importImgBtn = document.getElementById('import-img-btn');
-    const importNoteBtn = document.getElementById('import-note-btn'); // NOUVEAU
+    const importNoteBtn = document.getElementById('import-note-btn');
     const customizeBtn = document.getElementById('customize-btn');
     const settingsBack = document.getElementById('settings-back');
     const customizeBack = document.getElementById('customize-back');
@@ -439,13 +433,13 @@
     const previewLettersBtn = document.getElementById('preview-letters-btn');
     const previewIndexBtn = document.getElementById('preview-index-btn');
     const testCodeInput = document.getElementById('test-code-input');
-    const wordsY = document.getElementById('words-y');    const wordsSize = document.getElementById('words-size');
+    const wordsY = document.getElementById('words-y');
+    const wordsSize = document.getElementById('words-size');
     const wordsColor = document.getElementById('words-color');
     const wordsLineHeight = document.getElementById('words-line-height');
     const lettersY = document.getElementById('letters-y');
     const lettersSize = document.getElementById('letters-size');
-    const lettersColor = document.getElementById('letters-color');
-    const lettersSpacing = document.getElementById('letters-spacing');
+    const lettersColor = document.getElementById('letters-color');    const lettersSpacing = document.getElementById('letters-spacing');
     const indexY = document.getElementById('index-y');
     const indexSize = document.getElementById('index-size');
     const indexColor = document.getElementById('index-color');
@@ -466,7 +460,7 @@
     const modalOverlay = document.getElementById('modal-overlay');
     const bgFileInput = document.getElementById('bg-file-input');
     const imgFileInput = document.getElementById('img-file-input');
-    const noteFileInput = document.getElementById('note-file-input'); // NOUVEAU
+    const noteFileInput = document.getElementById('note-file-input');
     const previewContainer = document.getElementById('preview-container');
     const previewImage = document.getElementById('preview-image');
     const previewConfirm = document.getElementById('preview-confirm');
@@ -488,15 +482,13 @@
         lettersY: 460, lettersSize: 20, lettersColor: '#ffffff', lettersSpacing: 40,
         indexY: 517, indexSize: 30, indexColor: '#1E6FF0', indexX: -45
     };
+
     let pin = '', currentCode = '', originalWords = [], currentWords = [];
     let letterLists = [], bestListIndex = -1, bestListLetters = [];
     let selectedLetter = '', lastTap = 0, isPreviewMode = false;
     let isSearchDisabled = false, keyboardVisible = false;
     let resizeTimeout, blurTimeout, currentPreviewTarget = '', currentPreviewData = '';
-    let currentSettings = { ...defaultSettings };
-    
-    // ===== NOUVEAU : Variables pour mode NOTE =====
-    let noteModeActive = false;
+    let currentSettings = { ...defaultSettings };    let noteModeActive = false;
     let noteLongPressTimer = null;
     let noteLastTap = 0;
 
@@ -538,14 +530,14 @@
     }
 
     function saveCustomSettings(settings) { try { localStorage.setItem('customSettings', JSON.stringify(settings)); } catch(e) {} }
+
     function applyCustomSettings(settings) {
         wordsContainer.style.top = settings.wordsY + 'px';
         wordsContainer.style.fontSize = settings.wordsSize + 'px';
         wordsContainer.style.color = settings.wordsColor;
         wordsContainer.style.lineHeight = settings.wordsLineHeight + 'px';
         lettersContainer.style.top = settings.lettersY + 'px';
-        lettersContainer.style.fontSize = settings.lettersSize + 'px';
-        lettersContainer.style.color = settings.lettersColor;
+        lettersContainer.style.fontSize = settings.lettersSize + 'px';        lettersContainer.style.color = settings.lettersColor;
         lettersContainer.style.gap = settings.lettersSpacing + 'px';
         indexDisplay.style.top = settings.indexY + 'px';
         indexDisplay.style.fontSize = settings.indexSize + 'px';
@@ -586,15 +578,15 @@
                 if (word.length > pos && letterLists[pos].indexOf(word[pos]) === -1) {
                     letterLists[pos].push(word[pos]);
                 }
-            }            letterLists[pos].sort();
+            }
+            letterLists[pos].sort();
         }
         
         bestListIndex = -1;
         var maxSize = 0;
         for (var i = 0; i < letterLists.length; i++) {
             if (letterLists[i].length > maxSize) {
-                maxSize = letterLists[i].length;
-                bestListIndex = i;
+                maxSize = letterLists[i].length;                bestListIndex = i;
             }
         }
         bestListLetters = bestListIndex !== -1 ? letterLists[bestListIndex] : [];
@@ -622,7 +614,6 @@
             (function(w) {
                 span.addEventListener('click', function(e) {
                     e.stopPropagation();
-                    // ===== NOUVEAU : Si mode NOTE activé, ouvre la NOTE =====
                     if (noteModeActive) {
                         openNotePage(w);
                     } else {
@@ -635,7 +626,7 @@
         }
         wordsContainer.appendChild(line);
     }
-    // ===== NOUVEAU : Fonction pour ouvrir la page NOTE =====
+
     function openNotePage(word) {
         noteText.textContent = word;
         notePage.classList.add('visible');
@@ -644,8 +635,7 @@
     function displayLetterButtons(index, letters) {
         lettersContainer.innerHTML = '';
         if (letters.length === 0) return;
-        for (var i = 0; i < letters.length; i++) {
-            var letter = letters[i];
+        for (var i = 0; i < letters.length; i++) {            var letter = letters[i];
             var span = document.createElement('span');
             span.className = 'letter-btn' + (selectedLetter === letter ? ' selected' : '');
             span.textContent = letter.toUpperCase();
@@ -685,6 +675,7 @@
             allSliders[i].addEventListener('touchcancel', stopDragging);
         }
     }
+
     var previewBtns = [previewListBtn, previewLettersBtn, previewIndexBtn];
     for (var i = 0; i < previewBtns.length; i++) {
         if (previewBtns[i]) {
@@ -693,7 +684,6 @@
             previewBtns[i].addEventListener('touchcancel', stopDragging);
         }
     }
-
     function resetToDefault(setting, defaultValue) {
         return function() {
             currentSettings[setting] = defaultValue;
@@ -733,7 +723,8 @@
                 indexYValue.textContent = defaultValue + 'px';
                 indexY.value = defaultValue;
             }
-            else if (setting === 'indexSize') {                indexDisplay.style.fontSize = defaultValue + 'px';
+            else if (setting === 'indexSize') {
+                indexDisplay.style.fontSize = defaultValue + 'px';
                 indexSizeValue.textContent = defaultValue + 'px';
                 indexSize.value = defaultValue;
             }
@@ -742,8 +733,7 @@
                 indexXValue.textContent = defaultValue + 'px';
                 indexX.value = defaultValue;
             }
-        };
-    }
+        };    }
 
     wordsYValue.addEventListener('click', resetToDefault('wordsY', defaultSettings.wordsY));
     wordsSizeValue.addEventListener('click', resetToDefault('wordsSize', defaultSettings.wordsSize));
@@ -782,7 +772,8 @@
         var result = searchWord(word);
         if (result) {
             codeResult.textContent = result.code;
-            codeResult.classList.remove('error');            disableSearchButton();
+            codeResult.classList.remove('error');
+            disableSearchButton();
             searchInput.blur();
         } else {
             codeResult.textContent = 'Mot introuvable !';
@@ -791,7 +782,6 @@
     });
 
     searchInput.addEventListener('keypress', function(e) { if (e.key === 'Enter' && !isSearchDisabled) searchBtn.click(); });
-
     btnPerform.addEventListener('click', function() {
         homePage.classList.add('hidden');
         lockPage.classList.add('visible');
@@ -831,7 +821,8 @@
 
     customizeSave.addEventListener('click', function() {
         saveCustomSettings(currentSettings);
-        customizePage.classList.remove('visible', 'preview-mode');        resultPage.classList.remove('preview-mode');
+        customizePage.classList.remove('visible', 'preview-mode');
+        resultPage.classList.remove('preview-mode');
         settingsPage.classList.add('visible');
         isPreviewMode = false;
     });
@@ -840,7 +831,6 @@
         currentSettings = JSON.parse(JSON.stringify(defaultSettings));
         applyCustomSettings(currentSettings);
     });
-
     settingsBack.addEventListener('click', function() {
         settingsPage.classList.remove('visible');
         homePage.classList.remove('hidden');
@@ -880,7 +870,8 @@
 
     for (var i = 0; i < keys.length; i++) {
         keys[i].addEventListener('click', function() {
-            animateKey(this);            if (pin.length < 4) {
+            animateKey(this);
+            if (pin.length < 4) {
                 var numberSpan = this.querySelector('.key-number');
                 pin += numberSpan ? numberSpan.innerText : this.innerText;
                 updateDots();
@@ -889,8 +880,7 @@
     }
 
     deleteBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        if (deleteBtn.classList) deleteBtn.classList.add('active-text');
+        e.stopPropagation();        if (deleteBtn.classList) deleteBtn.classList.add('active-text');
         setTimeout(function() { if (deleteBtn.classList) deleteBtn.classList.remove('active-text'); }, 350);
         if (pin.length > 0) {
             pin = pin.slice(0, -1);
@@ -922,14 +912,13 @@
         updateDots();
     });
 
-    // ===== NOUVEAU : Gestion de l'indice (clic court + appui long) =====
     var indexTouchStartTimer = null;
     
     indexDisplay.addEventListener('touchstart', function(e) {
         e.stopPropagation();
-        // Démarrer le timer pour appui long (1 seconde)
         indexTouchStartTimer = setTimeout(function() {
-            noteModeActive = !noteModeActive;            if (noteModeActive) {
+            noteModeActive = !noteModeActive;
+            if (noteModeActive) {
                 indexDisplay.classList.add('note-mode-active');
             } else {
                 indexDisplay.classList.remove('note-mode-active');
@@ -939,22 +928,17 @@
     
     indexDisplay.addEventListener('touchend', function(e) {
         e.stopPropagation();
-        // Annuler le timer si appui court
         clearTimeout(indexTouchStartTimer);
-    });
-    
+    });    
     indexDisplay.addEventListener('click', function(e) {
         e.stopPropagation();
-        // Clic court : masquer/afficher mots et lettres
         wordsContainer.classList.toggle('hidden');
         lettersContainer.classList.toggle('hidden');
     });
 
-    // ===== NOUVEAU : Gestion de la page NOTE (double-clic pour fermer) =====
     notePage.addEventListener('click', function(e) {
         var now = Date.now();
         if (now - noteLastTap < 300 && now - noteLastTap > 0) {
-            // Double-clic détecté → fermer la NOTE
             notePage.classList.remove('visible');
             noteLastTap = 0;
         } else {
@@ -978,7 +962,8 @@
             var file = e.target.files[0];
             if (file) {
                 var reader = new FileReader();
-                reader.onload = function(event) {                    currentPreviewData = event.target.result;
+                reader.onload = function(event) {
+                    currentPreviewData = event.target.result;
                     previewImage.src = currentPreviewData;
                     previewContainer.classList.add('visible');
                     currentPreviewTarget = target === lockPage ? 'bg' : (target === resultPage ? 'img' : 'note');
@@ -993,18 +978,16 @@
         if (savedBg) lockPage.style.backgroundImage = 'url(' + savedBg + ')';
         var savedImg = localStorage.getItem('resultImage');
         if (savedImg) resultPage.style.backgroundImage = 'url(' + savedImg + ')';
-        // ===== NOUVEAU : Charger l'image NOTE sauvegardée =====
-        var savedNote = localStorage.getItem('noteImage');
-        if (savedNote) notePage.style.backgroundImage = 'url(' + savedNote + ')';
+        var savedNote = localStorage.getItem('noteImage');        if (savedNote) notePage.style.backgroundImage = 'url(' + savedNote + ')';
     } catch(e) {}
 
     setupImageImport(bgFileInput, lockPage, 'backgroundImage');
     setupImageImport(imgFileInput, resultPage, 'resultImage');
-    setupImageImport(noteFileInput, notePage, 'noteImage'); // NOUVEAU
+    setupImageImport(noteFileInput, notePage, 'noteImage');
     
     importBgBtn.addEventListener('click', function() { bgFileInput.click(); });
     importImgBtn.addEventListener('click', function() { imgFileInput.click(); });
-    importNoteBtn.addEventListener('click', function() { noteFileInput.click(); }); // NOUVEAU
+    importNoteBtn.addEventListener('click', function() { noteFileInput.click(); });
 
     previewConfirm.addEventListener('click', function() {
         if (currentPreviewTarget === 'bg') {
@@ -1013,7 +996,7 @@
         } else if (currentPreviewTarget === 'img') {
             resultPage.style.backgroundImage = 'url(' + currentPreviewData + ')';
             try { localStorage.setItem('resultImage', currentPreviewData); } catch(e) {}
-        } else if (currentPreviewTarget === 'note') { // NOUVEAU
+        } else if (currentPreviewTarget === 'note') {
             notePage.style.backgroundImage = 'url(' + currentPreviewData + ')';
             try { localStorage.setItem('noteImage', currentPreviewData); } catch(e) {}
         }
@@ -1027,7 +1010,8 @@
     });
 
     currentSettings = loadCustomSettings();
-    applyCustomSettings(currentSettings);    updateDots();
+    applyCustomSettings(currentSettings);
+    updateDots();
     resetModalToNormal();
 })();
     </script>
